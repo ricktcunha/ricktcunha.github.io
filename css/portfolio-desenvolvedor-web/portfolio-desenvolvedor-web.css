@@ -1,0 +1,10 @@
+.texto-nome-projeto {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+  margin-bottom: 5rem;
+}
+
+.texto-descricao-projeto{
+  font-size: 1.3rem;
+}

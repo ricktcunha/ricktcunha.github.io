@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 3rem 5rem 3rem;
+}
+
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+
+.header-menu a {
+  transition: 0.5s;
+}
+
+.header-menu a:hover {
+  color: var(--p-02);
+}
+
+.logo-branco-detalhado {
+  height: 2rem;
+  transition: 0.5s;
+}
+
+.logo-branco-detalhado:hover {
+  filter: drop-shadow(0 0 15px var(--p-02));
+}

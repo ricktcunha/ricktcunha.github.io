@@ -1,0 +1,57 @@
+:root {
+  --p-01: #8c3eef;
+  --p-02: #aa88ff;
+  --p-03: #5f3c8b;
+  --c-01: #ffffff;
+  --c-02: #f0f0f0;
+  --c-03: #e4e4e4;
+  --c-04: #a3a3a3;
+  --c-05: #444444;
+  --c-06: #141414;
+  --c-07: #0b0b0b;
+  --c-08: #0b0b0b;
+  --c-09: #000000;
+}
+
+body {
+  font-family: "syne", Arial, Helvetica, sans-serif;
+  margin: 0px;
+  background-color: var(--c-09);
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  margin: 0px;
+  text-decoration: none;
+  color: var(--c-02);
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth; /* Faz a navegação entre seções da mesma página ser suave */
+}
+
+/* Efeito de fade-in para todo o conteúdo ao carregar a página */
+body {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0; /* Transição de fade-out para o corpo */
+}

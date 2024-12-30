@@ -1,0 +1,22 @@
+/* @media {}
+
+.home {
+  font-size: -10%;
+}
+} */
+
+@import "global.css";
+@import "variaveis.css";
+@import "home/header.css";
+@import "home/banner-home.css";
+@import "home/section-nome-projeto.css";
+@import "home/solucoes.css";
+@import "home/ferramentas.css";
+@import "home/footer.css";
+@import "portfolio-principais-trabalhos/portfolio-principais-trabalhos.css";
+@import "portfolio-desenvolvedor-web/portfolio-desenvolvedor-web.css";
+@import "galeria-marcas/portfolio-marcas.css";
+@import "galeria-marcas/galeria-postagens.css";
+@import "galeria-marcas/kv.css";
+
+

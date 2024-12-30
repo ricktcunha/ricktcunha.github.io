@@ -1,0 +1,89 @@
+.section-nome-projeto {
+  display: grid;
+  max-width: 1200px;
+  margin: 10rem auto;
+  padding: 0rem 3rem;
+}
+
+.nome-section-projeto {
+  font-size: 3rem;
+}
+
+.nome-projeto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.nome-projeto p {
+  font-size: 1.3rem;
+  padding: 2rem 0rem;
+}
+
+.imagem-projeto-home {
+  border: 2px solid var(--c-06);
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.imagem-projeto-home-logo {
+  border: 2px solid var(--c-06);
+  border-radius: 0.5rem;
+  height: 40rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.hover-projetos :hover {
+  box-shadow: 0 0 90rem 4px rgba(140, 62, 239, 0.3);
+  border: 2px solid var(--p-03);
+}
+
+.logo-interno {
+  box-shadow: none !important;
+  border: none !important
+}
+
+.texto-botao-seta a {
+  padding: 1rem 3.5rem;
+  border: 2px solid var(--c-05);
+  border-radius: 3rem;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  color: var(--c-04);
+  display: inline-flex; /* Para garantir que o alinhamento do texto e do ícone aconteça corretamente */
+  align-items: center;
+}
+
+.texto-botao-seta a:hover {
+  border: 2px solid var(--p-03);
+  background-color: var(--c-08);
+  color: var(--p-02);
+}
+
+.texto-botao-seta a:hover + .seta-icone {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(38%) saturate(459%) hue-rotate(167deg) brightness(102%) contrast(99%);
+  /* Ajuste o filtro de cor que você deseja, isso é apenas um exemplo */
+}
+
+.botao-direcionamento {
+  gap: 1rem;
+  padding: 3rem 0rem 0rem 0rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.seta-icone {
+  padding: 1.25rem;
+  border: 2px solid var(--c-05);
+  border-radius: 3rem;
+  transition: 0.5s; /* Transição para a mudança de cor do ícone */
+}

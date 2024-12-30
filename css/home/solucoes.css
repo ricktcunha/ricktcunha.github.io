@@ -1,0 +1,40 @@
+.solucoes {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0rem 3rem;
+}
+
+.box-solucoes-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.box-solucoes-dentro {
+  display: grid;
+  flex: 1;
+  gap: 1.5rem;
+  padding: 2rem 4rem;
+  border: 2px solid var(--c-06);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.icone-solucoes {
+  width: 2.5rem;
+}
+
+.box-solucoes-dentro h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.box-solucoes-dentro p {
+  font-size: 1.2rem;
+  font-weight: lighter;
+  color: var(--c-04);
+}
+
+
+
+

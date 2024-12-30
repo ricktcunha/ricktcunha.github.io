@@ -1,0 +1,53 @@
+.background-footer {
+  background-color: var(--c-07);
+  border: 2px solid var(--c-06);
+}
+
+.max-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+
+.logo-footer {
+  width: 10rem;
+  transition: 0.5s;
+}
+
+.logo-footer:hover {
+  filter: drop-shadow(0 0 30px rgba(140, 62, 239, 2));
+}
+
+.icones-footer {
+  display: grid;
+  height: 2rem;
+  flex: 1;
+}
+
+.footer-icones-nav {
+  gap: 2rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 5rem;
+}
+
+.footer-nav a {
+  transition: 0.5s;
+}
+
+.footer-nav a:hover {
+  color: var(--p-02);
+}
+
+.icones-bola {
+  border-radius: 3rem;
+  background-color: var(--p-01);
+}

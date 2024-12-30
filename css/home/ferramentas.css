@@ -1,0 +1,40 @@
+.ferramentas {
+  max-width: 1200px;
+  margin: 10rem auto;
+  padding: 0rem 3rem;
+}
+
+.icones-ferramentas {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 1rem;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.icones-pading {
+  display: grid;
+  flex: 1;
+  height: 5rem;
+  padding: 2rem 6rem;
+  border: 2px solid var(--c-06);
+  border-radius: 0.5rem;
+  width: 4rem;
+  transition: 0.5s;
+}
+
+.botao-direcionamento-centro {
+  gap: 1rem;
+  padding: 5rem 0rem 0rem 0rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.icones-pading:hover{
+  transform: scale(1.01);
+  box-shadow: 0 0 35px 4px rgba(140, 62, 239, 0.4);
+  border: 2px solid var(--p-02);
+  
+}
