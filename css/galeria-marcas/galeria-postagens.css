@@ -8,8 +8,8 @@
 
 .galeria-postagens img {
   object-fit: cover;
-  aspect-ratio: 1 / 1; /* Quadrado */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 1 / 1; /* Quadrado por padrão */
 }
 
 .galeria-postagens img:hover {

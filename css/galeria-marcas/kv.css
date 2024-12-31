@@ -1,12 +1,12 @@
 .galeria-kv {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr; 
+  grid-template-columns: 1fr; /* Uma coluna */
 }
 
 .galeria-kv img {
   object-fit: cover;
-  width: 100%; 
+  width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
