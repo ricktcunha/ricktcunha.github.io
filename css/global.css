@@ -42,16 +42,19 @@ img {
   display: block;
 }
 
-html {
-  scroll-behavior: smooth; /* Faz a navegação entre seções da mesma página ser suave */
+/* Remover a aparência das barras de rolagem em toda a página */
+html, body {
+  overflow: scroll; /* Permite a rolagem */
 }
 
-/* Efeito de fade-in para todo o conteúdo ao carregar a página */
+::-webkit-scrollbar {
+  display: none; /* Esconde a barra de rolagem no Chrome, Safari e outros navegadores baseados no WebKit */
+}
+
+/* Para navegadores Firefox */
 body {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  scrollbar-width: none; /* Esconde a barra de rolagem */
 }
 
-body.fade-out {
-  opacity: 0; /* Transição de fade-out para o corpo */
-}
+
+

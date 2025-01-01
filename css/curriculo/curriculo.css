@@ -43,6 +43,7 @@
   max-width: 1200px;
   padding: 10rem 3rem;
   margin: 0 auto;
+  gap: 3rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
@@ -55,4 +56,75 @@
   color: var(--p-01);
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.titulo-sesao-formacao {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 0rem 3rem;
+}
+.titulo-sesao-formacao-2 {
+  max-width: 1200px;
+  margin: 10rem auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 0rem 3rem;
+}
+
+.flex-curriculo-descricao {
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* Espaçamento entre as colunas */
+  box-sizing: border-box;
+}
+
+.flex-curriculo-descricao > div {
+  flex: 1 1 calc(50% - 1rem); /* Define que cada div ocupe 50% da largura, com gap entre elas */
+  box-sizing: border-box; /* Garantir que o padding e o gap não quebrem o layout */
+}
+
+.conteudo-descricao-curriculo {
+  display: grid;
+  padding: 2rem 4rem;
+  border: 2px solid var(--c-06);
+  background-color: var(--c-07);
+  border-radius: 0.5rem;
+  transition: 0.5s;
+  gap: 1rem;
+  font-size: 1.3rem;
+}
+
+.conteudo-descricao-curriculo h3 {
+  font-size: 1.3rem;
+}
+
+.conteudo-descricao-curriculo p {
+  font-size: 1.2rem;
+  align-self: self-end;
+}
+
+.nome-esperiencia {
+  font-size: 1.2rem;
+}
+
+.banner-portfolio-curriculo {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  max-width: 1200px;
+  padding: 0rem 3rem;
+  margin: 10rem auto;
+}
+
+.botao-direcionamento {
+  gap: 1rem;
+  display: flex;
+  align-items: start;
 }

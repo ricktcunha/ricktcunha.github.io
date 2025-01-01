@@ -50,37 +50,53 @@
   border: none !important
 }
 
-.texto-botao-seta a {
-  padding: 1rem 3.5rem;
-  border: 1px solid var(--c-04);
+
+
+
+
+.texto-botao-seta {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border: 1px solid var(--c-05);
   border-radius: 3rem;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s;
   color: var(--c-04);
-  display: inline-flex; /* Para garantir que o alinhamento do texto e do ícone aconteça corretamente */
-  align-items: center;
+  text-decoration: none; /* Retira o sublinhado do link */
+  transition: all 0.5s ease; /* Suaviza todas as transições */
+  position: relative;
 }
 
-.texto-botao-seta a:hover {
+.texto-botao-seta .texto {
+  margin: 0; /* Remove a margem do texto */
+  transition: color 0.5s ease; /* Transição suave para a cor do texto */
+  z-index: 1; /* Garante que o texto fique sobre a seta */
+}
+
+.texto-botao-seta:hover .texto {
+  color: var(--p-02); /* Cor do texto ao passar o mouse */
+}
+
+.texto-botao-seta:hover {
   border: 1px solid var(--p-03);
   background-color: var(--c-08);
   color: var(--p-02);
 }
 
-.texto-botao-seta a:hover + .seta-icone {
-  filter: brightness(0) saturate(100%) invert(47%) sepia(38%) saturate(459%) hue-rotate(167deg) brightness(102%) contrast(99%);
-  /* Ajuste o filtro de cor que você deseja, isso é apenas um exemplo */
-}
-
-.botao-direcionamento {
-  gap: 1rem;
-  padding: 3rem 0rem 0rem 0rem;
-  display: flex;
-  justify-content: end;
+.seta-container {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Transições para rotação e cor */
+  border-radius: 50%; /* Arredonda a área de contorno da seta */
+  margin-left: 1rem; /* Espaço entre o texto e a seta */
 }
 
 .seta-icone {
-  transition: 0.5s; /* Transição para a mudança de cor do ícone */
+  width: 1.1rem; /* Ajuste o tamanho da seta */
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Transições para rotação e cor */
+}
+
+.texto-botao-seta:hover .seta-icone {
+  filter: brightness(1.4) saturate(150%) hue-rotate(250deg) contrast(100%);
+  transform: translateX(0.5rem); /* Rotaciona a seta e move para a direita */
 }

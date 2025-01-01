@@ -12,14 +12,21 @@
   gap: 5rem;
 }
 
+.link-logo-footer {
+  display: inline-block; /* Garante que o link abranja apenas o tamanho do conteúdo */
+  width: fit-content;    /* Ajusta o tamanho do link ao conteúdo do logo */
+  height: fit-content;   /* Ajusta a altura do link ao conteúdo do logo */
+}
+
 .logo-footer {
-  width: 10rem;
-  transition: 0.5s;
+  width: 10rem;          /* Mantém o tamanho do logo */
+  transition: 0.5s;      /* Efeito de transição */
 }
 
 .logo-footer:hover {
-  filter: drop-shadow(0 0 30px rgba(140, 62, 239, 2));
+  filter: drop-shadow(0 0 30px rgba(140, 62, 239, 1));
 }
+
 
 .icones-footer {
   display: grid;
@@ -37,6 +44,7 @@
 .footer-nav {
   display: flex;
   gap: 5rem;
+  justify-content: end;
 }
 
 .footer-nav a {

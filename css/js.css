@@ -1,0 +1,58 @@
+/* Reseta o cursor padrão */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  cursor: none; /* Remove o cursor padrão do navegador */
+}
+
+body.fade-in {
+  opacity: 1; /* Fica visível */
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+/* Estilo do cursor com glow */
+.custom-cursor {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--p-02);
+  pointer-events: none; /* Impede interação com o cursor */
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px 8px rgba(140, 62, 239, 0.8);
+  transition: all 0.1s ease; /* Suaviza a transição */
+  z-index: 2;
+}
+
+/* Aumenta o tamanho do cursor ao passar o mouse sobre elementos com hover */
+.custom-cursor-hover {
+  transform: translate(-50%, -50%) scale(2  ); /* Aumenta o tamanho sem mover a posição */
+  background-color: var(--p-02);
+  width: 0rem;
+  height: 0rem;
+  transition: all 0.1s ease; /* Suaviza a transição */
+  box-shadow: 0 0 50px 18px rgba(140, 62, 239, 0.8);
+}
+
+/* Animação de entrada ao rolar */
+.animated {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95); /* Inicialmente deslocado e reduzido */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1); /* Volta ao normal */
+}
+
+/* Remove a mãozinha do cursor ao passar sobre links e botões */
+a, button {
+  cursor: none; /* Impede que a mãozinha apareça */
+}
