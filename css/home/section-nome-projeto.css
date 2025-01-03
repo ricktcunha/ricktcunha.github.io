@@ -64,6 +64,11 @@
   border: none !important;
 }
 
+
+
+
+
+
 .texto-botao-seta {
   display: inline-flex;
   align-items: center;
@@ -71,7 +76,7 @@
   border: 1px solid var(--c-05);
   border-radius: 3rem;
   color: var(--c-04);
-  text-decoration: none; /* Retira o sublinhado do link */
+  text-decoration: none; /* Remove o sublinhado do link */
   transition: all 0.5s ease; /* Suaviza todas as transições */
   position: relative;
 }
@@ -96,17 +101,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Transições para rotação e cor */
+  transition: transform 0.5s ease-in-out; /* Transições suaves */
   border-radius: 50%; /* Arredonda a área de contorno da seta */
   margin-left: 1rem; /* Espaço entre o texto e a seta */
 }
 
 .seta-icone {
-  width: 1.1rem; /* Ajuste o tamanho da seta */
-  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Transições para rotação e cor */
+  width: 1.1rem; /* Tamanho da seta */
+  fill: var(--c-05); /* Cor inicial da seta */
+  transition: fill 0.5s ease, transform 0.5s ease-in-out; /* Transições suaves */
 }
 
 .texto-botao-seta:hover .seta-icone {
-  filter: brightness(1.4) saturate(150%) hue-rotate(250deg) contrast(100%);
-  transform: translateX(0.5rem); /* Rotaciona a seta e move para a direita */
+  fill: var(--p-02); /* Cor da seta ao passar o mouse */
+  transform: translateX(0.5rem); /* Move a seta para a direita */
 }
