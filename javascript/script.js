@@ -37,21 +37,25 @@ function handleScrollAnimation() {
 window.addEventListener('scroll', handleScrollAnimation);
 handleScrollAnimation(); // Chama imediatamente para verificar elementos já visíveis
 
-// Movimentação do cursor personalizado
+// Seleciona o elemento do cursor
 const cursor = document.querySelector('.custom-cursor');
 
-// Atualiza a posição do cursor
+// Atualiza a posição do cursor considerando a rolagem da página
 document.addEventListener('mousemove', (e) => {
-  cursor.style.left = `${e.pageX}px`;
-  cursor.style.top = `${e.pageY}px`;
+  const x = e.clientX;  // Obtém a posição horizontal do mouse
+  const y = e.clientY;  // Obtém a posição vertical do mouse
+  
+  // Atualiza a posição do cursor
+  cursor.style.left = `${x}px`;
+  cursor.style.top = `${y}px`;
 });
 
 // Detecta hover sobre elementos e aumenta o cursor
 document.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    cursor.classList.add('custom-cursor-hover'); // Aumenta o cursor
+    cursor.classList.add('custom-cursor-hover');  // Aumenta o cursor
   });
   el.addEventListener('mouseleave', () => {
-    cursor.classList.remove('custom-cursor-hover'); // Volta ao tamanho normal
+    cursor.classList.remove('custom-cursor-hover');  // Volta ao tamanho normal
   });
 });

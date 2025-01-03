@@ -14,6 +14,10 @@
 }
 .ponto-cor {
   color: var(--p-01);
+}
+
+.ponto-cor-piscante {
+  color: var(--p-01);
   animation: piscar 1.5s infinite alternate; /* Animação de piscar */
 }
 

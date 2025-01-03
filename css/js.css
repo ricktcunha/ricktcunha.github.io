@@ -18,7 +18,7 @@ body.fade-out {
 
 /* Estilo do cursor com glow */
 .custom-cursor {
-  position: absolute;
+  position: fixed;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
@@ -32,13 +32,13 @@ body.fade-out {
 
 /* Aumenta o tamanho do cursor ao passar o mouse sobre elementos com hover */
 .custom-cursor-hover {
-  transform: translate(-50%, -50%) scale(2  ); /* Aumenta o tamanho sem mover a posição */
+  transform: translate(-50%, -50%) scale(2); /* Aumenta o tamanho sem mover a posição */
   background-color: var(--p-02);
-  width: 0rem;
-  height: 0rem;
-  transition: all 0.1s ease; /* Suaviza a transição */
-  box-shadow: 0 0 50px 18px rgba(140, 62, 239, 0.8);
+  width: 0.02rem;
+  height: 0.02rem;
+  box-shadow: 0 0 50px 18px rgba(140, 62, 239, 0.4);
 }
+
 
 /* Animação de entrada ao rolar */
 .animated {
