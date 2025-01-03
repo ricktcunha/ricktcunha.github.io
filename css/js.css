@@ -102,6 +102,11 @@ a, button {
   opacity: 1;
 }
 
+#lightbox img.postagem2.open {
+  transform: scale(1.6); /* Expande 20% */
+  opacity: 1;
+}
+
 /* Imagem do projeto no lightbox */
 #lightbox img.imagem-projeto.open {
 

@@ -31,7 +31,12 @@
   border: 2px solid var(--c-06);
   border-radius: 0.5rem;
   display: flex;
+  transition: 0.5s;
   justify-content: center;
+}
+
+.imagem-projeto-galeria:hover {
+  box-shadow: 0 0 35px 4px rgba(140, 62, 239, 0.4);
 }
 
 .hover-projetos:hover .imagem-projeto-galeria img {
