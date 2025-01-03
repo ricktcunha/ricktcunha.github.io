@@ -59,3 +59,61 @@ document.querySelectorAll('a, button').forEach(el => {
     cursor.classList.remove('custom-cursor-hover');  // Volta ao tamanho normal
   });
 });
+
+
+
+
+
+
+
+
+// Seleciona as imagens das postagens com as classes 'imagem-projeto' e 'imagem-projeto-galeria'
+const images = document.querySelectorAll('.imagem-projeto, .imagem-projeto-galeria');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = lightbox.querySelector('img');
+
+// Variável para armazenar a imagem atual
+let currentImage = null;
+
+// Adiciona um evento de clique nas imagens
+images.forEach(image => {
+  image.addEventListener('click', (e) => {
+    // Define a imagem no lightbox
+    lightboxImage.src = e.target.src; 
+    lightbox.classList.add('open'); 
+
+    // Reseta as classes anteriores
+    lightboxImage.classList.remove('postagem', 'imagem-projeto');
+
+    // Aplica a classe correta com base no tipo de imagem
+    if (e.target.classList.contains('postagem')) {
+      lightboxImage.classList.add('postagem');
+    } else if (e.target.classList.contains('imagem-projeto')) {
+      lightboxImage.classList.add('imagem-projeto');
+    }
+
+    // Expande a imagem
+    setTimeout(() => {
+      lightboxImage.classList.add('open');
+    }, 10);
+
+    currentImage = e.target; // Define a imagem atual
+  });
+});
+
+
+// Fecha o lightbox ou reduz a imagem quando clicar no fundo ou na imagem
+lightbox.addEventListener('click', (e) => {
+  // Verifica se a área clicada foi o fundo ou a própria imagem
+  if (e.target === lightbox || e.target === lightboxImage) {
+    lightboxImage.classList.remove('open'); // Remove a classe que expande a imagem
+
+    // Aguarda a transição de redução antes de fechar o lightbox
+    setTimeout(() => {
+      lightbox.classList.remove('open');
+      lightboxImage.src = ''; // Limpa a imagem
+      currentImage = null; // Reseta a imagem atual
+      lightboxImage.classList.remove('postagem'); // Remove a classe 'postagem' ao fechar
+    }, 300); // Tempo de transição
+  }
+});
