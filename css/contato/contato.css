@@ -1,0 +1,159 @@
+.contato {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 10rem;
+  gap: 5rem;
+}
+
+.video-background-contato {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.icones-contato-container {
+  display: grid;
+  gap: 2rem;
+}
+
+.icone-contato,
+.icone-contato-branco {
+  display: grid;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  justify-items: center;
+  position: relative;
+  transition: 0.5s;
+  box-sizing: border-box;
+  overflow: hidden; /* Garante que o ícone não "vaze" ao aplicar transformações */
+}
+
+.icone-contato-roxo {
+  transition: 0.5s;
+  border: 2px solid var(--p-01);
+  border-radius: 50%;
+  background-color: var(--p-01);
+}
+
+.icone-contato {
+  background-color: var(--c-07);
+  position: relative;
+  border: 1px solid var(--c-06);
+}
+
+.icone-contato-branco {
+  background-color: var(--p-01);
+  position: relative;
+  border: 2px solid var(--p-01);
+}
+
+.icone-contato-branco:hover {
+  filter: drop-shadow(0 0 10px rgba(140, 62, 239, 0.8));
+  background-color: var(--p-01);
+  border: 2px solid var(--p-02);
+  transform: scale(1.03);
+}
+
+.icone-contato:hover {
+  filter: drop-shadow(0 0 10px rgba(140, 62, 239, 0.8));
+  background-color: var(--c-07);
+  color: var(--c-04);
+  transform: scale(1.03);
+  border: 1px solid var(--p-02);
+  transform-origin: center; /* A escala será feita a partir do centro */
+}
+
+.icone-contato p,
+.icone-contato-branco p {
+  font-size: 1.2rem;
+  align-self: center;
+  justify-self: center;
+}
+
+.icones-contato-sequencia {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.icone-contato-roxo:hover {
+  filter: drop-shadow(0 0 10px rgba(140, 62, 239, 0.8));
+  transform: scale(1.1);
+  border: 2px solid var(--p-02);
+  border-radius: 50%;
+}
+
+.whatsapp::before,
+.email::before,
+.site::before,
+.behance::before,
+.orçamento::before {
+  content: " ";
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 2rem;
+  top: 50%; /* Ajuste vertical se necessário */
+  transform: translateY(-50%);
+  transition: 0.5s;
+}
+
+/* Whatsapp */
+.whatsapp::before {
+  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/whatsapp.svg");
+  background-size: 2.5rem 2.5rem;
+  transition: 0.5s;
+}
+
+.icone-contato:hover .whatsapp::before {
+  filter: brightness(1.5); /* Clareia o ícone ao passar o mouse */
+}
+
+/* Email */
+.email::before {
+  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/email.svg");
+  background-size: 2.5rem 2.5rem;
+  transition: 0.5s;
+}
+
+.icone-contato:hover .email::before {
+  filter: brightness(1.5); /* Clareia o ícone ao passar o mouse */
+}
+
+/* Site */
+.site::before {
+  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/web.svg");
+  background-size: 2.5rem 2.5rem;
+  transition: 0.5s;
+}
+
+.icone-contato:hover .site::before {
+  filter: brightness(1.5); /* Clareia o ícone ao passar o mouse */
+}
+
+/* Behance */
+.behance::before {
+  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/behance.svg");
+  background-size: 2.5rem 2.5rem;
+  transition: 0.5s;
+}
+
+.icone-contato:hover .behance::before {
+  filter: brightness(1.5); /* Clareia o ícone ao passar o mouse */
+}
+
+/* Orçamento */
+.orçamento::before {
+  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/orçamento.svg");
+  background-size: 2.5rem 2.5rem;
+  transition: 0.5s;
+}
+
+.icone-contato:hover .orçamento::before {
+  filter: brightness(1.5); /* Clareia o ícone ao passar o mouse */
+}
