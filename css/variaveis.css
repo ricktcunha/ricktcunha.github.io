@@ -59,6 +59,10 @@
 }
 
 .margin-botton-10rem {
+  margin-bottom: 0rem !important;
+}
+
+.margin-botton-10rem {
   margin-bottom: 10rem !important;
 }
 

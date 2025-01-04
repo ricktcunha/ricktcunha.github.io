@@ -59,14 +59,10 @@
   transform: scale(1.02); /* Aumenta a imagem ao passar o mouse */
 }
 
-.logo-interno {
+/* .logo-interno {
   box-shadow: none !important;
   border: none !important;
-}
-
-
-
-
+} */
 
 
 .texto-botao-seta {
