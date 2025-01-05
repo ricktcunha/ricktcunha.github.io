@@ -29,3 +29,9 @@
 .logo-branco-detalhado:hover {
   filter: drop-shadow(0 0 15px var(--p-02));
 }
+
+@media (max-width: 500px) {
+  .header {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+}

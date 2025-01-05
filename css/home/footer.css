@@ -88,3 +88,15 @@
 .whatsapp-btn:hover img {
   filter: brightness(0) invert(1); /* Deixa o ícone branco (claro) no hover */
 }
+
+@media (max-width: 500px) {
+  .solucoes {
+    padding: 0rem 1.5rem;
+  }
+  .box-solucoes-dentro {
+    padding: 1rem 2rem;
+  }
+  .logo-interno{
+    width: 12rem;
+  }
+}

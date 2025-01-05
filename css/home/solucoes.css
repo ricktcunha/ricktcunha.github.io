@@ -11,7 +11,8 @@
 }
 
 .box-solucoes-dentro {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   flex: 1;
   gap: 1.5rem;
   padding: 2rem 4rem;
@@ -24,17 +25,15 @@
   width: 2.5rem;
 }
 
-.box-solucoes-dentro h3 {
-  font-size: 2rem;
-  font-weight: 500;
+@media (max-width: 500px) {
+  .solucoes {
+    padding: 0rem 1.5rem;
+    margin: 0rem;
+  }
+  .box-solucoes-dentro {
+    padding: 1rem 2rem;
+  }
+  .logo-interno{
+    width: 12rem;
+  }
 }
-
-.box-solucoes-dentro p {
-  font-size: 1.2rem;
-  font-weight: lighter;
-  color: var(--c-04);
-}
-
-
-
-

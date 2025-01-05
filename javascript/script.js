@@ -111,3 +111,4 @@ lightbox.addEventListener("click", (e) => {
     }, 300); // Tempo de transição
   }
 });
+

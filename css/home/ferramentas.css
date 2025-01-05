@@ -32,9 +32,25 @@
   align-items: center;
 }
 
-.icones-pading:hover{
+.icones-pading:hover {
   transform: scale(1.01);
   box-shadow: 0 0 35px 4px rgba(140, 62, 239, 0.4);
   border: 2px solid var(--p-02);
-  
 }
+
+@media (max-width: 700px) {
+  .icones-pading {
+    padding: 2rem 2rem;
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .ferramentas {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0rem 1.5rem;
+  }
+}
+
