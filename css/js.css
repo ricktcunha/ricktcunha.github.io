@@ -52,7 +52,8 @@ body.fade-out {
 }
 
 /* Remove a mãozinha do cursor ao passar sobre links e botões */
-a, button {
+a,
+button {
   cursor: none; /* Impede que a mãozinha apareça */
 }
 
@@ -109,11 +110,9 @@ a, button {
 
 /* Imagem do projeto no lightbox */
 #lightbox img.imagem-projeto.open {
-
   transform: scale(1.2); /* Mantém o tamanho proporcional */
   opacity: 1;
 }
-
 
 @media (max-width: 1100px) {
   .custom-cursor {
