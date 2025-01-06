@@ -64,13 +64,30 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
+/* Estilo dos links */
+.header-menu a {
+  text-align: center;
+  padding: 1.8rem;
+  text-decoration: none;
+  color: var(--c-02);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  gap: 2rem;
+  display: block;
+}
+
+.header-menu a:hover {
+  color: var(--p-02);
+}
+
 /* Estilos para a versão mobile */
 @media (max-width: 768px) {
   .header-menu {
     max-height: 0;
+    width: 12rem;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     background-color: var(--c-07);
     z-index: 3;
     transition: 0.5s;
@@ -79,12 +96,16 @@
 
   .header-menu.active {
     max-height: 400px; /* Ajuste a altura para exibir o menu completo */
+    width: 12rem;
     margin-top: 2rem;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     border: 1px solid var(--p-03);
     border-radius: 0.5rem;
     gap: 0rem;
-    filter: drop-shadow(0 0 30px rgba(140, 62, 239, 0.4));
+    filter: drop-shadow(0 0 30px rgba(140, 62, 239, 0.3));
+  }
+  .header-menu a {
+    padding: 1.5rem 1rem;
   }
 
   .hamburger {
@@ -100,23 +121,8 @@
 @media (max-width: 500px) {
   .header {
     padding: 2rem 1.5rem 2rem 1.5rem;
+    gap: 2rem;
   }
-}
-
-/* Estilo dos links */
-.header-menu a {
-  text-align: center;
-  padding: 1.8rem;
-  text-decoration: none;
-  color: var(--c-02);
-  font-size: 1rem;
-  transition: color 0.3s ease;
-  gap: 2rem;
-  display: block;
-}
-
-.header-menu a:hover {
-  color: var(--p-02);
 }
 
 /* Ajustes no hambúrguer quando ativo */
