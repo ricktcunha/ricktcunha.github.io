@@ -13,7 +13,6 @@
   margin: 3rem auto;
 }
 
-
 .port-trabalhos {
   display: flex;
   flex-direction: column;
@@ -46,7 +45,7 @@
 .nav-fora-port {
   display: flex;
   gap: 10rem;
-  justify-self: end
+  justify-self: end;
 }
 
 .nav-dev {
@@ -83,8 +82,52 @@
   padding: 0rem 3rem;
 }
 
-.topo-ver-mais{
-display: flex;
-gap: 3rem;
-justify-content: space-between;
+.topo-ver-mais {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+@media (max-width: 1000px) {
+  .port-trabalhos h3 {
+    font-size: 2.5rem;
+  }
+  .nav-fora-port {
+    display: flex;
+    gap: 5rem;
+    justify-self: end;
+  }
+  .banner-portfolio {
+    padding: 0rem 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .banner-portfolio {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .section-nome-projeto-sequencia {
+    display: grid;
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0rem 1.5rem;
+  }
+  .topo-ver-mais {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+  .port-trabalhos {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .port-trabalhos {
+    gap: 1rem;
+  }
+  .section-nome-projeto-sequencia {
+    margin: 2rem 0rem;
+  }
 }

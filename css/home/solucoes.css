@@ -25,6 +25,13 @@
   width: 2.5rem;
 }
 
+@media (max-width: 1000px) {
+  .logo-interno{
+    width: 23rem;
+  }
+}
+
+
 @media (max-width: 500px) {
   .solucoes {
     padding: 0rem 1.5rem;

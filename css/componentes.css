@@ -73,6 +73,10 @@
   .rick-retrato-dev {
     display: none;
   }
+  .nome-projeto p {
+    font-size: 1.3rem;
+    padding: 1rem 0rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -94,6 +98,6 @@
   }
   body h1,
   h2 {
-    font-size: 1.8rem !important;
+    font-size: 2.2em !important;
   }
 }

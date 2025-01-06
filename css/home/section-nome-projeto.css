@@ -109,14 +109,4 @@
     margin: 5rem auto;
     padding: 0rem 1.5rem;
   }
-  .imagem-projeto {
-    width: 100%;
-    /* Definindo altura para o contêiner */
-    aspect-ratio: 12 / 9;
-  }
-  .imagem-interna {
-    scale: calc(1.5);
-    object-position: center; /* Centraliza a imagem dentro do contêiner */
-  }
-  
 }

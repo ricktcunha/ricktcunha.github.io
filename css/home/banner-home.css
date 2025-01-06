@@ -59,8 +59,6 @@
     padding: 0 3rem;
     display: flex;
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
     gap: 2rem;
   }
 
@@ -80,9 +78,6 @@
 }
 
 @media (max-width: 500px) {
-  .header {
-    padding: 2rem 1rem 2rem 1rem;
-  }
   .banner-home {
     padding: 0 1.5rem;
     display: flex;
@@ -91,8 +86,8 @@
     margin: 0 auto;
     gap: 2rem;
   }
-  .video-background{
-    padding: 3rem 0rem;
+  .video-background {
+    padding: 5rem 0rem 2rem 0rem;
   }
   .section-nome-projeto {
     margin-top: 2rem !important;

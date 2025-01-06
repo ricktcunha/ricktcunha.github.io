@@ -4,13 +4,12 @@
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 3rem 5rem 3rem;
+  padding: 3rem;
 }
 
 .header-menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 5rem;
 }
 
 .header-menu a {
@@ -30,8 +29,88 @@
   filter: drop-shadow(0 0 15px var(--p-02));
 }
 
+/* Estilo do ícone de hambúrguer */ /* Estilo do ícone de hambúrguer */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 30px;
+  height: 2px;
+  background-color: var(--c-02);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* Transformação minimalista do ícone para "X" */
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0; /* Esconde a linha do meio */
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Estilos para a versão mobile */
+@media (max-width: 768px) {
+  .header-menu {
+    max-height: 0; /* Inicialmente escondido */
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    flex-direction: column;
+    background-color: var(--c-07);
+    width: 100%;
+  }
+
+  .header-menu.active {
+    max-height: 300px; /* Altura ajustada para exibir o menu */
+    padding: 2.5rem 0;
+    border: 1px solid var(--p-03);
+    border-radius: 0.5rem;
+  }
+
+  .hamburger {
+    display: flex; /* Exibe o ícone em telas pequenas */
+    align-items: end;
+  }
+  .header-menu {
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 500px) {
   .header {
     padding: 2rem 1.5rem 2rem 1.5rem;
   }
+}
+
+/* Estilo do menu */
+.header-menu a {
+  text-align: center;
+  padding: 1.8rem;
+  text-decoration: none;
+  color: var(--c-02);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.header-menu a:hover {
+  color: var(--p-02); /* Cor de destaque no hover */
+}
+
+.hamburger.active:hover {
+  padding-bottom: 2rem;
+}
+
+.hamburger.active .line {
+  background-color: var(--p-02);
 }

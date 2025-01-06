@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Hambúrguer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html">
+      <img class="logo-branco-detalhado" src="PROJETO-IMAGENS SITE/HOME/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick">
+    </a>
+    <nav class="header-nav">
+      <ul class="header-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio_principais_trabalhos.html">Portfólio</a></li>
+        <li><a href="curriculo.html">Currículo</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.querySelector('.header-menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');  // Alterna a classe 'active' no menu
+    });
+  </script>
+</body>
+</html>
