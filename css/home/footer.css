@@ -108,6 +108,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    
   }
   .max-width {
     gap: 3rem;
@@ -118,7 +119,7 @@
     align-items: center;
   }
   .max-width p {
-    color: var(--c-04);
+    color: var(--c-05);
     text-align: center;
   }
 }

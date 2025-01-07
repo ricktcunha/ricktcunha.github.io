@@ -25,7 +25,7 @@
 }
 
 .logo-branco-detalhado {
-  height: 2rem;
+  height: 1.5rem;
   transition: 0.5s;
 }
 
@@ -67,7 +67,7 @@
 /* Estilo dos links */
 .header-menu a {
   text-align: center;
-  padding: 1.8rem;
+  margin: 1.8rem;
   text-decoration: none;
   color: var(--c-02);
   font-size: 1rem;
@@ -108,6 +108,9 @@
     padding: 1.5rem 1rem;
   }
 
+  .header-menu.active a {
+    margin: 0rem;
+  }
   .hamburger {
     display: flex;
     align-items: center;

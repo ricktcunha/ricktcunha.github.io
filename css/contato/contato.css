@@ -4,7 +4,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10rem 0rem;
+  padding: 10rem 3rem;
   gap: 5rem;
 }
 
@@ -156,4 +156,22 @@
 
 .icone-contato:hover .orçamento::before {
   filter: brightness(1.5); /* Clareia o ícone ao passar o mouse */
+}
+
+@media (max-width: 800px) {
+  .contato {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0rem 1.5rem;
+  }
+  .video-background-contato {
+    display: none;
+  }
+  .icones-contato-container {
+    align-items: center;
+    width: 100%;
+  }
+  .icones-contato-sequencia {
+    display: none;
+  }
 }

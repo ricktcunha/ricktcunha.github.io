@@ -8,6 +8,9 @@ hamburger.addEventListener('click', () => {
 });
 
 
+
+
+
 // Adiciona a classe 'fade-in' ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("fade-in");

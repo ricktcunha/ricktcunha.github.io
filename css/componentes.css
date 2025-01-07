@@ -20,7 +20,7 @@
 
 .nome-projeto p {
   font-size: 1.3rem;
-  padding: 2rem 0rem;
+  padding: 2rem 0;
 }
 
 .texto-descricao-projeto {
@@ -38,10 +38,45 @@
   padding-top: 1.5rem;
 }
 
-/* Estilos para telas menores ou iguais a 1300px */
+.conteudo-descricao-curriculo h3 {
+  font-size: 1.3rem;
+}
+
+.conteudo-descricao-curriculo p {
+  font-size: 1.2rem;
+  align-self: self-end;
+}
+
+.nome-esperiencia {
+  font-size: 1.2rem;
+}
+
+.texto-curriculo h2 {
+  font-size: 4rem;
+}
+
+.texto-curriculo p {
+  font-size: 1.5rem;
+}
+
+.conteudo-descricao-curriculo {
+  font-size: 1.3rem;
+}
+
+.titulo-sesao-curriculo {
+  font-size: 1.5rem;
+  color: var(--p-01);
+  font-weight: bold;
+}
+
+.descricao-sesao-curriculo {
+  font-size: 1.3rem;
+}
+
+/* Responsividade */
 @media (max-width: 1300px) {
   .h1 {
-    font-size: 4rem; /* Reduz o tamanho da fonte em telas menores */
+    font-size: 4rem;
   }
   .p1-5rem {
     font-size: 1.3rem;
@@ -56,13 +91,19 @@
 
 @media (max-width: 600px) {
   .h1 {
-    font-size: 3rem; /* Reduz o tamanho da fonte em telas menores */
+    font-size: 3rem;
+  }
+  .conteudo-descricao-curriculo h3 {
+    font-size: 1rem;
+  }
+  .conteudo-descricao-curriculo p {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 500px) {
   .h1 {
-    font-size: 2rem; /* Reduz o tamanho da fonte em telas menores */
+    font-size: 2rem;
   }
   .nome-section-projeto {
     font-size: 2rem;
@@ -76,7 +117,7 @@
   }
   .nome-projeto p {
     font-size: 1.3rem;
-    padding: 1rem 0rem;
+    padding: 1rem 0;
   }
 }
 
@@ -88,17 +129,5 @@
   body h1,
   h2 {
     font-size: 1.8rem !important;
-  }
-}
-
-
-@media (max-width: 400px) {
-  body p,
-  a {
-    font-size: 90% !important;
-  }
-  body h1,
-  h2 {
-    font-size: 2.2em !important;
   }
 }

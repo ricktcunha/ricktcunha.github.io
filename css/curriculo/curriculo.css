@@ -31,13 +31,6 @@
   flex-direction: column;
   gap: 1rem;
 }
-.texto-curriculo h2 {
-  font-size: 4rem;
-}
-
-.texto-curriculo p {
-  font-size: 1.5rem;
-}
 
 .sobre {
   max-width: 1200px;
@@ -48,15 +41,6 @@
   grid-template-columns: 1fr 2fr;
 }
 
-.descricao-sesao-curriculo {
-  font-size: 1.3rem;
-}
-
-.titulo-sesao-curriculo {
-  color: var(--p-01);
-  font-weight: bold;
-  font-size: 1.5rem;
-}
 
 .titulo-sesao-formacao {
   max-width: 1200px;
@@ -98,21 +82,9 @@
   border-radius: 0.5rem;
   transition: 0.5s;
   gap: 1rem;
-  font-size: 1.3rem;
 }
 
-.conteudo-descricao-curriculo h3 {
-  font-size: 1.3rem;
-}
 
-.conteudo-descricao-curriculo p {
-  font-size: 1.2rem;
-  align-self: self-end;
-}
-
-.nome-esperiencia {
-  font-size: 1.2rem;
-}
 
 .banner-portfolio-curriculo {
   display: grid;
@@ -127,4 +99,37 @@
   gap: 1rem;
   display: flex;
   align-items: start;
+}
+
+@media (max-width: 800px) {
+  .curriculo-banner {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 500px) {
+  .curriculo-banner {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0rem 1.5rem;
+  }
+  .sobre {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .titulo-sesao-formacao {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .titulo-sesao-formacao-2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .banner-portfolio-curriculo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
 }
