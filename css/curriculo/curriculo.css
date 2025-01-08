@@ -41,7 +41,6 @@
   grid-template-columns: 1fr 2fr;
 }
 
-
 .titulo-sesao-formacao {
   max-width: 1200px;
   margin: 0 auto;
@@ -84,8 +83,6 @@
   gap: 1rem;
 }
 
-
-
 .banner-portfolio-curriculo {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -114,22 +111,34 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0rem 1.5rem;
+    margin-top: 2rem !important;
   }
   .sobre {
     display: flex;
     flex-wrap: wrap;
+    padding: 5rem 1.5rem;
   }
   .titulo-sesao-formacao {
     display: flex;
     flex-wrap: wrap;
+    padding: 0rem 1.5rem;
   }
   .titulo-sesao-formacao-2 {
     display: flex;
     flex-wrap: wrap;
+    padding: 0rem 1.5rem;
+    margin-top: 5rem;
   }
   .banner-portfolio-curriculo {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column-reverse;
+    padding: 0rem 1.5rem;
+  }
+  .retrato-curriculo {
+    height: 15rem;
+  }
+  .conteudo-descricao-curriculo {
+    padding: 1rem 2rem;
   }
 }

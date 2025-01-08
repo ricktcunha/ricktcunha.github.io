@@ -119,6 +119,9 @@
     font-size: 1.3rem;
     padding: 1rem 0;
   }
+  .conteudo-descricao-curriculo {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 400px) {
