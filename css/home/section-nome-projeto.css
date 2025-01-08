@@ -61,6 +61,7 @@
   border: 2px solid var(--c-06);
   border-radius: 3rem;
   color: var(--c-04);
+  background-color: var(--c-09);
   text-decoration: none; /* Remove o sublinhado do link */
   transition: all 0.5s ease; /* Suaviza todas as transições */
   position: relative;
