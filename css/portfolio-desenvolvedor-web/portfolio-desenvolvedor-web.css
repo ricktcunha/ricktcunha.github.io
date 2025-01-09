@@ -5,3 +5,17 @@
   margin-bottom: 5rem;
 }
 
+@media (max-width: 400px) {
+  .texto-nome-projeto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+  .texto-nome-projeto {
+    margin: 5rem 0rem 2rem 0rem;
+  }
+  .section-nome-projeto {
+    margin: 0rem !important;
+  }
+}

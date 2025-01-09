@@ -116,23 +116,30 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5rem 1.5rem;
+    gap: 2rem;
   }
   .titulo-sesao-formacao {
     display: flex;
     flex-wrap: wrap;
     padding: 0rem 1.5rem;
+    gap: 2rem;
   }
   .titulo-sesao-formacao-2 {
     display: flex;
     flex-wrap: wrap;
     padding: 0rem 1.5rem;
-    margin-top: 5rem;
+    margin: 5rem 0rem;
+    gap: 2rem;
   }
   .banner-portfolio-curriculo {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column-reverse;
     padding: 0rem 1.5rem;
+    margin: 5rem 0rem;
+  }
+  .banner-portfolio {
+    margin: 0rem;
   }
   .retrato-curriculo {
     height: 15rem;
@@ -142,5 +149,8 @@
   }
   .texto-curriculo {
     text-transform: uppercase;
+  }
+  .flex-curriculo-descricao{
+    padding-top: 1rem;
   }
 }

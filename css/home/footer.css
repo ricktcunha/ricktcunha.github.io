@@ -19,7 +19,7 @@
 }
 
 .logo-footer {
-  width: 10rem; /* Mantém o tamanho do logo */
+  width: 8rem; /* Mantém o tamanho do logo */
   transition: 0.5s; /* Efeito de transição */
 }
 
@@ -108,7 +108,6 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    
   }
   .max-width {
     gap: 3rem;

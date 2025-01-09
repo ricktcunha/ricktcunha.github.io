@@ -82,6 +82,15 @@
 
 /* Estilos para a versão mobile */
 @media (max-width: 768px) {
+  .header-menu a {
+    padding: 1.5rem 0rem;
+    margin: 0rem;
+    text-decoration: none;
+    color: var(--c-02);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    gap: 0rem;
+  }
   .header-menu {
     max-height: 0;
     width: 12rem;
@@ -93,7 +102,6 @@
     transition: 0.5s;
     position: relative; /* Mudei para relative */
   }
-
   .header-menu.active {
     max-height: 400px; /* Ajuste a altura para exibir o menu completo */
     width: 12rem;
@@ -104,12 +112,9 @@
     gap: 0rem;
     filter: drop-shadow(0 0 30px rgba(140, 62, 239, 0.3));
   }
-  .header-menu a {
-    padding: 1.5rem 1rem;
-  }
-
   .header-menu.active a {
     margin: 0rem;
+    padding: 1.5rem 1rem;
   }
   .hamburger {
     display: flex;
