@@ -4,7 +4,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10rem 3rem;
+  padding: 8rem 3rem 10rem 3rem;
   gap: 5rem;
 }
 
@@ -170,8 +170,12 @@
   .icones-contato-container {
     align-items: center;
     width: 100%;
+    gap: 1rem;
   }
   .icones-contato-sequencia {
     display: none;
+  }
+  .icones-contato-container{
+    padding: 2.5rem 0rem 1rem 0rem;
   }
 }

@@ -18,6 +18,20 @@
   margin: 0 auto;
   width: 100%;
   /* Definindo altura para o contêiner */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Garante que nada ultrapasse os limites do contêiner */
+  transition: 0.5s;
+}
+
+.imagem-projeto-direcionamento {
+  border: 2px solid var(--c-06);
+  border-radius: 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  /* Definindo altura para o contêiner */
   aspect-ratio: 16 / 9;
   display: flex;
   justify-content: center;
@@ -26,12 +40,14 @@
   transition: 0.5s;
 }
 
-.hover-projetos:hover .imagem-projeto {
+.hover-projetos:hover .imagem-projeto,
+.hover-projetos:hover .imagem-projeto-direcionamento {
   box-shadow: 0 0 90rem 4px rgba(140, 62, 239, 0.3);
   border: 2px solid var(--p-03);
 }
 
-.imagem-projeto img {
+.imagem-projeto img,
+.imagem-projeto-direcionamento img {
   transition: transform 0.3s ease; /* Transição suave para a transformação */
   object-fit: contain; /* Garante que a imagem mantenha sua proporção */
   max-width: 100%; /* Faz com que a imagem se ajuste ao contêiner sem ultrapassar */
@@ -46,11 +62,13 @@
   object-position: center; /* Centraliza a imagem dentro do contêiner */
 }
 
-.hover-projetos:hover .imagem-projeto img {
+.hover-projetos:hover .imagem-projeto img,
+.hover-projetos:hover .imagem-projeto-direcionamento img {
   transform: scale(1.06); /* Aumenta a imagem ao passar o mouse */
 }
 
-.hover-projetos .imagem-projeto img {
+.hover-projetos .imagem-projeto img,
+.hover-projetos .imagem-projeto-direcionamento img {
   transform: scale(1.02); /* Aumenta a imagem ao passar o mouse */
 }
 

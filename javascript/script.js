@@ -21,15 +21,17 @@ document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", (e) => {
     const href = link.getAttribute("href");
 
-    if (href && href.startsWith("#")) return; // Ignora âncoras internas
+    // Ignora âncoras internas e links que abrem em nova aba
+    if (href && (href.startsWith("#") || link.target === "_blank")) return;
 
-    e.preventDefault();
+    e.preventDefault(); // Impede o comportamento padrão
     document.body.classList.add("fade-out");
     setTimeout(() => {
       window.location.href = href;
     }, 800); // Tempo deve corresponder ao CSS
   });
 });
+
 
 // Detecção de rolagem para animação de entrada
 const animatedElements = document.querySelectorAll(".animated");

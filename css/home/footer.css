@@ -147,4 +147,7 @@
     bottom: 1rem; /* Distância do rodapé */
     right: 1rem; /* Distância da lateral direita */
   }
+  .logo-footer {
+    width: 6rem;
+  }
 }
