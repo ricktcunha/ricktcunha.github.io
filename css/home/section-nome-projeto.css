@@ -128,4 +128,8 @@
     margin: 5rem auto;
     padding: 0rem 1.5rem;
   }
+  .texto-botao-seta {
+    padding: 0.6rem 1.3rem;
+    border: 2px solid var(--c-06);
+  }
 }
