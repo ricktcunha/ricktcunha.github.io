@@ -28,8 +28,9 @@
   gap: 1rem;
   padding: 3rem 0rem 0rem 0rem;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
+  justify-self: end;
 }
 
 .icones-pading:hover {

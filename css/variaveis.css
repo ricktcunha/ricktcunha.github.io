@@ -21,6 +21,7 @@
   animation: piscar 1.5s infinite alternate; /* Animação de piscar */
 }
 
+
 /* Define a animação 'piscar' */
 @keyframes piscar {
   0% {

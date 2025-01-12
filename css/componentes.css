@@ -73,6 +73,16 @@
   font-size: 1.3rem;
 }
 
+.info-rodape {
+  font-size: 0.9rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.nao-quebrar {
+  white-space: nowrap;
+}
+
 /* Responsividade */
 @media (max-width: 1300px) {
   .h1 {
@@ -121,6 +131,9 @@
   }
   .conteudo-descricao-curriculo {
     font-size: 1rem;
+  }
+  .info-rodape {
+    font-size: 0.7rem !important;
   }
 }
 
