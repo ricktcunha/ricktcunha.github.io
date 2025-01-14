@@ -26,16 +26,14 @@ body.fade-out {
   pointer-events: none; /* Impede interação com o cursor */
   transform: translate(-50%, -50%);
   box-shadow: 0 0 20px 8px rgba(140, 62, 239, 0.8);
-  transition: all 0s ease; /* Suaviza a transição */
+  transition: transform 0.5s ease; /* Suaviza a transição somente da transformação */
   z-index: 9999; /* O cursor deve ter um z-index alto */
 }
 
 /* Aumenta o tamanho do cursor ao passar o mouse sobre elementos com hover */
 .custom-cursor-hover {
-  transform: translate(-50%, -50%) scale(2); /* Aumenta o tamanho sem mover a posição */
+  transform: translate(-50%, -50%) scale(0.3); /* Aumenta o tamanho sem mover a posição */
   background-color: var(--p-02);
-  width: 0.02rem;
-  height: 0.02rem;
   box-shadow: 0 0 50px 18px rgba(140, 62, 239, 0.4);
 }
 

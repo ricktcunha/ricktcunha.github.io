@@ -33,6 +33,15 @@
   justify-self: end;
 }
 
+.botao-direcionamento-centro-postagens {
+  gap: 1rem;
+  padding: 3rem 0rem 0rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 .icones-pading:hover {
   transform: scale(1.01);
   box-shadow: 0 0 35px 4px rgba(140, 62, 239, 0.4);
