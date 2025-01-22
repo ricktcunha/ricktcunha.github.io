@@ -117,8 +117,12 @@
   }
   .nome-section-projeto {
     font-size: 2rem;
-    margin-bottom: 2rem !important;
   }
+
+  .nome-section-projeto {
+    margin: 5rem 0rem 0rem 0rem !important;
+  }
+
   .box-solucoes-dentro h3 {
     font-size: 1.5em;
   }
@@ -127,7 +131,6 @@
   }
   .nome-projeto p {
     font-size: 1.3rem;
-    padding: 1rem 0;
   }
   .conteudo-descricao-curriculo {
     font-size: 1rem;

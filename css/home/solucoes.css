@@ -43,4 +43,7 @@
   .logo-interno{
     width: 12rem;
   }
+  .box-solucoes-flex {
+    padding-top: 2rem;
+  }
 }

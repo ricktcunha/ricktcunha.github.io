@@ -1,3 +1,4 @@
+/* Tema claro (padrão) */
 :root {
   --p-01: #8c3eef;
   --p-02: #aa88ff;
@@ -12,6 +13,23 @@
   --c-08: #0b0b0b;
   --c-09: #000000;
 }
+
+/* Tema escuro */
+.dark-theme {
+  --p-01: #5f3c8b;
+  --p-02: #8c3eef;
+  --p-03: #aa88ff;
+  --c-01: #000000;
+  --c-02: #0b0b0b;
+  --c-03: #141414;
+  --c-04: #444444;
+  --c-05: #a3a3a3;
+  --c-06: #e4e4e4;
+  --c-07: #f0f0f0;
+  --c-08: #ffffff;
+  --c-09: #ffffff;
+}
+
 
 body {
   font-family: "syne", Arial, Helvetica, sans-serif;

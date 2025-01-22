@@ -1,3 +1,12 @@
+// Dinâmica de tema
+// const toggleButton = document.getElementById('toggle-theme');
+
+// toggleButton.addEventListener('click', () => {
+//   document.documentElement.classList.toggle('dark-theme');
+// });
+
+
+
 // Seleciona o ícone do hambúrguer e o menu
 const hamburger = document.getElementById("hamburger");
 const menu = document.querySelector(".header-menu");

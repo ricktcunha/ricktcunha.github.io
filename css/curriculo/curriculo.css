@@ -138,7 +138,9 @@
     padding: 0rem 1.5rem;
     margin: 5rem 0rem;
   }
+
   .banner-portfolio {
+    padding: 0rem 2rem;
     margin: 0rem;
   }
   .retrato-curriculo {
@@ -147,10 +149,15 @@
   .conteudo-descricao-curriculo {
     padding: 1rem 2rem;
   }
+
+  .conteudo-descricao-curriculo h3 {
+    width: max-content;
+    
+  }
   .texto-curriculo {
     text-transform: uppercase;
   }
-  .flex-curriculo-descricao{
+  .flex-curriculo-descricao {
     padding-top: 1rem;
   }
 }
