@@ -140,7 +140,7 @@
   }
 
   .banner-portfolio {
-    padding: 0rem 2rem;
+    padding: 0rem 1.5rem;
     margin: 0rem;
   }
   .retrato-curriculo {
@@ -150,10 +150,7 @@
     padding: 1rem 2rem;
   }
 
-  .conteudo-descricao-curriculo h3 {
-    width: max-content;
-    
-  }
+
   .texto-curriculo {
     text-transform: uppercase;
   }
