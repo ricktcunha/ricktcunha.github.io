@@ -35,6 +35,7 @@
   justify-content: center;
 }
 
+
 .imagem-projeto-galeria:hover {
   box-shadow: 0 0 35px 4px rgba(140, 62, 239, 0.4);
 }
