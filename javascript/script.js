@@ -1,23 +1,32 @@
-// Dinâmica de tema
-// const toggleButton = document.getElementById('toggle-theme');
+// ---------------------------
+// Seção 1: Dinâmica de Tema (Comentado pois não está sendo utilizado)
+// ---------------------------
+/*
+const toggleButton = document.getElementById('toggle-theme');
+toggleButton.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark-theme');
+});
+*/
 
-// toggleButton.addEventListener('click', () => {
-//   document.documentElement.classList.toggle('dark-theme');
-// });
-
-
-
-// Seleciona o ícone do hambúrguer e o menu
+// ---------------------------
+// Seção 2: Menu Hamburguer
+// ---------------------------
 const hamburger = document.getElementById("hamburger");
 const menu = document.querySelector(".header-menu");
 
-if (hamburger && menu) {
-  hamburger.addEventListener("click", () => {
-    menu.classList.toggle("active"); // Abre/fecha o menu
-    hamburger.classList.toggle("active"); // Altera o estado do ícone
-  });
+// Função para alternar o menu
+function toggleMenu() {
+  menu.classList.toggle("active");
+  hamburger.classList.toggle("active");
 }
 
+if (hamburger && menu) {
+  hamburger.addEventListener("click", toggleMenu);
+}
+
+// ---------------------------
+// Seção 3: Efeitos de Fade ao Carregar a Página e Clicar nos Links
+// ---------------------------
 // Adiciona a classe 'fade-in' ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("fade-in");
@@ -39,7 +48,9 @@ document.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// Detecção de rolagem para animação de entrada
+// ---------------------------
+// Seção 4: Animação de Rolagem
+// ---------------------------
 const animatedElements = document.querySelectorAll(".animated");
 
 function handleScrollAnimation() {
@@ -47,133 +58,110 @@ function handleScrollAnimation() {
     const elementTop = element.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
-    if (elementTop < windowHeight - 100) {
-      element.classList.add("in-view");
-    } else {
-      element.classList.remove("in-view");
-    }
+    element.classList.toggle("in-view", elementTop < windowHeight - 100);
   });
 }
 
 window.addEventListener("scroll", handleScrollAnimation);
 handleScrollAnimation(); // Chama imediatamente para verificar elementos já visíveis
 
-// Seleciona o elemento do cursor
+// ---------------------------
+// Seção 5: Cursor Customizado
+// ---------------------------
 const cursor = document.querySelector(".custom-cursor");
 
 // Atualiza a posição do cursor considerando a rolagem da página
 if (cursor) {
   document.addEventListener("mousemove", (e) => {
-    const x = e.clientX; // Obtém a posição horizontal do mouse
-    const y = e.clientY; // Obtém a posição vertical do mouse
-
-    // Atualiza a posição do cursor
-    cursor.style.left = `${x}px`;
-    cursor.style.top = `${y}px`;
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
   });
 
   // Detecta hover sobre elementos e aumenta o cursor
-  document.querySelectorAll("a, button").forEach((el) => {
+  const hoverElements = document.querySelectorAll("a, button");
+
+  hoverElements.forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      cursor.classList.add("custom-cursor-hover"); // Aumenta o cursor
+      cursor.classList.add("custom-cursor-hover");
     });
     el.addEventListener("mouseleave", () => {
-      cursor.classList.remove("custom-cursor-hover"); // Volta ao tamanho normal
+      cursor.classList.remove("custom-cursor-hover");
     });
   });
 }
 
-// Seleciona as imagens das postagens com as classes 'imagem-projeto' e 'imagem-projeto-galeria'
-const images = document.querySelectorAll(
-  ".imagem-projeto, .imagem-projeto-galeria"
-);
+// ---------------------------
+// Seção 6: Lightbox para Imagens
+// ---------------------------
+const images = document.querySelectorAll(".imagem-projeto, .imagem-projeto-galeria");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = lightbox ? lightbox.querySelector("img") : null;
 
-// Variável para armazenar a imagem atual
 let currentImage = null;
 
 if (lightbox && lightboxImage) {
-  // Adiciona um evento de clique nas imagens
-  images.forEach((image) => {
-    image.addEventListener("click", (e) => {
-      // Define a imagem no lightbox
-      lightboxImage.src = e.target.src;
-      lightbox.classList.add("open");
+  // Função para abrir o lightbox
+  function openLightbox(e) {
+    lightboxImage.src = e.target.src;
+    lightbox.classList.add("open");
 
-      // Reseta as classes anteriores
-      lightboxImage.classList.remove("postagem", "imagem-projeto");
+    // Reseta as classes anteriores
+    lightboxImage.classList.remove("postagem", "imagem-projeto");
 
-      // Aplica a classe correta com base no tipo de imagem
-      if (e.target.classList.contains("postagem")) {
-        lightboxImage.classList.add("postagem");
-      } else if (e.target.classList.contains("imagem-projeto")) {
-        lightboxImage.classList.add("imagem-projeto");
-      }
+    // Aplica a classe correta com base no tipo de imagem
+    lightboxImage.classList.add(e.target.classList.contains("postagem") ? "postagem" : "imagem-projeto");
 
-      // Expande a imagem
-      setTimeout(() => {
-        lightboxImage.classList.add("open");
-      }, 10);
+    // Expande a imagem
+    setTimeout(() => {
+      lightboxImage.classList.add("open");
+    }, 10);
 
-      currentImage = e.target; // Define a imagem atual
-    });
-  });
+    currentImage = e.target;
+  }
 
-  // Fecha o lightbox ou reduz a imagem quando clicar no fundo ou na imagem
-  lightbox.addEventListener("click", (e) => {
-    // Verifica se a área clicada foi o fundo ou a própria imagem
+  // Função para fechar o lightbox
+  function closeLightbox(e) {
     if (e.target === lightbox || e.target === lightboxImage) {
-      lightboxImage.classList.remove("open"); // Remove a classe que expande a imagem
-
-      // Aguarda a transição de redução antes de fechar o lightbox
+      lightboxImage.classList.remove("open");
       setTimeout(() => {
         lightbox.classList.remove("open");
-        lightboxImage.src = ""; // Limpa a imagem
-        currentImage = null; // Reseta a imagem atual
-        lightboxImage.classList.remove("postagem", "imagem-projeto"); // Remove a classe 'postagem' ao fechar
-      }, 300); // Tempo de transição
+        lightboxImage.src = "";
+        currentImage = null;
+        lightboxImage.classList.remove("postagem", "imagem-projeto");
+      }, 300);
     }
-  });
+  }
 
-  // Navegação com as setas
-  document.addEventListener("keydown", (e) => {
-    if (!lightbox.classList.contains("open")) return; // Só funciona se o lightbox estiver aberto
+  // Função para navegação
+  function navigateLightbox(e) {
+    if (!lightbox.classList.contains("open")) return;
 
-    // Navegação para a próxima imagem (seta direita)
+    let nextImage = null;
     if (e.key === "ArrowRight") {
-      const nextImage = getNextImage();
-      if (nextImage) {
-        lightboxImage.src = nextImage.src; // Troca a imagem
-        currentImage = nextImage; // Atualiza a imagem atual
-      }
+      nextImage = getNextImage();
+    } else if (e.key === "ArrowLeft") {
+      nextImage = getPreviousImage();
     }
 
-    // Navegação para a imagem anterior (seta esquerda)
-    if (e.key === "ArrowLeft") {
-      const prevImage = getPreviousImage();
-      if (prevImage) {
-        lightboxImage.src = prevImage.src; // Troca a imagem
-        currentImage = prevImage; // Atualiza a imagem atual
-      }
+    if (nextImage) {
+      lightboxImage.src = nextImage.src;
+      currentImage = nextImage;
     }
-  });
+  }
 
-  // Função para obter a próxima imagem
+  // Funções para pegar a próxima ou anterior imagem
   function getNextImage() {
     const index = Array.from(images).indexOf(currentImage);
-    if (index < images.length - 1) {
-      return images[index + 1]; // Retorna a próxima imagem
-    }
-    return null; // Se for a última imagem, retorna null
+    return index < images.length - 1 ? images[index + 1] : null;
   }
 
-  // Função para obter a imagem anterior
   function getPreviousImage() {
     const index = Array.from(images).indexOf(currentImage);
-    if (index > 0) {
-      return images[index - 1]; // Retorna a imagem anterior
-    }
-    return null; // Se for a primeira imagem, retorna null
+    return index > 0 ? images[index - 1] : null;
   }
+
+  // Eventos
+  images.forEach((image) => image.addEventListener("click", openLightbox));
+  lightbox.addEventListener("click", closeLightbox);
+  document.addEventListener("keydown", navigateLightbox);
 }

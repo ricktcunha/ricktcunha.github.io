@@ -60,6 +60,8 @@ img {
   display: block;
 }
 
+
+
 /* Remover a aparência das barras de rolagem em toda a página */
 html, body {
   overflow: scroll; /* Permite a rolagem */

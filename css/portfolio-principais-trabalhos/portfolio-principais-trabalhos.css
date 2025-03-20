@@ -65,6 +65,10 @@
   gap: 10rem;
   justify-self: end;
 }
+.nav-fora-port a {
+  display: block;
+  max-width: max-content;
+}
 
 .nav-dev {
   display: flex;
