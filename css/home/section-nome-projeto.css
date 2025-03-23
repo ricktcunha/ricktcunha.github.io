@@ -21,7 +21,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Garante que nada ultrapasse os limites do contêiner */
+  overflow: hidden;
+  /* Garante que nada ultrapasse os limites do contêiner */
   transition: 0.5s;
 }
 
@@ -51,40 +52,53 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Garante que nada ultrapasse os limites do contêiner */
+  overflow: hidden;
+  /* Garante que nada ultrapasse os limites do contêiner */
   transition: 0.5s;
 }
 
 .hover-projetos:hover .imagem-projeto,
 .hover-projetos:hover .imagem-projeto-direcionamento {
-  box-shadow: 0 0 90rem 4px rgba(140, 62, 239, 0.3);
+  box-shadow: 0 0 90rem 4px rgba(140, 62, 239, 0.25);
   border: 2px solid var(--p-03);
+  position: relative;
+  /* Garante que o z-index funcione */
+  z-index: 10;
+  /* Bem alto para sobrepor tudo */
 }
 
 .imagem-projeto img,
 .imagem-projeto-direcionamento img {
-  transition: transform 0.3s ease; /* Transição suave para a transformação */
-  object-fit: contain; /* Garante que a imagem mantenha sua proporção */
-  max-width: 100%; /* Faz com que a imagem se ajuste ao contêiner sem ultrapassar */
-  max-height: 100%; /* Faz com que a altura também seja mantida sem ultrapassar o contêiner */
+  transition: transform 0.3s ease;
+  /* Transição suave para a transformação */
+  object-fit: contain;
+  /* Garante que a imagem mantenha sua proporção */
+  max-width: 100%;
+  /* Faz com que a imagem se ajuste ao contêiner sem ultrapassar */
+  max-height: 100%;
+  /* Faz com que a altura também seja mantida sem ultrapassar o contêiner */
 }
 
 .imagem-interna {
   width: 100%;
   height: 100%;
   scale: calc(1.2);
-  object-fit: cover; /* Garante que a imagem preencha todo o contêiner sem distorção */
-  object-position: center; /* Centraliza a imagem dentro do contêiner */
+  object-fit: cover;
+  /* Garante que a imagem preencha todo o contêiner sem distorção */
+  object-position: center;
+  /* Centraliza a imagem dentro do contêiner */
 }
 
 .hover-projetos:hover .imagem-projeto img,
 .hover-projetos:hover .imagem-projeto-direcionamento img {
-  transform: scale(1.06); /* Aumenta a imagem ao passar o mouse */
+  transform: scale(1.06);
+  /* Aumenta a imagem ao passar o mouse */
 }
 
 .hover-projetos .imagem-projeto img,
 .hover-projetos .imagem-projeto-direcionamento img {
-  transform: scale(1.02); /* Aumenta a imagem ao passar o mouse */
+  transform: scale(1.02);
+  /* Aumenta a imagem ao passar o mouse */
 }
 
 .texto-botao-seta {
@@ -95,19 +109,25 @@
   border-radius: 3rem;
   color: var(--c-04);
   background-color: var(--c-09);
-  text-decoration: none; /* Remove o sublinhado do link */
-  transition: all 0.5s ease; /* Suaviza todas as transições */
+  text-decoration: none;
+  /* Remove o sublinhado do link */
+  transition: all 0.5s ease;
+  /* Suaviza todas as transições */
   position: relative;
 }
 
 .texto-botao-seta .texto {
-  margin: 0; /* Remove a margem do texto */
-  transition: color 0.5s ease; /* Transição suave para a cor do texto */
-  z-index: 1; /* Garante que o texto fique sobre a seta */
+  margin: 0;
+  /* Remove a margem do texto */
+  transition: color 0.5s ease;
+  /* Transição suave para a cor do texto */
+  z-index: 1;
+  /* Garante que o texto fique sobre a seta */
 }
 
 .texto-botao-seta:hover .texto {
-  color: var(--p-02); /* Cor do texto ao passar o mouse */
+  color: var(--p-02);
+  /* Cor do texto ao passar o mouse */
 }
 
 .texto-botao-seta:hover {
@@ -120,20 +140,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.5s ease-in-out; /* Transições suaves */
-  border-radius: 50%; /* Arredonda a área de contorno da seta */
-  margin-left: 1rem; /* Espaço entre o texto e a seta */
+  transition: transform 0.5s ease-in-out;
+  /* Transições suaves */
+  border-radius: 50%;
+  /* Arredonda a área de contorno da seta */
+  margin-left: 1rem;
+  /* Espaço entre o texto e a seta */
 }
 
 .seta-icone {
-  width: 1.1rem; /* Tamanho da seta */
-  fill: var(--c-05); /* Cor inicial da seta */
-  transition: fill 0.5s ease, transform 0.5s ease-in-out; /* Transições suaves */
+  width: 1.1rem;
+  /* Tamanho da seta */
+  fill: var(--c-05);
+  /* Cor inicial da seta */
+  transition: fill 0.5s ease, transform 0.5s ease-in-out;
+  /* Transições suaves */
 }
 
 .texto-botao-seta:hover .seta-icone {
-  fill: var(--p-02); /* Cor da seta ao passar o mouse */
-  transform: translateX(0.5rem); /* Move a seta para a direita */
+  fill: var(--p-02);
+  /* Cor da seta ao passar o mouse */
+  transform: translateX(0.5rem);
+  /* Move a seta para a direita */
 }
 
 @media (max-width: 500px) {
@@ -143,6 +171,7 @@
     margin: 5rem auto;
     padding: 0rem 1.5rem;
   }
+
   .texto-botao-seta {
     padding: 0.6rem 1.3rem;
     border: 2px solid var(--c-06);

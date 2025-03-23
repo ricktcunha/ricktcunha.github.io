@@ -11,18 +11,18 @@ toggleButton.addEventListener('click', () => {
 // ---------------------------
 // Seção 2: Menu Hamburguer
 // ---------------------------
-const hamburger = document.getElementById("hamburger");
-const menu = document.querySelector(".header-menu");
+// const hamburger = document.getElementById("hamburger");
+// const menu = document.querySelector(".header-menu");
 
 // Função para alternar o menu
-function toggleMenu() {
-  menu.classList.toggle("active");
-  hamburger.classList.toggle("active");
-}
+// function toggleMenu() {
+//   menu.classList.toggle("active");
+//   hamburger.classList.toggle("active");
+// }
 
-if (hamburger && menu) {
-  hamburger.addEventListener("click", toggleMenu);
-}
+// if (hamburger && menu) {
+//   hamburger.addEventListener("click", toggleMenu);
+// }
 
 // ---------------------------
 // Seção 3: Efeitos de Fade ao Carregar a Página e Clicar nos Links
@@ -104,6 +104,8 @@ if (lightbox && lightboxImage) {
   function openLightbox(e) {
     lightboxImage.src = e.target.src;
     lightbox.classList.add("open");
+
+
 
     // Reseta as classes anteriores
     lightboxImage.classList.remove("postagem", "imagem-projeto");
