@@ -10,19 +10,21 @@ toggleButton.addEventListener('click', () => {
 
 // ---------------------------
 // Seção 2: Menu Hamburguer
-// ---------------------------
-// const hamburger = document.getElementById("hamburger");
-// const menu = document.querySelector(".header-menu");
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.querySelector(".header-menu");
 
-// Função para alternar o menu
-// function toggleMenu() {
-//   menu.classList.toggle("active");
-//   hamburger.classList.toggle("active");
-// }
+  // Função para alternar o menu
+  function toggleMenu() {
+    menu.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  }
 
-// if (hamburger && menu) {
-//   hamburger.addEventListener("click", toggleMenu);
-// }
+  if (hamburger && menu) {
+    hamburger.addEventListener("click", toggleMenu);
+  }
+});
+
 
 // ---------------------------
 // Seção 3: Efeitos de Fade ao Carregar a Página e Clicar nos Links
