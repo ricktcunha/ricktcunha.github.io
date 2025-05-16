@@ -20,9 +20,9 @@
   transition: 0.5s;
 }
 
-.header-menu a:hover {
+/* .header-menu a:hover {
   color: var(--p-02);
-}
+} */
 
 .logo-branco-detalhado {
   height: 1.5rem;
@@ -74,10 +74,26 @@
   transition: color 0.3s ease;
   gap: 2rem;
   display: block;
+  position: relative;
 }
 
 .header-menu a:hover {
-  color: var(--p-02);
+  color: var(--p-01);
+}
+
+.header-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: var(--p-01);
+  transition: width 0.3s ease;
+}
+
+.header-menu a:hover::after {
+  width: 100%;
 }
 
 /* Estilos para a versão mobile */

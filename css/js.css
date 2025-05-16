@@ -23,18 +23,23 @@ body.fade-out {
   height: 0.5rem;
   border-radius: 50%;
   background-color: var(--p-02);
-  pointer-events: none; /* Impede interação com o cursor */
+  pointer-events: none;
+  /* Impede interação com o cursor */
   transform: translate(-50%, -50%);
   box-shadow: 0 0 20px 8px rgba(140, 62, 239, 0.8);
-  transition: transform 0.5s ease; /* Suaviza a transição somente da transformação */
-  z-index: 9999; /* O cursor deve ter um z-index alto */
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.3s ease;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+  /* Um blurzinho suave, opcional */
 }
 
-/* Aumenta o tamanho do cursor ao passar o mouse sobre elementos com hover */
+/* Efeito ao passar sobre áreas que ativam o hover customizado */
 .custom-cursor-hover {
-  transform: translate(-50%, -50%) scale(0.3); /* Aumenta o tamanho sem mover a posição */
+  transform: translate(-50%, -50%) scale(0.3);
+  /* Diminui com elegância */
   background-color: var(--p-02);
-  box-shadow: 0 0 500px 18px rgba(140, 62, 239, 0.8);
+  box-shadow: 0 0 100px 20px rgba(140, 62, 239, 0.6);
+  /* Mais brilho, mas com leveza */
 }
 
 /* Animação de entrada ao rolar */
