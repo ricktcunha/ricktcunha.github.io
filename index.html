@@ -1,351 +1,282 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-  <!-- Meta tags essenciais -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO e metadados -->
-  <title>Rick Cunha - Desenvolvedor Front-End & Designer | Portfólio</title>
-  <meta name="description" content="Portfólio de Rick Cunha - Desenvolvedor Front-End e Designer especializado em criação de experiências digitais únicas, identidade visual e desenvolvimento web.">
-  <meta name="keywords" content="desenvolvedor front-end, designer, portfólio, identidade visual, desenvolvimento web, UX/UI">
-  <meta name="author" content="Rick Cunha">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Rick Cunha - Desenvolvedor Front-End & Designer">
-  <meta property="og:description" content="Portfólio profissional de desenvolvimento web e design criativo">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ricktcunha.github.io">
-  <meta property="og:image" content="PROJETO-IMAGENS SITE/HOME/imagens/rick_retrato_bolinha.png">
-  
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Rick Cunha - Desenvolvedor Front-End & Designer">
-  <meta name="twitter:description" content="Portfólio profissional de desenvolvimento web e design criativo">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="favicon.svg">
-  
-  <!-- Preconnect para performance -->
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Fonts -->
+  <link rel="icon" href="favicon.svg" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <!-- Cursor customizado -->
-  <div class="custom-cursor" aria-hidden="true"></div>
 
-  <!-- Cabeçalho principal -->
-  <header class="header" role="banner">
-    <div class="header-container">
-      <!-- Logo -->
-      <a href="index.html" class="logo-link" aria-label="Página inicial - Rick Cunha">
-        <img class="logo-branco-detalhado" src="PROJETO-IMAGENS SITE/HOME/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick Cunha" width="150" height="50">
-      </a>
-      
-      <!-- Navegação principal -->
-      <nav class="header-nav" role="navigation" aria-label="Navegação principal">
-        <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="header-menu" aria-label="Abrir menu de navegação">
-          <span class="line" aria-hidden="true"></span>
-          <span class="line" aria-hidden="true"></span>
-          <span class="line" aria-hidden="true"></span>
-        </button>
-        
-        <ul class="header-menu" id="header-menu" role="menubar">
-          <li role="none"><a href="index.html" role="menuitem" aria-current="page">Home</a></li>
-          <li role="none"><a href="portfolio_principais_trabalhos.html" role="menuitem">Portfólio</a></li>
-          <li role="none"><a href="curriculo.html" role="menuitem">Currículo</a></li>
-          <li role="none"><a href="contato.html" role="menuitem">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
+  <div class="custom-cursor"></div>
+
+  <header class="header">
+    <a href="index.html">
+      <img class="logo-branco-detalhado" src="PROJETO-IMAGENS SITE/HOME/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick">
+    </a>
+    <nav class="header-nav">
+      <div class="hamburger" id="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul class="header-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio_principais_trabalhos.html">Portfólio</a></li>
+        <li><a href="curriculo.html">Currículo</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+    </nav>
   </header>
 
-  <!-- Conteúdo principal -->
-  <main role="main">
-    <!-- Seção hero/banner -->
-    <section class="banner-home animated" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <p class="construindo-pontes" aria-label="Tagline principal">
-          <span class="texto-cinza">Construindo pontes digitais,</span><br>
-          <span class="texto-bold">pixel a pixel</span><span class="ponto-cor">.</span>
-        </p>
-        
-        <h1 id="hero-title" class="h1">Desenvolvedor<br>& Designer<span class="ponto-cor-piscante">.</span></h1>
-        
-        <!-- Perfil do desenvolvedor -->
-        <div class="rick-retrato-dev" role="complementary">
-          <img class="contato-retrato-bolinha" src="PROJETO-IMAGENS SITE/HOME/imagens/rick_retrato_bolinha.png" alt="Foto de perfil de Rick Cunha" width="80" height="80">
-          <div class="profile-info">
-            <p class="profile-name">rick</p>
-            <p class="texto-cinza">Desenvolvedor<br>Front-End &<br>Designer<span class="ponto-cor">.</span></p>
-          </div>
-        </div>
-        
-        <p class="texto-cinza p1-5rem experiências-digitais">
-          Ajudo marcas a desenvolver <span class="texto-branco">experiências digitais únicas,</span> pensadas no contexto do mundo digital moderno. Cada detalhe é planejado para provocar uma transformação real e memorável<span class="ponto-cor">.</span>
-        </p>
+  <div class="banner-home animated">
+    <p class="construindo-pontes"><span class="texto-cinza ">Construindo pontes digitais,</span> <br> <span class="texto-bold">pixel a pixel</span><span class="ponto-cor">.</span></p>
+    <h1 class="h1">Desenvolvedor <br>& Designer<span class="ponto-cor-piscante">.</span></h1>
+    <div class="rick-retrato-dev">
+      <img class="contato-retrato-bolinha" src="PROJETO-IMAGENS SITE/HOME/imagens/rick_retrato_bolinha.png" alt="">
+      <div>
+        <p>rick</p>
+        <p class="texto-cinza">Desenvolvedor <br> Front-End & <br> Designer<span class="ponto-cor">.</span></p>
       </div>
-    </section>
+    </div>
+    <p class="texto-cinza p1-5rem experiências-digitais">Ajudo marcas a desenvolver <span class="texto-branco">experiências digitais únicas,</span> pensadas no contexto do mundo digital moderno. Cada detalhe é planejado para provocar uma transformação real e memorável<span class="ponto-cor">.</span> </p>
+  </div>
+  <!-- <img class="imagem-banner-home" src="PROJETO-IMAGENS SITE/HOME/imagens/glasmorfims_imagem.png" alt=""> -->
+  <video class="video-background" autoplay loop muted>
+    <source src="PROJETO-IMAGENS SITE/HOME/imagens/2602527_Abstract_Backgrounds_1920x1080 (1).mp4" type="video/mp4">
+  </video>
 
-    <!-- Vídeo de fundo -->
-    <video class="video-background" autoplay loop muted playsinline aria-hidden="true">
-      <source src="PROJETO-IMAGENS SITE/HOME/imagens/2602527_Abstract_Backgrounds_1920x1080 (1).mp4" type="video/mp4">
-      <p>Vídeo de fundo animado</p>
-    </video>
-
-    <!-- Seção de desenvolvimento -->
-    <section class="section-nome-projeto margin-top-10rem animated" aria-labelledby="desenvolvimento-title">
-      <div class="texto-nome-projeto">
-        <header>
-          <h2 id="desenvolvimento-title" class="nome-section-projeto">DESENVOLVIMENTO<span class="ponto-cor-piscante">.</span></h2>
-        </header>
-        <p class="texto-cinza texto-descricao-projeto">
-          Desenvolvo interfaces modernas, responsivas e otimizadas para desempenho e acessibilidade. Trabalho com foco na experiência do usuário, garantindo que cada detalhe visual funcione de forma fluida e eficiente em múltiplos dispositivos.
-        </p>
+  <div class="section-nome-projeto margin-top-10rem animated">
+  <div class="texto-nome-projeto">
+    <div>
+      <h2 class="nome-section-projeto">DESENVOLVIMENTO<span class="ponto-cor-piscante">.</span></h2>
+      <p class="texto-cinza"></p>
+    </div>
+    <p class="texto-cinza texto-descricao-projeto">Desenvolvo interfaces modernas, responsivas e otimizadas para desempenho e acessibilidade. Trabalho com foco na experiência do usuário, garantindo que cada detalhe visual funcione de forma fluida e eficiente em múltiplos dispositivos.</p>
+  </div>
+    <div class="nome-projeto">
+      <p>Site</p>
+      <p class="texto-cinza-escuro">Desenvolvedor Front-End</p>
+    </div>
+    <a class="hover-projetos" href="portfolio-dev.html">
+      <div class="imagem-projeto">
+        <img class="imagem-interna" src="PROJETO-IMAGENS SITE/HOME/imagens/laptop_mockups_site.png" alt="">
       </div>
-      
-      <article class="projeto-destaque">
-        <div class="nome-projeto">
-          <h3>Site</h3>
-          <p class="texto-cinza-escuro">Desenvolvedor Front-End</p>
-        </div>
-        
-        <a class="hover-projetos" href="portfolio-dev.html" aria-label="Ver projeto de desenvolvimento">
-          <figure class="imagem-projeto">
-            <img class="imagem-interna" src="PROJETO-IMAGENS SITE/HOME/imagens/laptop_mockups_site.png" alt="Mockup de laptop mostrando interface de desenvolvimento web" width="400" height="300">
-          </figure>
-        </a>
-        
-        <div class="botao-direcionamento-centro">
-          <a class="texto-botao-seta" href="portfolio-dev.html" aria-label="Ver principais implementações de desenvolvimento">
-            <span class="texto texto-cinza">Ver principais implementações</span>
-            <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <!-- Seção de marcas -->
-    <section class="section-nome-projeto margin-botton-2rem animated" aria-labelledby="marcas-title">
-      <div class="texto-nome-projeto">
-        <header>
-          <h2 id="marcas-title" class="nome-section-projeto">MARCAS<span class="ponto-cor-piscante">.</span></h2>
-        </header>
-        <p class="texto-cinza texto-descricao-projeto">
-          Desenvolvimento completo de identidade visual: do conceito à execução, com foco em posicionamento estratégico, consistência e diferenciação. Crio marcas que comunicam com clareza e se conectam com seu público.
-        </p>
-      </div>
-      
-      <article class="projeto-destaque">
-        <div class="nome-projeto">
-          <h3>NetExperts</h3>
-          <p class="texto-cinza-escuro">Designer de Marcas / Logo</p>
-        </div>
-        
-        <a class="hover-projetos" href="identidade-visual-netexperts.html" aria-label="Ver projeto NetExperts">
-          <figure class="imagem-projeto-direcionamento">
-            <img class="logo-interno" src="PROJETO-IMAGENS SITE/PORTFOFLIO-PRINCIPAIS/netexperts-logo.svg" alt="Logo da marca NetExperts" width="200" height="100">
-          </figure>
-        </a>
-      </article>
-    </section>
-
-    <!-- Seção Med Center -->
-    <section class="section-nome-projeto margin-top-2rem animated" aria-labelledby="medcenter-title">
-      <article class="projeto-destaque">
-        <div class="nome-projeto">
-          <h3 id="medcenter-title">Med Center</h3>
-          <p class="texto-cinza-escuro">Designer de Marcas / Logo</p>
-        </div>
-        
-        <a class="hover-projetos" href="portfolio_marcas.html" aria-label="Ver projeto Med Center">
-          <figure class="imagem-projeto-direcionamento">
-            <img class="logo-interno" src="PROJETO-IMAGENS SITE/PORTFOFLIO-PRINCIPAIS/2medcenter-logo.svg" alt="Logo da marca Med Center" width="200" height="100">
-          </figure>
-        </a>
-        
-        <div class="botao-direcionamento-centro">
-          <a class="texto-botao-seta" href="portfolio_marcas.html" aria-label="Ver principais marcas desenvolvidas">
-            <span class="texto texto-cinza">Ver principais marcas</span>
-            <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <!-- Seção Key Visual -->
-    <section class="section-nome-projeto margin-top-5rem animated" aria-labelledby="keyvisual-title">
-      <div class="texto-nome-projeto">
-        <header>
-          <h2 id="keyvisual-title" class="nome-section-projeto">KEY VISUAL<span class="ponto-cor-piscante">.</span></h2>
-        </header>
-        <p class="texto-cinza texto-descricao-projeto">
-          Criação do conceito visual central para campanhas, lançamentos e projetos promocionais. Direção de arte estratégica que orienta a produção de peças gráficas, digitais e audiovisuais com unidade visual e alto impacto.
-        </p>
-      </div>
-      
-      <article class="projeto-destaque">
-        <div class="nome-projeto">
-          <h3>Identidade Visual</h3>
-          <p class="texto-cinza-escuro">Campanhas</p>
-        </div>
-        
-        <a class="hover-projetos" href="identidade-visual-kv.html" aria-label="Ver projetos de Key Visual">
-          <figure class="imagem-projeto-direcionamento">
-            <img class="imagem-interna" src="PROJETO-IMAGENS SITE/HOME/imagens/kv_capa.png" alt="Exemplo de Key Visual para campanhas" width="400" height="300">
-          </figure>
-        </a>
-        
-        <div class="botao-direcionamento-centro">
-          <a class="texto-botao-seta" href="identidade-visual-kv.html" aria-label="Ver principais Key Visuals">
-            <span class="texto texto-cinza">Ver principais Key Visuals</span>
-            <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <!-- Seção de postagens -->
-    <section class="section-nome-projeto margin-top-5rem animated" aria-labelledby="postagens-title">
-      <div class="texto-nome-projeto">
-        <header>
-          <h2 id="postagens-title" class="nome-section-projeto">POSTAGENS<span class="ponto-cor-piscante">.</span></h2>
-        </header>
-        <p class="texto-cinza texto-descricao-projeto">
-          Criação de peças visuais para redes sociais com foco em consistência de marca, legibilidade e performance visual. Planejamento gráfico pensado para informar, atrair e gerar valor em ambientes digitais altamente competitivos.
-        </p>
-      </div>
-      
-      <article class="projeto-destaque">
-        <div class="nome-projeto">
-          <h3>Redes Sociais</h3>
-          <p class="texto-cinza">Identidade Visual</p>
-        </div>
-        
-        <a class="hover-projetos" href="identidade-visual-postagens.html" aria-label="Ver projetos de postagens para redes sociais">
-          <figure class="imagem-projeto-direcionamento">
-            <img class="imagem-interna" src="PROJETO-IMAGENS SITE/HOME/imagens/postagens_capa.png" alt="Exemplos de postagens para redes sociais" width="400" height="300">
-          </figure>
-        </a>
-        
-        <div class="botao-direcionamento-centro">
-          <a class="texto-botao-seta" href="identidade-visual-postagens.html" aria-label="Ver principais postagens">
-            <span class="texto texto-cinza">Ver principais postagens</span>
-            <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <!-- Seção de soluções -->
-    <section id="solucoes" class="solucoes animated" aria-labelledby="solucoes-title">
-      <header>
-        <h2 id="solucoes-title" class="nome-section-projeto margin-botton-3rem">SOLUÇÕES<span class="ponto-cor-piscante">.</span></h2>
-      </header>
-      
-      <div class="box-solucoes-flex" role="list">
-        <article class="box-solucoes-dentro" role="listitem">
-          <img class="icone-solucoes" src="PROJETO-IMAGENS SITE/HOME/incones/site_icone.svg" alt="Ícone de website" width="50" height="50">
-          <h3>WebSites & Landing Pages</h3>
-          <p>Codifico interfaces interativas, otimizando a experiência do usuário.</p>
-        </article>
-        
-        <article class="box-solucoes-dentro" role="listitem">
-          <img class="icone-solucoes" src="PROJETO-IMAGENS SITE/HOME/incones/marca_icone.svg" alt="Ícone de marca" width="50" height="50">
-          <h3>Marcas Memoráveis</h3>
-          <p>Desenho identidades visuais únicas, memoráveis e impactantes.</p>
-        </article>
-        
-        <article class="box-solucoes-dentro" role="listitem">
-          <img class="icone-solucoes" src="PROJETO-IMAGENS SITE/HOME/incones/idv_icone.svg" alt="Ícone de identidade visual" width="50" height="50">
-          <h3>Postagens e Key Visuals</h3>
-          <p>Crio postagens e key visuals que conectam marcas ao público com criatividade.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Seção de tecnologias -->
-    <section class="ferramentas animated" aria-labelledby="tecnologias-title">
-      <header>
-        <h3 id="tecnologias-title" class="nome-section-projeto margin-botton-3rem">TECNOLOGIAS<span class="ponto-cor-piscante">.</span></h3>
-      </header>
-      
-      <div class="icones-ferramentas" role="list" aria-label="Tecnologias e ferramentas utilizadas">
-        <img class="icones-pading" title="HTML" src="PROJETO-IMAGENS SITE/HOME/incones/html.svg" alt="HTML5" width="40" height="40" role="listitem">
-        <img class="icones-pading" title="CSS" src="PROJETO-IMAGENS SITE/HOME/incones/css-1.svg" alt="CSS3" width="40" height="40" role="listitem">
-        <img class="icones-pading" title="JavaScript" src="PROJETO-IMAGENS SITE/HOME/incones/javascript.svg" alt="JavaScript" width="40" height="40" role="listitem">
-        <img class="icones-pading" title="GitHub" src="PROJETO-IMAGENS SITE/HOME/incones/gitbesh.svg" alt="GitHub" width="40" height="40" role="listitem">
-        <img class="icones-pading" title="Figma" src="PROJETO-IMAGENS SITE/HOME/incones/figma.svg" alt="Figma" width="40" height="40" role="listitem">
-        <img class="icones-pading" title="Photoshop" src="PROJETO-IMAGENS SITE/HOME/incones/ps.svg" alt="Adobe Photoshop" width="40" height="40" role="listitem">
-        <img class="icones-pading" title="Illustrator" src="PROJETO-IMAGENS SITE/HOME/incones/ilustrator.svg" alt="Adobe Illustrator" width="40" height="40" role="listitem">
-        <img class="icones-pading" title="After Effects" src="PROJETO-IMAGENS SITE/HOME/incones/afeter.svg" alt="Adobe After Effects" width="40" height="40" role="listitem">
-      </div>
-      
-      <div class="botao-direcionamento-topo">
-        <a class="texto-botao-seta" href="#top" aria-label="Voltar ao topo da página">
-          <span class="texto texto-cinza">Voltar ao topo</span>
-          <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    </a>
+    </a>
+    <div class="botao-direcionamento-centro">
+      <a class="texto-botao-seta" href="portfolio-dev.html">
+        <p class="texto texto-cinza">Ver principais implementações</p>
+        <span class="seta-container">
+          <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Rodapé -->
-  <footer class="background-footer" role="contentinfo">
-    <div class="max-width">
-      <!-- Logo do rodapé -->
-      <a href="index.html" class="link-logo-footer" aria-label="Página inicial">
-        <img class="logo-footer" src="PROJETO-IMAGENS SITE/HOME/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick Cunha" width="150" height="50">
+        </span>
       </a>
-      
-      <!-- Redes sociais -->
-      <div class="footer-icones-nav" role="navigation" aria-label="Redes sociais">
-        <a class="icones-bola brilho" href="https://www.linkedin.com/in/ricktcunha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn - Perfil profissional">
-          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Vector.svg" alt="LinkedIn" width="24" height="24">
+    </div>
+
+  </div>
+  <div class="section-nome-projeto margin-botton-2rem animated">
+    <div class="texto-nome-projeto">
+      <div>
+        <h2 class="nome-section-projeto">MARCAS<span class="ponto-cor-piscante">.</span></h2>
+        <p class="texto-cinza"></p>
+      </div>
+      <p class="texto-cinza texto-descricao-projeto">Desenvolvimento completo de identidade visual: do conceito à execução, com foco em posicionamento estratégico, consistência e diferenciação. Crio marcas que comunicam com clareza e se conectam com seu público.</p>
+    </div>
+    <div class="nome-projeto">
+      <p>Nertexperts</p>
+      <p class="texto-cinza-escuro">Designer de Marcas / Logo</p>
+    </div>
+    <a class="hover-projetos" href="identidade-visual-netexperts.html">
+      <div class="imagem-projeto-direcionamento">
+        <img class="logo-interno" src="PROJETO-IMAGENS SITE/PORTFOFLIO-PRINCIPAIS/netexperts-logo.svg" alt="">
+      </div>
+    </a>
+  </div>
+  <div class="section-nome-projeto margin-top-2rem animated">
+    <div class="nome-projeto">
+      <p>Med Center</p>
+      <p class="texto-cinza-escuro">Designer de Marcas / Logo</p>
+    </div>
+    <a class="hover-projetos" href="portfolio_marcas.html">
+      <div class="imagem-projeto-direcionamento">
+        <img class="logo-interno" src="PROJETO-IMAGENS SITE/PORTFOFLIO-PRINCIPAIS/2medcenter-logo.svg" alt="">
+      </div>
+    </a>
+    <div class="botao-direcionamento-centro">
+      <a class="texto-botao-seta" href="portfolio_marcas.html">
+        <p class="texto texto-cinza">Ver principais marcas</p>
+        <span class="seta-container">
+          <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="section-nome-projeto margin-top-5rem animated">
+        <div class="texto-nome-projeto">
+          <div>
+            <h2 class="nome-section-projeto">KEY VISUAL<span class="ponto-cor-piscante">.</span></h2>
+            <p class="texto-cinza-escuroclea"></p>
+          </div>
+          <p class="texto-cinza texto-descricao-projeto">Criação do conceito visual central para campanhas, lançamentos e projetos promocionais. Direção de arte estratégica que orienta a produção de peças gráficas, digitais e audiovisuais com unidade visual e alto impacto.</p>
+        </div>
+    <div class="nome-projeto">
+      <p>Identidade Visual</p>
+      <p class="texto-cinza-escuro">Campanhas</p>
+    </div>
+    <a class="hover-projetos" href="identidade-visual-kv.html">
+      <div class="imagem-projeto-direcionamento">
+        <img class="imagem-interna" src="PROJETO-IMAGENS SITE/HOME/imagens/kv_capa.png" alt="">
+      </div>
+    </a>
+    <div class="botao-direcionamento-centro">
+      <a class="texto-botao-seta" href="identidade-visual-kv.html">
+        <p class="texto texto-cinza">Ver principais Key Visuals</p>
+        <span class="seta-container">
+          <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+  <!-- <div class="section-nome-projeto margin-top-5rem animated">
+      <div class="texto-nome-projeto">
+        <div>
+          <h2 class="nome-section-projeto">VÍDEO<span class="ponto-cor-piscante">.</span></h2>
+          <p class="texto-cinza"></p>
+        </div>
+        <p class="texto-cinza texto-descricao-projeto">Animações institucionais, promocionais e informativas com direção de arte refinada e fluidez narrativa. Também atuo na edição de vídeos, unindo imagem, som e movimento para comunicar com dinamismo, engajar o público e valorizar a mensagem.</p>
+      </div>
+    <div class="nome-projeto">
+      <p>Animação e Edição de Vídeo</p>
+      <p class="texto-cinza-escuro">Motion Design</p>
+    </div>
+    <a class="hover-projetos" href="identidade-visual-motion-design.html">
+      <div class="imagem-projeto-direcionamento">
+        <img class="imagem-interna" src="PROJETO-IMAGENS SITE/PORTFOLIO-motion/Sem-Título-1.png">
+      </div>
+    </a>
+    <div class=" botao-direcionamento-centro">
+      <a class="texto-botao-seta" href="identidade-visual-motion-design.html">
+        <p class="texto texto-cinza">Ver principais vídeos</p>
+        <span class="seta-container">
+          <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div> -->
+  <div class="section-nome-projeto margin-top-5rem animated">
+      <div class="texto-nome-projeto">
+        <div>
+          <h2 class="nome-section-projeto">POSTAGENS<span class="ponto-cor-piscante">.</span></h2>
+          <p class="texto-cinza"></p>
+        </div>
+        <p class="texto-cinza texto-descricao-projeto">Criação de peças visuais para redes sociais com foco em consistência de marca, legibilidade e performance visual. Planejamento gráfico pensado para informar, atrair e gerar valor em ambientes digitais altamente competitivos.</p>
+      </div>
+    <div class="nome-projeto">
+      <p>Redes Sociais</p>
+      <p class="texto-cinza">Identidade Visual</p>
+    </div>
+    <a class="hover-projetos" href="identidade-visual-postagens.html">
+      <div class="imagem-projeto-direcionamento"><img class="imagem-interna" src="PROJETO-IMAGENS SITE/HOME/imagens/postagens_capa.png" alt=""></div>
+    </a>
+    <div class="botao-direcionamento-centro">
+      <a class="texto-botao-seta" href="identidade-visual-postagens.html">
+        <p class="texto texto-cinza">Ver principais postagens</p>
+        <span class="seta-container">
+          <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div id="solucoes" class="solucoes animated">
+    <h2 class="nome-section-projeto margin-botton-3rem">SOLUÇÕES<span class="ponto-cor-piscante">.</span></h2>
+    <div class="box-solucoes-flex">
+      <div class="box-solucoes-dentro">
+        <img class="icone-solucoes" src="PROJETO-IMAGENS SITE/HOME/incones/site_icone.svg" alt="">
+        <h3>WebSites & Landing Pages </h3>
+        <p>Codifico interfaces interativas, otimizando a experiência do usuário.</p>
+      </div>
+      <div class="box-solucoes-dentro">
+        <img class="icone-solucoes" src="PROJETO-IMAGENS SITE/HOME/incones/marca_icone.svg" alt="">
+        <h3>Marcas Memoráveis</h3>
+        <p>Desenho identidades visuais únicas, memoráveis e impactantes.</p>
+      </div>
+      <div class="box-solucoes-dentro">
+        <img class="icone-solucoes" src="PROJETO-IMAGENS SITE/HOME/incones/idv_icone.svg" alt="">
+        <h3>Postagens e Key Visuals</h3>
+        <p>Crio postagens e key visuals que conectam marcas ao público com criatividade.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="ferramentas animated">
+    <h3 class="nome-section-projeto margin-botton-3rem">TECNOLOGIAS<span class="ponto-cor-piscante">.</span></h3>
+    <div class="icones-ferramentas">
+      <img class="icones-pading" title="Html" src="PROJETO-IMAGENS SITE/HOME/incones/html.svg" alt="">
+      <img class="icones-pading" title="CSS" src="PROJETO-IMAGENS SITE/HOME/incones/css-1.svg" alt="">
+      <img class="icones-pading" title="JavaScript" src="PROJETO-IMAGENS SITE/HOME/incones/javascript.svg" alt="">
+      <img class="icones-pading" title="Git Hub" src="PROJETO-IMAGENS SITE/HOME/incones/gitbesh.svg" alt="">
+      <img class="icones-pading" title="Figma" src="PROJETO-IMAGENS SITE/HOME/incones/figma.svg" alt="">
+      <img class="icones-pading" title="Photoshop" src="PROJETO-IMAGENS SITE/HOME/incones/ps.svg" alt="">
+      <img class="icones-pading" title="Illustrator" src="PROJETO-IMAGENS SITE/HOME/incones/ilustrator.svg" alt="">
+      <img class="icones-pading" title="After Effects" src="PROJETO-IMAGENS SITE/HOME/incones/afeter.svg" alt="">
+    </div>
+    <div class="botao-direcionamento-topo">
+      <a class="texto-botao-seta" href="index.html">
+        <p class="texto texto-cinza">Voltar ao topo</p>
+        <span class="seta-container">
+          <svg class="seta-icone" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.620432 9.20794H17.591M17.591 9.20794L10.6967 2.31365M17.591 9.20794L10.6967 16.1022" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+  <footer class="background-footer">
+    <div class="max-width">
+      <a href="index.html" class="link-logo-footer">
+        <img class="logo-footer" src="PROJETO-IMAGENS SITE/HOME/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick">
+      </a>
+      <div class="footer-icones-nav">
+        <a class="icones-bola brilho" href="https://www.linkedin.com/in/ricktcunha/" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Vector.svg" alt="LinkedIn">
         </a>
-        <a class="icones-bola brilho" href="https://www.instagram.com/rick.design.web/" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Portfólio visual">
-          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/instagram.svg" alt="Instagram" width="24" height="24">
+        <a class="icones-bola brilho" href="https://www.instagram.com/rick.design.web/" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/instagram.svg" alt="Instagram">
         </a>
-        <a class="icones-bola brilho" href="https://github.com/ricktcunha" target="_blank" rel="noopener noreferrer" aria-label="GitHub - Código fonte">
-          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/github.svg" alt="GitHub" width="24" height="24">
+        <a class="icones-bola brilho" href="https://github.com/ricktcunha" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/github.svg" alt="Github">
         </a>
-        <a class="icones-bola brilho" href="https://www.behance.net/henriqutavares3" target="_blank" rel="noopener noreferrer" aria-label="Behance - Portfólio de design">
-          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Group.svg" alt="Behance" width="24" height="24">
+        <a class="icones-bola brilho" href="https://www.behance.net/henriqutavares3" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Group.svg" alt="Behance">
         </a>
-        <a class="icones-bola brilho" href="https://www.tiktok.com/@ricktcunha" target="_blank" rel="noopener noreferrer" aria-label="TikTok - Conteúdo criativo">
-          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Group-1.svg" alt="TikTok" width="24" height="24">
+        <a class="icones-bola brilho" href="https://www.tiktok.com/@ricktcunha" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Group-1.svg" alt="TikTok">
         </a>
-        <a class="icones-bola brilho" href="mailto:ricktcunha@gmail.com" aria-label="Enviar email para ricktcunha@gmail.com">
-          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Group-2.svg" alt="Email" width="24" height="24">
+        <a class="icones-bola brilho" href="mailto:ricktcunha@gmail.com" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="PROJETO-IMAGENS SITE/HOME/incones/Group-2.svg" alt="Email">
         </a>
       </div>
-      
-      <!-- Copyright -->
-      <p class="texto-cinza">rick © <time datetime="2025">2025</time> | todos os direitos reservados</p>
-      
-      <!-- Navegação do rodapé -->
-      <nav role="navigation" aria-label="Navegação do rodapé">
+      <p class="texto-cinza">rick © 2025 | todos os direitos reservados</p>
+      <nav>
         <ul class="footer-nav">
-          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="portfolio_principais_trabalhos.html">Portfólio</a></li>
           <li><a href="curriculo.html">Currículo</a></li>
           <li><a href="contato.html">Contato</a></li>
@@ -354,13 +285,11 @@
     </div>
   </footer>
 
-  <!-- Botão WhatsApp -->
-  <a href="https://wa.me/5535997657991" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contatar via WhatsApp">
-    <img src="PROJETO-IMAGENS SITE/HOME/incones/whatsapp-incone.svg" alt="WhatsApp" class="whatsapp-icon" width="24" height="24">
+  <a href="https://wa.me/5535997657991" class="whatsapp-btn" target="_blank">
+    <img src="PROJETO-IMAGENS SITE/HOME/incones/whatsapp-incone.svg" alt="WhatsApp" class="whatsapp-icon">
   </a>
 
-  <!-- Script -->
-  <script type="module" src="javascript/script.js"></script>
+  <script src="javascript/script.js"></script>
 
 </body>
 
