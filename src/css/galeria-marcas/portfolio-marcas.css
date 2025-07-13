@@ -1,0 +1,28 @@
+.galeria {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr); 
+}
+
+.galeria img {
+  object-fit: cover; 
+  aspect-ratio: 1 / 1;
+}
+
+.galeria img:hover {
+  transform: scale(1.01); 
+  /* box-shadow: 0 0 90rem 4px rgba(140, 62, 239, 0.3); */
+  border: 2px solid var(--p-03);
+}
+
+.galeria img:nth-child(3n+1) {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+/* Estiliza as duas últimas imagens */
+.galeria img:nth-last-child(1),
+.galeria img:nth-last-child(2) {
+  grid-column: span 2; /* Faz as imagens ocuparem toda a largura */
+  aspect-ratio: auto; /* Remove a proporção quadrada */
+}

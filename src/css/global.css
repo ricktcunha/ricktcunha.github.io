@@ -1,0 +1,83 @@
+/* Tema escuro (padrão) */
+:root {
+  --p-01: #8c3eef;
+  --p-02: #aa88ff;
+  --p-03: #5f3c8b;
+  --c-01: #000000;
+  --c-02: #0b0b0b;
+  --c-03: #141414;
+  --c-04: #444444;
+  --c-05: #a3a3a3;
+  --c-06: #e4e4e4;
+  --c-07: #f0f0f0;
+  --c-08: #ffffff;
+  --c-09: #ffffff;
+}
+
+/* Tema claro */
+.light-theme {
+  --p-01: #5f3c8b;
+  --p-02: #8c3eef;
+  --p-03: #aa88ff;
+  --c-01: #ffffff;
+  --c-02: #f0f0f0;
+  --c-03: #e4e4e4;
+  --c-04: #a3a3a3;
+  --c-05: #444444;
+  --c-06: #141414;
+  --c-07: #0b0b0b;
+  --c-08: #0b0b0b;
+  --c-09: #000000;
+}
+
+/* Transições suaves para mudança de tema */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+  font-family: "syne", Arial, Helvetica, sans-serif;
+  margin: 0px;
+  background-color: var(--c-09);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  margin: 0px;
+  text-decoration: none;
+  color: var(--c-02);
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remover a aparência das barras de rolagem em toda a página */
+html, body {
+  overflow: scroll; /* Permite a rolagem */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Esconde a barra de rolagem no Chrome, Safari e outros navegadores baseados no WebKit */
+}
+
+/* Para navegadores Firefox */
+body {
+  scrollbar-width: none; /* Esconde a barra de rolagem */
+}
+
+
+

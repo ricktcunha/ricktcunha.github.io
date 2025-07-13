@@ -1,0 +1,152 @@
+.h1 {
+  font-size: 6rem;
+  text-transform: uppercase;
+  justify-self: end;
+  font-weight: lighter;
+}
+
+.nome-section-projeto {
+  font-size: 3rem;
+}
+
+.box-solucoes-dentro h3 {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.p1-5rem {
+  font-size: 1.5rem;
+}
+
+.nome-projeto p {
+  font-size: 1.3rem;
+  padding: 2rem 0;
+}
+
+.texto-descricao-projeto {
+  font-size: 1.3rem;
+}
+
+.box-solucoes-dentro p {
+  font-size: 1.2rem;
+  font-weight: lighter;
+  color: var(--c-04);
+}
+
+.construindo-pontes {
+  font-size: 1.2rem;
+  padding-top: 1.5rem;
+}
+
+.conteudo-descricao-curriculo h3 {
+  font-size: 1.3rem;
+}
+
+.conteudo-descricao-curriculo p {
+  font-size: 1.2rem;
+  align-self: self-end;
+}
+
+.nome-esperiencia {
+  font-size: 1.2rem;
+}
+
+.texto-curriculo h2 {
+  font-size: 4rem;
+}
+
+.texto-curriculo p {
+  font-size: 1.5rem;
+}
+
+.conteudo-descricao-curriculo {
+  font-size: 1.3rem;
+}
+
+.titulo-sesao-curriculo {
+  font-size: 1.5rem;
+  color: var(--p-01);
+  font-weight: bold;
+}
+
+.descricao-sesao-curriculo {
+  font-size: 1.3rem;
+}
+
+.info-rodape {
+  font-size: 0.9rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.nao-quebrar {
+  white-space: nowrap;
+}
+
+/* Responsividade */
+@media (max-width: 1300px) {
+  .h1 {
+    font-size: 4rem;
+  }
+  .p1-5rem {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .p1-5rem {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .h1 {
+    font-size: 3rem;
+  }
+  .conteudo-descricao-curriculo h3 {
+    font-size: 1rem;
+  }
+  .conteudo-descricao-curriculo p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .h1 {
+    font-size: 2rem;
+  }
+  .nome-section-projeto {
+    font-size: 2rem;
+  }
+
+  .nome-section-projeto {
+    margin: 5rem 0rem 0rem 0rem !important;
+  }
+
+  .box-solucoes-dentro h3 {
+    font-size: 1.5em;
+  }
+  .rick-retrato-dev {
+    display: none;
+  }
+  .nome-projeto p {
+    font-size: 1.3rem;
+  }
+  .conteudo-descricao-curriculo {
+    font-size: 1rem;
+  }
+  .info-rodape {
+    font-size: 0.7rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  body p,
+  a {
+    font-size: 90% !important;
+  }
+  body h1,
+  h2 {
+    font-size: 2rem !important;
+  }
+}

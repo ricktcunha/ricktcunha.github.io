@@ -1,0 +1,100 @@
+.texto-cinza {
+  color: var(--c-04);
+}
+
+.texto-cinza-escuro {
+  color: var(--c-05);
+}
+.texto-branco {
+  color: var(--c-01);
+}
+
+.texto-bold {
+  font-weight: 700;
+}
+.ponto-cor {
+  color: var(--p-01);
+}
+
+.ponto-cor-piscante {
+  color: var(--p-01);
+  animation: piscar 1.5s infinite alternate; /* Animação de piscar */
+}
+
+
+/* Define a animação 'piscar' */
+@keyframes piscar {
+  0% {
+    opacity: 1; /* Totalmente visível */
+  }
+  50% {
+    opacity: 0.2; /* Meio visível */
+  }
+  100% {
+    opacity: 1; /* Totalmente visível novamente */
+  }
+}
+
+.margin-top-10rem {
+  margin-top: 10rem !important;
+}
+
+.margin-top-5rem {
+  margin-top: 5rem !important;
+}
+
+.margin-top-3rem {
+  margin-top: 3rem !important;
+}
+
+.margin-botton-2rem {
+  margin-bottom: 2rem !important;
+}
+
+.margin-botton-0-5rem {
+  margin-bottom: 0.5rem !important;
+}
+
+.margin-botton-3rem {
+  margin-bottom: 3rem !important;
+}
+
+.margin-botton-1rem {
+  margin-bottom: 1rem !important;
+}
+
+.margin-botton-10rem {
+  margin-bottom: 0rem !important;
+}
+
+.margin-botton-10rem {
+  margin-bottom: 10rem !important;
+}
+
+.margin-top-2rem {
+  margin-top: 2rem !important;
+}
+
+.brilho img {
+  transition: 0.5s;
+}
+
+.brilho img:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 20px rgba(140, 62, 239, 0.7));
+}
+.brilho-retrato img {
+  transition: 0.5s;
+}
+
+.brilho-retrato img:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 20px rgba(140, 62, 239, 0.7));
+}
+
+@media (max-width: 1000px) {
+  .margin-top-5rem {
+    margin-top: 2rem !important;
+  }
+}
+
