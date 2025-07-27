@@ -12,13 +12,13 @@
   "categories": ["business", "productivity", "design"],
   "icons": [
     {
-      "src": "assets/home/logos/rick_logo_branco_detalhe.svg",
+      "src": "public/assets/home/logos/rick_logo_branco_detalhe.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "favicon.svg",
+      "src": "public/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
@@ -32,7 +32,7 @@
       "url": "/portfolio.html",
       "icons": [
         {
-          "src": "assets/home/icons/site_icone.svg",
+          "src": "public/assets/home/icons/site_icone.svg",
           "sizes": "96x96"
         }
       ]
@@ -44,7 +44,7 @@
       "url": "/contato.html",
       "icons": [
         {
-          "src": "assets/home/icons/whatsapp.svg",
+          "src": "public/assets/home/icons/whatsapp.svg",
           "sizes": "96x96"
         }
       ]
@@ -56,7 +56,7 @@
       "url": "/cv.html",
       "icons": [
         {
-          "src": "assets/home/icons/marca_icone.svg",
+          "src": "public/assets/home/icons/marca_icone.svg",
           "sizes": "96x96"
         }
       ]
@@ -64,7 +64,7 @@
   ],
   "screenshots": [
     {
-      "src": "assets/home/images/laptop_mockups_site.png",
+      "src": "public/assets/home/images/laptop_mockups_site.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",

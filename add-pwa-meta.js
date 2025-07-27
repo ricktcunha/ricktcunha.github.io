@@ -6,26 +6,26 @@ const path = require('path');
 // Configurações
 const HTML_FILES = [
   'index.html',
-  'contato.html',
-  'cv.html',
-  'design.html',
-  'dev.html',
-  'dev-adubos-real.html',
-  'dev-mandu-cultural.html',
-  'dev-rick.html',
-  'idv.html',
-  'idv-campotech.html',
-  'idv-fernanda.html',
-  'idv-lotus.html',
-  'idv-medcenter.html',
-  'idv-netexperts.html',
-  'idv-ourotexas.html',
-  'idv-rick.html',
-  'idv-vinca.html',
-  'kv.html',
-  'motion-design.html',
-  'portfolio.html',
-  'postagens.html'
+  'pages/contato.html',
+  'pages/cv.html',
+  'pages/design.html',
+  'pages/dev.html',
+  'pages/dev/dev-adubos-real.html',
+  'pages/dev/dev-mandu-cultural.html',
+  'pages/dev/dev-rick.html',
+  'pages/idv.html',
+  'pages/idv/idv-campotech.html',
+  'pages/idv/idv-fernanda.html',
+  'pages/idv/idv-lotus.html',
+  'pages/idv/idv-medcenter.html',
+  'pages/idv/idv-netexperts.html',
+  'pages/idv/idv-ourotexas.html',
+  'pages/idv/idv-rick.html',
+  'pages/idv/idv-vinca.html',
+  'pages/kv.html',
+  'pages/motion-design.html',
+  'pages/portfolio.html',
+  'pages/postagens.html'
 ];
 
 // Meta tags PWA para adicionar
@@ -38,8 +38,8 @@ const PWA_META_TAGS = `
   <meta name="application-name" content="Rick Portfolio">
   <meta name="msapplication-TileColor" content="#8c3eef">
   <meta name="msapplication-tap-highlight" content="no">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="assets/home/logos/rick_logo_branco_detalhe.svg">
+  <link rel="manifest" href="/public/manifest.json">
+  <link rel="apple-touch-icon" href="public/assets/home/logos/rick_logo_branco_detalhe.svg">
 `;
 
 // Função para adicionar meta tags PWA
