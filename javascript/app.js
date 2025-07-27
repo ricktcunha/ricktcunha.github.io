@@ -16,6 +16,7 @@ import {
 } from './animations.js';
 import { initializeLightbox } from './lightbox.js';
 import { initializeLoadingScreen } from './loading.js';
+import { initializeUXEnhancements } from './ux-enhancements.js';
 
 /**
  * Inicializa todos os módulos da aplicação
@@ -39,6 +40,9 @@ export async function initializeApp() {
     initializeCustomCursor();
     initializeLightbox();
     
+    // Inicializa melhorias de UX
+    initializeUXEnhancements();
+    
     console.log('✅ Aplicação inicializada com sucesso!');
     
     // Log de informações úteis
@@ -58,8 +62,11 @@ function logAppInfo() {
     'Elementos animados': document.querySelectorAll('.animated').length,
     'Imagens no lightbox': document.querySelectorAll('.imagem-projeto, .imagem-projeto-galeria').length,
     'Links de navegação': document.querySelectorAll('a').length,
-    'Versão': '2.1.0',
-    'Modular': true
+    'Elementos parallax': 'Desabilitado',
+    'Imagens lazy loading': document.querySelectorAll('img[data-src]').length,
+    'Versão': '2.2.0',
+    'Modular': true,
+    'UX Enhancements': true
   };
   
   console.table(info);

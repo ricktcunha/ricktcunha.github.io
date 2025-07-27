@@ -105,7 +105,7 @@ body {
 
 @media (max-width: 500px) {
   .loading-logo {
-    width: 5rem;
+    width: 4rem;
   }
   
   .loading-spinner {
@@ -122,13 +122,89 @@ body {
   }
 }
 
-/* Estilo do cursor com glow */
+/* Progress Bar de Leitura */
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--p-01), #ff6b6b, #4ecdc4);
+  z-index: 9999;
+  transition: width 0.1s ease;
+  box-shadow: 0 2px 10px rgba(140, 62, 239, 0.3);
+}
+
+/* Scroll Suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desabilita scroll suave em mobile para melhor performance */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+
+/* Lazy Loading */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Touch Gestures */
+.touch-gesture-area {
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Otimizações para mobile */
+@media (max-width: 768px) {
+  /* Melhora performance de scroll em mobile */
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+  
+  /* Desabilita algumas animações em mobile para melhor performance */
+  .animated {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Otimiza progress bar em mobile */
+  .reading-progress-bar {
+    height: 2px;
+  }
+}
+
+/* Navegação por Teclado */
+.keyboard-navigation *:focus {
+  outline: 2px solid var(--p-01);
+  outline-offset: 2px;
+}
+
+/* ARIA Labels e Roles */
+[role="button"]:focus,
+[role="link"]:focus {
+  outline: 2px solid var(--p-01);
+  outline-offset: 2px;
+}
+
+
+
+/* Custom Cursor */
 .custom-cursor {
   position: fixed;
   width: 0.5rem;
   height: 0.5rem;
-  border-radius: 50%;
   background-color: var(--p-02);
+  border-radius: 50%;
   pointer-events: none;
   /* Impede interação com o cursor */
   transform: translate(-50%, -50%);
@@ -148,16 +224,23 @@ body {
   /* Mais brilho, mas com leveza */
 }
 
-/* Animação de entrada ao rolar */
+/* Animações */
 .animated {
   opacity: 0;
-  transform: translateY(50px) scale(0.95); /* Inicialmente deslocado e reduzido */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .animated.in-view {
   opacity: 1;
-  transform: translateY(0) scale(1); /* Volta ao normal */
+  transform: translateY(0);
+}
+
+/* Links e Interações */
+a,
+button,
+[role="button"] {
+  transition: all 0.3s ease;
 }
 
 /* Remove a mãozinha do cursor ao passar sobre links e botões */
@@ -166,66 +249,50 @@ button {
   cursor: none; /* Impede que a mãozinha apareça */
 }
 
-/* Lightbox (Fundo escuro) */
+/* Lightbox */
 #lightbox {
-  display: none; /* Inicialmente invisível */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0); /* Inicialmente transparente */
-  z-index: 9998; /* Fundo do lightbox tem z-index um pouco mais baixo */
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s ease, background 0.3s ease; /* Transição suave para opacidade e fundo */
-  opacity: 0; /* Inicialmente invisível */
-  border: none;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Para exibir o lightbox quando ele estiver aberto */
 #lightbox.open {
   display: flex;
-  opacity: 1; /* Torna o fundo visível */
-  background: rgba(0, 0, 0, 0.8); /* Escurece o fundo */
+  opacity: 1;
 }
 
 #lightbox .imagem-projeto {
-  width: auto;
-  height: auto;
-  margin: 0 auto; /* Centraliza a imagem */
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
-  border-radius: 0.5;
+  border-radius: 8px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
 }
 
-/* Imagem dentro do lightbox */
 #lightbox img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: scale(0.8); /* Inicia a imagem com escala reduzida */
-  opacity: 0;
-  z-index: 9997;
-  border: none;
-  border-radius: 0.5rem;
-}
-
-/* Imagem da postagem no lightbox */
-#lightbox img.postagem.open {
-  transform: scale(1.6); /* Expande 20% */
-  opacity: 1;
-  border-radius: 0.5rem;
-}
-
-/* Imagem do projeto no lightbox */
-#lightbox img.imagem-projeto.open {
-  transform: scale(1.1); /* Mantém o tamanho proporcional */
-  opacity: 1;
   object-fit: contain;
-  border-radius: 0.5;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+#lightbox img.postagem.open,
+#lightbox img.imagem-projeto.open {
+  transform: scale(1);
+}
+
+/* Responsividade do Lightbox */
 @media (max-width: 1100px) {
   .custom-cursor {
     display: none;

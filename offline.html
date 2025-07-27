@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - Rick Portfolio</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="favicon.svg" type="image/x-icon">
+  <style>
+    .offline-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: var(--c-09);
+      color: var(--c-02);
+    }
+    
+    .offline-logo {
+      width: 8rem;
+      height: auto;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+    
+    .offline-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--p-01);
+    }
+    
+    .offline-message {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+    
+    .offline-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .offline-btn {
+      padding: 12px 24px;
+      background: var(--p-01);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .offline-btn:hover {
+      background: var(--p-02);
+      transform: translateY(-2px);
+    }
+    
+    .offline-btn.secondary {
+      background: transparent;
+      border: 2px solid var(--p-01);
+      color: var(--p-01);
+    }
+    
+    .offline-btn.secondary:hover {
+      background: var(--p-01);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .offline-title {
+        font-size: 2rem;
+      }
+      
+      .offline-message {
+        font-size: 1rem;
+      }
+      
+      .offline-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <img src="assets/home/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick" class="offline-logo">
+    
+    <h1 class="offline-title">Você está offline</h1>
+    
+    <p class="offline-message">
+      Parece que você perdeu a conexão com a internet. 
+      Algumas funcionalidades podem não estar disponíveis no momento.
+    </p>
+    
+    <div class="offline-actions">
+      <button class="offline-btn" onclick="window.location.reload()">
+        Tentar Novamente
+      </button>
+      
+      <button class="offline-btn secondary" onclick="checkConnection()">
+        Verificar Conexão
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function checkConnection() {
+      if (navigator.onLine) {
+        window.location.reload();
+      } else {
+        alert('Ainda sem conexão com a internet. Verifique sua rede e tente novamente.');
+      }
+    }
+    
+    // Monitora mudanças na conectividade
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+    
+    // Tenta recarregar automaticamente quando a conexão voltar
+    setInterval(() => {
+      if (navigator.onLine) {
+        window.location.reload();
+      }
+    }, 5000);
+  </script>
+</body>
+</html> 
