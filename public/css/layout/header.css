@@ -33,35 +33,14 @@
   filter: drop-shadow(0 0 15px var(--p-02));
 }
 
-/* Estilo do ícone de hambúrguer */
+/* Estilo do ícone de hambúrguer - Simplificado para o novo menu */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 4px;
   cursor: pointer;
   justify-self: end;
-  z-index: 2; /* Garante que o ícone fique acima do menu */
-}
-
-.hamburger .line {
-  width: 30px;
-  height: 2px;
-  background-color: var(--c-02);
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
-}
-
-/* Transformação do ícone de hambúrguer para "X" */
-.hamburger.active .line:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.hamburger.active .line:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .line:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  z-index: 2;
 }
 
 /* Estilo dos links */
@@ -98,47 +77,13 @@
 
 /* Estilos para a versão mobile */
 @media (max-width: 768px) {
-  .header-menu a {
-    padding: 1.5rem 0rem;
-    margin: 0rem;
-    text-decoration: none;
-    color: var(--c-02);
-    font-size: 1rem;
-    transition: color 0.3s ease;
-    gap: 0rem;
-  }
   .header-menu {
-    max-height: 0;
-    width: 12rem;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: var(--c-07);
-    z-index: 3;
-    transition: 0.5s;
-    position: relative; /* Mudei para relative */
+    display: none !important; /* Esconde o menu antigo */
   }
-  .header-menu.active {
-    max-height: 400px; /* Ajuste a altura para exibir o menu completo */
-    width: 12rem;
-    margin-top: 2rem;
-    padding: 2rem 1rem;
-    border: 1px solid var(--p-03);
-    border-radius: 0.5rem;
-    gap: 0rem;
-    filter: drop-shadow(0 0 30px rgba(140, 62, 239, 0.3));
-  }
-  .header-menu.active a {
-    margin: 0rem;
-    padding: 1.5rem 1rem;
-  }
+  
   .hamburger {
     display: flex;
     align-items: center;
-  }
-
-  .header-menu {
-    gap: 2rem;
   }
 }
 
@@ -149,7 +94,4 @@
   }
 }
 
-/* Ajustes no hambúrguer quando ativo */
-.hamburger.active .line {
-  background-color: var(--p-02);
-}
+

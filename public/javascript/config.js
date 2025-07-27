@@ -48,5 +48,6 @@ export const CONFIG = {
 export const APP_STATE = {
   currentImage: null,
   isLightboxOpen: false,
-  isMenuOpen: false
+  isMenuOpen: false,
+  scrollPosition: undefined
 }; 

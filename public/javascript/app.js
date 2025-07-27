@@ -10,6 +10,7 @@ import {
   initializeNavigationEffects, 
   initializeMenuOutsideClick 
 } from './navigation.js';
+import { initializeAppleMenu } from './apple-menu.js';
 import { 
   initializeAnimations, 
   initializeCustomCursor 
@@ -18,6 +19,7 @@ import { initializeLightbox } from './lightbox.js';
 import { initializeLoadingScreen } from './loading.js';
 import { initializeUXEnhancements } from './ux-enhancements.js';
 import { initializeNavigationDots, cleanupNavigationDots } from './navigation-dots.js';
+import { cleanupAppleMenu } from './apple-menu.js';
 
 /**
  * Inicializa todos os módulos da aplicação
@@ -37,6 +39,7 @@ export async function initializeApp() {
     initializeHamburgerMenu();
     initializeNavigationEffects();
     initializeMenuOutsideClick();
+    initializeAppleMenu();
     initializeAnimations();
     initializeCustomCursor();
     initializeLightbox();
@@ -85,6 +88,7 @@ function logAppInfo() {
 export function cleanup() {
   // Remove event listeners se necessário
   cleanupNavigationDots();
+  cleanupAppleMenu();
   console.log('🧹 Limpeza da aplicação realizada');
 }
 
