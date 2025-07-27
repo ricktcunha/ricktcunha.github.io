@@ -147,6 +147,25 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  outline: none !important; /* Remove outline */
+}
+
+/* Remove outline do focus para links do menu */
+.menu-items a:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove outline do focus para botão de fechar */
+.menu-close:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove outline do focus para hambúrguer */
+.hamburger:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Efeito hover nos links */
@@ -264,6 +283,23 @@
   .hamburger {
     display: flex;
   }
+}
+
+/* Sobrescreve regras globais de focus para o menu hambúrguer */
+.menu-overlay *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.menu-overlay .keyboard-navigation *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.menu-overlay [role="button"]:focus,
+.menu-overlay [role="link"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Animações de entrada e saída */
