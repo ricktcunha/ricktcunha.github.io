@@ -53,10 +53,17 @@ export function initializeCustomCursor() {
   DOM_CACHE.hoverElements.forEach((element) => {
     element.addEventListener("mouseenter", () => {
       addClass(DOM_CACHE.cursor, CONFIG.CLASSES.CURSOR_HOVER);
+      
+      // Efeito específico para dots de navegação
+      if (element.classList.contains('dot')) {
+        addClass(DOM_CACHE.cursor, 'navigation-dot-hover');
+        console.log('🎯 Dot de navegação detectado - cursor personalizado ativo');
+      }
     });
     
     element.addEventListener("mouseleave", () => {
       removeClass(DOM_CACHE.cursor, CONFIG.CLASSES.CURSOR_HOVER);
+      removeClass(DOM_CACHE.cursor, 'navigation-dot-hover');
     });
   });
   

@@ -224,6 +224,13 @@ html {
   /* Mais brilho, mas com leveza */
 }
 
+/* Efeito específico para dots de navegação */
+.custom-cursor-hover.navigation-dot-hover {
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: var(--p-01);
+  box-shadow: 0 0 80px 15px rgba(140, 62, 239, 0.8);
+}
+
 /* Animações */
 .animated {
   opacity: 0;

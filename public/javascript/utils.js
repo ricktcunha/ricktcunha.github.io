@@ -38,6 +38,9 @@ export function initializeDOMCache() {
   DOM_CACHE.images = document.querySelectorAll(CONFIG.SELECTORS.IMAGES);
   DOM_CACHE.hoverElements = document.querySelectorAll(CONFIG.SELECTORS.HOVER_ELEMENTS);
   DOM_CACHE.loadingScreen = document.querySelector(CONFIG.SELECTORS.LOADING_SCREEN);
+  
+  // Log para debug
+  console.log(`🔍 Cache DOM inicializado: ${DOM_CACHE.hoverElements.length} elementos de hover encontrados`);
 }
 
 /**

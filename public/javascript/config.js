@@ -26,7 +26,7 @@ export const CONFIG = {
     LIGHTBOX_IMAGE: "#lightbox img",
     ANIMATED: ".animated",
     IMAGES: ".imagem-projeto, .imagem-projeto-galeria",
-    HOVER_ELEMENTS: "a, button",
+    HOVER_ELEMENTS: "a, button, .navigation-dots .dot",
     LOADING_SCREEN: "#loading-screen"
   },
   

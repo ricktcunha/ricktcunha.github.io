@@ -17,6 +17,7 @@ import {
 import { initializeLightbox } from './lightbox.js';
 import { initializeLoadingScreen } from './loading.js';
 import { initializeUXEnhancements } from './ux-enhancements.js';
+import { initializeNavigationDots, cleanupNavigationDots } from './navigation-dots.js';
 
 /**
  * Inicializa todos os módulos da aplicação
@@ -39,6 +40,11 @@ export async function initializeApp() {
     initializeAnimations();
     initializeCustomCursor();
     initializeLightbox();
+    
+    // Inicializa dots de navegação
+    setTimeout(() => {
+      initializeNavigationDots();
+    }, 500);
     
     // Inicializa melhorias de UX
     initializeUXEnhancements();
@@ -78,6 +84,7 @@ function logAppInfo() {
  */
 export function cleanup() {
   // Remove event listeners se necessário
+  cleanupNavigationDots();
   console.log('🧹 Limpeza da aplicação realizada');
 }
 
