@@ -140,7 +140,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   body p,
   a {
     font-size: 90% !important;

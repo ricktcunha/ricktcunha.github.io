@@ -5,7 +5,7 @@
   margin-bottom: 4rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .texto-nome-projeto {
     display: flex;
     flex-wrap: wrap;
