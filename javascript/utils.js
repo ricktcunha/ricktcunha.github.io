@@ -19,7 +19,8 @@ export const DOM_CACHE = {
   lightboxImage: null,
   animatedElements: null,
   images: null,
-  hoverElements: null
+  hoverElements: null,
+  loadingScreen: null
 };
 
 /**
@@ -36,6 +37,7 @@ export function initializeDOMCache() {
   DOM_CACHE.animatedElements = document.querySelectorAll(CONFIG.SELECTORS.ANIMATED);
   DOM_CACHE.images = document.querySelectorAll(CONFIG.SELECTORS.IMAGES);
   DOM_CACHE.hoverElements = document.querySelectorAll(CONFIG.SELECTORS.HOVER_ELEMENTS);
+  DOM_CACHE.loadingScreen = document.querySelector(CONFIG.SELECTORS.LOADING_SCREEN);
 }
 
 /**

@@ -1,8 +1,8 @@
 // ==============================================
 // MÓDULO: Aplicação Principal
 // ==============================================
-// Versão: 1.0.0
-// Descrição: Ponto de entrada e inicialização da aplicação
+// Versão: 1.1.0
+// Descrição: Ponto de entrada e inicialização da aplicação (fade removido)
 
 import { initializeDOMCache } from './utils.js';
 import { 
@@ -15,6 +15,7 @@ import {
   initializeCustomCursor 
 } from './animations.js';
 import { initializeLightbox } from './lightbox.js';
+import { initializeLoadingScreen } from './loading.js';
 
 /**
  * Inicializa todos os módulos da aplicação
@@ -26,6 +27,9 @@ export async function initializeApp() {
     
     // Inicializa cache DOM primeiro
     initializeDOMCache();
+    
+    // Aguarda a tela de loading terminar
+    await initializeLoadingScreen();
     
     // Inicializa módulos principais
     initializeHamburgerMenu();
@@ -54,7 +58,7 @@ function logAppInfo() {
     'Elementos animados': document.querySelectorAll('.animated').length,
     'Imagens no lightbox': document.querySelectorAll('.imagem-projeto, .imagem-projeto-galeria').length,
     'Links de navegação': document.querySelectorAll('a').length,
-    'Versão': '2.0.0',
+    'Versão': '2.1.0',
     'Modular': true
   };
   

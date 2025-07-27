@@ -1,8 +1,8 @@
 // ==============================================
 // MÓDULO: Animações e Efeitos Visuais
 // ==============================================
-// Versão: 1.0.0
-// Descrição: Gerencia animações de scroll e cursor customizado
+// Versão: 1.1.0
+// Descrição: Gerencia animações de scroll e cursor customizado (fade removido)
 
 import { CONFIG } from './config.js';
 import { DOM_CACHE, isElementInViewport, debounce, toggleClass, addClass, removeClass } from './utils.js';
@@ -74,49 +74,6 @@ function updateCursorPosition(e) {
 }
 
 /**
- * Adiciona efeito de fade-in a um elemento
- * @param {Element} element - Elemento alvo
- * @param {number} delay - Delay em ms
- * @returns {Promise<void>}
- */
-export function fadeInElement(element, delay = 0) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      addClass(element, CONFIG.CLASSES.FADE_IN);
-      resolve();
-    }, delay);
-  });
-}
-
-/**
- * Adiciona efeito de fade-out a um elemento
- * @param {Element} element - Elemento alvo
- * @param {number} delay - Delay em ms
- * @returns {Promise<void>}
- */
-export function fadeOutElement(element, delay = 0) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      addClass(element, CONFIG.CLASSES.FADE_OUT);
-      resolve();
-    }, delay);
-  });
-}
-
-/**
- * Anima elementos sequencialmente
- * @param {Element[]} elements - Array de elementos
- * @param {number} staggerDelay - Delay entre cada elemento
- * @returns {Promise<void>}
- */
-export function staggerAnimation(elements, staggerDelay = 100) {
-  return new Promise((resolve) => {
-    elements.forEach((element, index) => {
-      setTimeout(() => {
-        addClass(element, CONFIG.CLASSES.FADE_IN);
-      }, index * staggerDelay);
-    });
-    
-    setTimeout(resolve, elements.length * staggerDelay);
-  });
-} 
+ * Funções de fade removidas para melhor performance
+ * As animações de fade in/out foram desabilitadas
+ */ 

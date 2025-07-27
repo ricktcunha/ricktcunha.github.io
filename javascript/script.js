@@ -1,7 +1,7 @@
 // ==============================================
 // PORTFÓLIO RICK - SCRIPT PRINCIPAL
 // ==============================================
-// Versão: 2.0.0 - Modular
+// Versão: 2.1.0 - Modular (fade removido)
 // Autor: Rick Cunha
 // Descrição: Script principal que carrega todos os módulos
 

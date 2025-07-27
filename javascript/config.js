@@ -1,8 +1,8 @@
 // ==============================================
 // MÓDULO: Configurações Globais
 // ==============================================
-// Versão: 1.0.0
-// Descrição: Configurações centralizadas da aplicação
+// Versão: 1.1.0
+// Descrição: Configurações centralizadas da aplicação (fade removido)
 
 /**
  * Configurações globais da aplicação
@@ -10,7 +10,6 @@
  */
 export const CONFIG = {
   // Animações
-  ANIMATION_DELAY: 800,
   SCROLL_OFFSET: 100,
   LIGHTBOX_TIMEOUT: 300,
   LIGHTBOX_EXPAND_DELAY: 10,
@@ -27,14 +26,13 @@ export const CONFIG = {
     LIGHTBOX_IMAGE: "#lightbox img",
     ANIMATED: ".animated",
     IMAGES: ".imagem-projeto, .imagem-projeto-galeria",
-    HOVER_ELEMENTS: "a, button"
+    HOVER_ELEMENTS: "a, button",
+    LOADING_SCREEN: "#loading-screen"
   },
   
   // Classes CSS
   CLASSES: {
     ACTIVE: "active",
-    FADE_IN: "fade-in",
-    FADE_OUT: "fade-out",
     IN_VIEW: "in-view",
     CURSOR_HOVER: "custom-cursor-hover",
     LIGHTBOX_OPEN: "open",

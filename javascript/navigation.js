@@ -1,8 +1,8 @@
 // ==============================================
 // MÓDULO: Navegação e Menu
 // ==============================================
-// Versão: 1.0.0
-// Descrição: Gerencia menu hambúrguer e efeitos de navegação
+// Versão: 1.1.0
+// Descrição: Gerencia menu hambúrguer e navegação (fade removido)
 
 import { CONFIG, APP_STATE } from './config.js';
 import { DOM_CACHE, addClass, isInternalNavigation } from './utils.js';
@@ -43,17 +43,12 @@ export function closeMenu() {
 }
 
 /**
- * Gerencia efeitos de fade na navegação
+ * Gerencia efeitos de navegação
  * @returns {void}
  */
 export function initializeNavigationEffects() {
-  // Adiciona fade-in ao carregar a página
-  addClass(DOM_CACHE.body, CONFIG.CLASSES.FADE_IN);
-
-  // Gerencia fade-out nos links
-  document.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", handleLinkClick);
-  });
+  // Removido efeitos de fade para melhor performance
+  console.log('Efeitos de fade removidos da navegação');
 }
 
 /**
@@ -67,17 +62,13 @@ function handleLinkClick(e) {
   // Ignora âncoras internas e links externos
   if (isInternalNavigation(link)) return;
 
-  e.preventDefault();
-  addClass(DOM_CACHE.body, CONFIG.CLASSES.FADE_OUT);
-  
   // Fecha o menu se estiver aberto
   if (APP_STATE.isMenuOpen) {
     closeMenu();
   }
   
-  setTimeout(() => {
-    window.location.href = link.getAttribute("href");
-  }, CONFIG.ANIMATION_DELAY);
+  // Navegação direta sem fade
+  window.location.href = link.getAttribute("href");
 }
 
 /**
