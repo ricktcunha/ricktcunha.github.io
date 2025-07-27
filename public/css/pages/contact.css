@@ -105,7 +105,7 @@
 
 /* Whatsapp */
 .whatsapp::before {
-  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/whatsapp.svg");
+  background-image: url("../../assets/home/icons/incones-contato/whatsapp.svg");
   background-size: 2.5rem 2.5rem;
   transition: 0.5s;
 }
@@ -116,7 +116,7 @@
 
 /* Email */
 .email::before {
-  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/email.svg");
+  background-image: url("../../assets/home/icons/incones-contato/email.svg");
   background-size: 2.5rem 2.5rem;
   transition: 0.5s;
 }
@@ -127,7 +127,7 @@
 
 /* Site */
 .site::before {
-  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/web.svg");
+  background-image: url("../../assets/home/icons/incones-contato/web.svg");
   background-size: 2.5rem 2.5rem;
   transition: 0.5s;
 }
@@ -138,7 +138,7 @@
 
 /* Behance */
 .behance::before {
-  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/behance.svg");
+  background-image: url("../../assets/home/icons/incones-contato/behance.svg");
   background-size: 2.5rem 2.5rem;
   transition: 0.5s;
 }
@@ -149,7 +149,7 @@
 
 /* Orçamento */
 .orçamento::before {
-  background-image: url("../../PROJETO-IMAGENS SITE/HOME/incones/incones-contato/orçamento.svg");
+  background-image: url("../../assets/home/icons/incones-contato/orçamento.svg");
   background-size: 2.5rem 2.5rem;
   transition: 0.5s;
 }
