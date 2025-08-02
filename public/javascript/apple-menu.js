@@ -1,20 +1,20 @@
 // ==============================================
-// MÓDULO: Menu Apple Style
+// MÓDULO: Menu Apple Style Otimizado
 // ==============================================
-// Versão: 1.0.0
-// Descrição: Menu hambúrguer moderno inspirado no estilo Apple
+// Versão: 2.0.0 - Performance Optimized
+// Descrição: Menu hambúrguer moderno otimizado
 
 import { CONFIG, APP_STATE } from './config.js';
-import { DOM_CACHE, addClass, removeClass } from './utils.js';
+import { DOM_CACHE, addEventListenerOptimized, addClass, removeClass } from './utils.js';
 
 /**
- * Inicializa o menu hambúrguer moderno
+ * Inicializa o menu hambúrguer moderno de forma otimizada
  * @returns {void}
  */
 export function initializeAppleMenu() {
-  const hamburger = document.getElementById('hamburger');
-  const menuOverlay = document.getElementById('menuOverlay');
-  const menuClose = document.getElementById('menuClose');
+  const hamburger = DOM_CACHE.hamburger;
+  const menuOverlay = DOM_CACHE.menuOverlay;
+  const menuClose = DOM_CACHE.menuClose;
   const menuLinks = document.querySelectorAll('.menu-items a');
 
   if (!hamburger || !menuOverlay || !menuClose) {
@@ -22,31 +22,31 @@ export function initializeAppleMenu() {
     return;
   }
 
-  // Event listeners
-  hamburger.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
+  // Event listeners otimizados
+  addEventListenerOptimized(hamburger, 'click', openMenu);
+  addEventListenerOptimized(menuClose, 'click', closeMenu);
   
   // Fechar menu ao clicar em um link
   menuLinks.forEach(link => {
-    link.addEventListener('click', handleMenuLinkClick);
+    addEventListenerOptimized(link, 'click', handleMenuLinkClick);
   });
 
   // Fechar menu ao pressionar ESC
-  document.addEventListener('keydown', handleKeyDown);
+  addEventListenerOptimized(document, 'keydown', handleKeyDown);
 
   // Fechar menu ao clicar fora
-  menuOverlay.addEventListener('click', handleOverlayClick);
+  addEventListenerOptimized(menuOverlay, 'click', handleOverlayClick);
 
-  console.log('🍎 Menu Apple inicializado');
+  console.log('🍎 Menu Apple otimizado inicializado');
 }
 
 /**
- * Abre o menu com animações
+ * Abre o menu com animações otimizadas
  * @returns {void}
  */
 function openMenu() {
-  const menuOverlay = document.getElementById('menuOverlay');
-  const hamburger = document.getElementById('hamburger');
+  const menuOverlay = DOM_CACHE.menuOverlay;
+  const hamburger = DOM_CACHE.hamburger;
   
   if (!menuOverlay || !hamburger) return;
 
@@ -54,8 +54,8 @@ function openMenu() {
   const scrollY = window.scrollY;
   
   // Adiciona classes ativas
-  addClass(menuOverlay, 'active');
-  addClass(hamburger, 'active');
+  addClass(menuOverlay, CONFIG.CLASSES.ACTIVE);
+  addClass(hamburger, CONFIG.CLASSES.ACTIVE);
   addClass(document.body, 'menu-open');
   
   // Impede o scroll
@@ -79,18 +79,18 @@ function openMenu() {
 }
 
 /**
- * Fecha o menu com animações
+ * Fecha o menu com animações otimizadas
  * @returns {void}
  */
 function closeMenu() {
-  const menuOverlay = document.getElementById('menuOverlay');
-  const hamburger = document.getElementById('hamburger');
+  const menuOverlay = DOM_CACHE.menuOverlay;
+  const hamburger = DOM_CACHE.hamburger;
   
   if (!menuOverlay || !hamburger) return;
 
   // Remove classes ativas
-  removeClass(menuOverlay, 'active');
-  removeClass(hamburger, 'active');
+  removeClass(menuOverlay, CONFIG.CLASSES.ACTIVE);
+  removeClass(hamburger, CONFIG.CLASSES.ACTIVE);
   removeClass(document.body, 'menu-open');
   
   // Restaura o scroll
@@ -98,16 +98,16 @@ function closeMenu() {
   document.body.style.top = '';
   document.body.style.width = '';
   
-  // Volta para a posição original do scroll
-  if (APP_STATE.scrollPosition !== undefined) {
+  // Restaura posição do scroll
+  if (APP_STATE.scrollPosition) {
     window.scrollTo(0, APP_STATE.scrollPosition);
+    APP_STATE.scrollPosition = 0;
   }
   
   // Atualiza estado
   APP_STATE.isMenuOpen = false;
-  APP_STATE.scrollPosition = undefined;
   
-  // Retorna foco para o hambúrguer
+  // Foca no hamburger para acessibilidade
   setTimeout(() => {
     hamburger.focus();
   }, 300);
@@ -116,7 +116,7 @@ function closeMenu() {
 }
 
 /**
- * Gerencia clique em links do menu
+ * Manipula o clique em links do menu
  * @param {Event} e - Evento de clique
  * @returns {void}
  */
@@ -127,23 +127,16 @@ function handleMenuLinkClick(e) {
   // Fecha o menu
   closeMenu();
   
-  // Pequeno delay para permitir a animação de fechamento
+  // Navega para o link após um pequeno delay para a animação
   setTimeout(() => {
-    if (href.startsWith('#')) {
-      // Navegação interna
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // Navegação externa
+    if (href && href !== '#') {
       window.location.href = href;
     }
-  }, 400);
+  }, 300);
 }
 
 /**
- * Gerencia teclas pressionadas
+ * Manipula teclas pressionadas
  * @param {KeyboardEvent} e - Evento de tecla
  * @returns {void}
  */
@@ -151,31 +144,24 @@ function handleKeyDown(e) {
   if (e.key === 'Escape' && APP_STATE.isMenuOpen) {
     closeMenu();
   }
-  
-  // Impede scroll via teclado quando menu está aberto
-  if (APP_STATE.isMenuOpen) {
-    const scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
-    if (scrollKeys.includes(e.key)) {
-      e.preventDefault();
-    }
-  }
 }
 
 /**
- * Gerencia clique no overlay
+ * Manipula clique no overlay
  * @param {Event} e - Evento de clique
  * @returns {void}
  */
 function handleOverlayClick(e) {
-  // Fecha apenas se clicou no overlay, não nos itens
-  if (e.target.classList.contains('menu-overlay')) {
+  const menuOverlay = DOM_CACHE.menuOverlay;
+  
+  if (e.target === menuOverlay) {
     closeMenu();
   }
 }
 
 /**
  * Verifica se o menu está aberto
- * @returns {boolean}
+ * @returns {boolean} True se o menu está aberto
  */
 export function isMenuOpen() {
   return APP_STATE.isMenuOpen;
@@ -192,11 +178,14 @@ export function closeMenuIfOpen() {
 }
 
 /**
- * Limpa event listeners do menu
+ * Limpa o menu Apple
  * @returns {void}
  */
 export function cleanupAppleMenu() {
   // Remove event listeners se necessário
-  document.removeEventListener('keydown', handleKeyDown);
+  if (APP_STATE.isMenuOpen) {
+    closeMenu();
+  }
+  
   console.log('🧹 Menu Apple limpo');
 } 

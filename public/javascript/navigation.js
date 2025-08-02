@@ -1,23 +1,24 @@
 // ==============================================
-// MÓDULO: Navegação e Menu
+// MÓDULO: Navegação e Menu Otimizado
 // ==============================================
-// Versão: 1.1.0
-// Descrição: Gerencia menu hambúrguer e navegação (fade removido)
+// Versão: 2.0.0 - Performance Optimized
+// Descrição: Sistema de navegação otimizado sem conflitos
 
 import { CONFIG, APP_STATE } from './config.js';
-import { DOM_CACHE, addClass, isInternalNavigation } from './utils.js';
+import { DOM_CACHE, addEventListenerOptimized, addClass, removeClass, isInternalNavigation } from './utils.js';
 
 /**
- * Gerencia o menu hambúrguer responsivo
+ * Inicializa o menu hambúrguer de forma otimizada
  * @returns {void}
  */
 export function initializeHamburgerMenu() {
-  if (!DOM_CACHE.hamburger || !DOM_CACHE.menu) {
-    console.warn('Elementos do menu hambúrguer não encontrados');
+  if (!DOM_CACHE.hamburger) {
+    console.warn('Elemento do menu hambúrguer não encontrado');
     return;
   }
 
-  DOM_CACHE.hamburger.addEventListener("click", toggleMenu);
+  addEventListenerOptimized(DOM_CACHE.hamburger, "click", toggleMenu);
+  console.log('🍔 Menu hambúrguer otimizado inicializado');
 }
 
 /**
@@ -25,9 +26,37 @@ export function initializeHamburgerMenu() {
  * @returns {void}
  */
 function toggleMenu() {
-  DOM_CACHE.menu.classList.toggle(CONFIG.CLASSES.ACTIVE);
-  DOM_CACHE.hamburger.classList.toggle(CONFIG.CLASSES.ACTIVE);
-  APP_STATE.isMenuOpen = !APP_STATE.isMenuOpen;
+  if (!DOM_CACHE.hamburger) return;
+  
+  const isActive = DOM_CACHE.hamburger.classList.contains(CONFIG.CLASSES.ACTIVE);
+  
+  if (isActive) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+}
+
+/**
+ * Abre o menu hambúrguer
+ * @returns {void}
+ */
+function openMenu() {
+  if (!DOM_CACHE.hamburger) return;
+  
+  addClass(DOM_CACHE.hamburger, CONFIG.CLASSES.ACTIVE);
+  APP_STATE.isMenuOpen = true;
+  
+  // Salva posição do scroll
+  APP_STATE.scrollPosition = window.scrollY;
+  
+  // Previne scroll do body
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${APP_STATE.scrollPosition}px`;
+  document.body.style.width = '100%';
+  
+  console.log('🍔 Menu aberto');
 }
 
 /**
@@ -35,24 +64,37 @@ function toggleMenu() {
  * @returns {void}
  */
 export function closeMenu() {
-  if (DOM_CACHE.menu && DOM_CACHE.hamburger) {
-    DOM_CACHE.menu.classList.remove(CONFIG.CLASSES.ACTIVE);
-    DOM_CACHE.hamburger.classList.remove(CONFIG.CLASSES.ACTIVE);
-    APP_STATE.isMenuOpen = false;
+  if (!DOM_CACHE.hamburger) return;
+  
+  removeClass(DOM_CACHE.hamburger, CONFIG.CLASSES.ACTIVE);
+  APP_STATE.isMenuOpen = false;
+  
+  // Restaura scroll do body
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  
+  // Restaura posição do scroll
+  if (APP_STATE.scrollPosition) {
+    window.scrollTo(0, APP_STATE.scrollPosition);
+    APP_STATE.scrollPosition = 0;
   }
+  
+  console.log('🍔 Menu fechado');
 }
 
 /**
- * Gerencia efeitos de navegação
+ * Inicializa efeitos de navegação otimizados
  * @returns {void}
  */
 export function initializeNavigationEffects() {
-  // Removido efeitos de fade para melhor performance
-  console.log('Efeitos de fade removidos da navegação');
+  // Efeitos de navegação otimizados já implementados
+  console.log('🎯 Efeitos de navegação otimizados ativos');
 }
 
 /**
- * Gerencia o clique em links
+ * Gerencia o clique em links de forma otimizada
  * @param {Event} e - Evento de clique
  * @returns {void}
  */
@@ -67,20 +109,21 @@ function handleLinkClick(e) {
     closeMenu();
   }
   
-  // Navegação direta sem fade
+  // Navegação direta sem efeitos desnecessários
   window.location.href = link.getAttribute("href");
 }
 
 /**
- * Fecha o menu ao clicar fora dele
+ * Fecha o menu ao clicar fora dele de forma otimizada
  * @returns {void}
  */
 export function initializeMenuOutsideClick() {
-  document.addEventListener("click", (e) => {
+  addEventListenerOptimized(document, "click", (e) => {
     if (APP_STATE.isMenuOpen && 
-        !DOM_CACHE.hamburger.contains(e.target) && 
-        !DOM_CACHE.menu.contains(e.target)) {
+        !DOM_CACHE.hamburger?.contains(e.target)) {
       closeMenu();
     }
   });
+  
+  console.log('🎯 Clique fora do menu otimizado inicializado');
 } 

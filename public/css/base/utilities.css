@@ -98,3 +98,213 @@
   }
 }
 
+/* ==============================================
+   UTILITÁRIOS OTIMIZADOS PARA PERFORMANCE
+   ============================================== */
+
+/* Classes de performance */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loaded {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy.loaded {
+  opacity: 1;
+}
+
+/* Otimizações de scroll */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Otimizações de animação */
+.animated {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animated.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Barra de progresso de leitura */
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #8c3eef, #6b21a8);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* Otimizações de cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: rgba(140, 62, 239, 0.3);
+  border: 2px solid #8c3eef;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease, background 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor-hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: rgba(140, 62, 239, 0.6);
+}
+
+/* Otimizações de menu */
+.menu-open {
+  overflow: hidden;
+}
+
+/* Otimizações de lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.lightbox.open img {
+  transform: scale(1);
+}
+
+/* Otimizações de navegação */
+.navigation-dots .dot {
+  transition: all 0.3s ease;
+}
+
+.navigation-dots .dot.active {
+  background: #8c3eef;
+  transform: scale(1.2);
+}
+
+/* Otimizações de loading */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(140, 62, 239, 0.3);
+  border-top: 3px solid #8c3eef;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Otimizações de responsividade */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+  
+  .reading-progress-bar {
+    height: 2px;
+  }
+}
+
+/* Otimizações de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animated {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Otimizações de foco */
+*:focus {
+  outline: 2px solid #8c3eef;
+  outline-offset: 2px;
+}
+
+/* Otimizações de hover */
+@media (hover: hover) {
+  .hover-projetos:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Otimizações de touch */
+@media (hover: none) {
+  .hover-projetos:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+

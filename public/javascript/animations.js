@@ -1,25 +1,14 @@
 // ==============================================
-// MÓDULO: Animações e Efeitos Visuais
+// MÓDULO: Animações e Efeitos Visuais Otimizados
 // ==============================================
-// Versão: 1.1.0
-// Descrição: Gerencia animações de scroll e cursor customizado (fade removido)
+// Versão: 2.0.0 - Performance Optimized
+// Descrição: Sistema de animações otimizado com Intersection Observer
 
 import { CONFIG } from './config.js';
-import { DOM_CACHE, isElementInViewport, debounce, toggleClass, addClass, removeClass } from './utils.js';
+import { DOM_CACHE, createIntersectionObserver, addEventListenerOptimized, addClass, removeClass } from './utils.js';
 
 /**
- * Gerencia animações baseadas em scroll
- * @returns {void}
- */
-export function handleScrollAnimation() {
-  DOM_CACHE.animatedElements.forEach((element) => {
-    const isVisible = isElementInViewport(element);
-    toggleClass(element, CONFIG.CLASSES.IN_VIEW, isVisible);
-  });
-}
-
-/**
- * Inicializa o sistema de animações
+ * Inicializa o sistema de animações de forma otimizada
  * @returns {void}
  */
 export function initializeAnimations() {
@@ -28,16 +17,28 @@ export function initializeAnimations() {
     return;
   }
 
-  const debouncedScrollHandler = debounce(handleScrollAnimation, CONFIG.DEBOUNCE_DELAY);
+  // Usa Intersection Observer para melhor performance
+  const animationObserver = createIntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        addClass(entry.target, CONFIG.CLASSES.IN_VIEW);
+      }
+    });
+  }, {
+    rootMargin: `${CONFIG.SCROLL_OFFSET}px`,
+    threshold: 0.1
+  });
+
+  // Observa todos os elementos animados
+  DOM_CACHE.animatedElements.forEach(element => {
+    animationObserver.observe(element);
+  });
   
-  window.addEventListener("scroll", debouncedScrollHandler);
-  handleScrollAnimation(); // Verifica elementos já visíveis
-  
-  console.log(`Animação inicializada para ${DOM_CACHE.animatedElements.length} elementos`);
+  console.log(`🎬 Animações otimizadas inicializadas para ${DOM_CACHE.animatedElements.length} elementos`);
 }
 
 /**
- * Gerencia o cursor customizado
+ * Inicializa o cursor customizado de forma otimizada
  * @returns {void}
  */
 export function initializeCustomCursor() {
@@ -46,41 +47,41 @@ export function initializeCustomCursor() {
     return;
   }
 
-  // Atualiza posição do cursor
-  document.addEventListener("mousemove", updateCursorPosition);
+  // Atualiza posição do cursor com throttling
+  let ticking = false;
+  const updateCursorPosition = (e) => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        DOM_CACHE.cursor.style.left = `${e.clientX}px`;
+        DOM_CACHE.cursor.style.top = `${e.clientY}px`;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
 
-  // Gerencia efeitos de hover
+  // Adiciona event listener otimizado
+  addEventListenerOptimized(document, "mousemove", updateCursorPosition, { passive: true });
+
+  // Gerencia efeitos de hover de forma otimizada
   DOM_CACHE.hoverElements.forEach((element) => {
-    element.addEventListener("mouseenter", () => {
+    const handleMouseEnter = () => {
       addClass(DOM_CACHE.cursor, CONFIG.CLASSES.CURSOR_HOVER);
       
       // Efeito específico para dots de navegação
       if (element.classList.contains('dot')) {
         addClass(DOM_CACHE.cursor, 'navigation-dot-hover');
-        console.log('🎯 Dot de navegação detectado - cursor personalizado ativo');
       }
-    });
+    };
     
-    element.addEventListener("mouseleave", () => {
+    const handleMouseLeave = () => {
       removeClass(DOM_CACHE.cursor, CONFIG.CLASSES.CURSOR_HOVER);
       removeClass(DOM_CACHE.cursor, 'navigation-dot-hover');
-    });
+    };
+
+    addEventListenerOptimized(element, 'mouseenter', handleMouseEnter);
+    addEventListenerOptimized(element, 'mouseleave', handleMouseLeave);
   });
   
-  console.log('Cursor customizado inicializado');
-}
-
-/**
- * Atualiza a posição do cursor customizado
- * @param {MouseEvent} e - Evento de movimento do mouse
- * @returns {void}
- */
-function updateCursorPosition(e) {
-  DOM_CACHE.cursor.style.left = `${e.clientX}px`;
-  DOM_CACHE.cursor.style.top = `${e.clientY}px`;
-}
-
-/**
- * Funções de fade removidas para melhor performance
- * As animações de fade in/out foram desabilitadas
- */ 
+  console.log('🎯 Cursor customizado otimizado inicializado');
+} 

@@ -1,14 +1,14 @@
 // ==============================================
-// MÓDULO: Tela de Loading
+// MÓDULO: Tela de Loading Otimizada
 // ==============================================
-// Versão: 1.0.0
-// Descrição: Gerencia a tela de loading inicial
+// Versão: 2.0.0 - Performance Optimized
+// Descrição: Sistema de loading otimizado com lazy loading
 
 import { CONFIG } from './config.js';
-import { DOM_CACHE, addClass } from './utils.js';
+import { DOM_CACHE, addClass, lazyLoadImage } from './utils.js';
 
 /**
- * Inicializa a tela de loading
+ * Inicializa a tela de loading de forma otimizada
  * @returns {Promise<void>}
  */
 export function initializeLoadingScreen() {
@@ -21,26 +21,26 @@ export function initializeLoadingScreen() {
 
   return new Promise((resolve) => {
     // Verifica se já está tudo carregado
-    if (isEverythingLoaded()) {
-      console.log('✅ Tudo já carregado, removendo tela de loading...');
+    if (isCriticalContentLoaded()) {
+      console.log('✅ Conteúdo crítico já carregado, removendo tela de loading...');
       hideLoadingScreen(loadingScreen);
       resolve();
       return;
     }
 
-    console.log('🔄 Aguardando carregamento de recursos...');
+    console.log('🔄 Aguardando carregamento de conteúdo crítico...');
     
-    // Aguarda todos os recursos carregarem
+    // Carrega apenas conteúdo crítico primeiro
     Promise.all([
-      waitForImages(),
-      waitForVideos(),
+      loadCriticalImages(),
+      loadCriticalVideos(),
       waitForDOMReady()
     ]).then(() => {
-      console.log('✅ Recursos carregados, finalizando loading...');
+      console.log('✅ Conteúdo crítico carregado, finalizando loading...');
       hideLoadingScreen(loadingScreen);
       resolve();
-    }).catch(() => {
-      console.log('⚠️ Erro no carregamento, finalizando loading...');
+    }).catch((error) => {
+      console.warn('⚠️ Erro no carregamento crítico, finalizando loading...', error);
       hideLoadingScreen(loadingScreen);
       resolve();
     });
@@ -52,36 +52,33 @@ export function initializeLoadingScreen() {
         hideLoadingScreen(loadingScreen);
         resolve();
       }
-    }, 5000); // 5 segundos máximo
+    }, 3000); // Reduzido para 3 segundos
   });
 }
 
 /**
- * Aguarda todas as imagens carregarem
+ * Carrega apenas imagens críticas (above the fold)
  * @returns {Promise<void>}
  */
-function waitForImages() {
-  const images = document.querySelectorAll('img');
-  const imagePromises = Array.from(images).map(img => {
+function loadCriticalImages() {
+  const criticalImages = document.querySelectorAll('img[src*="home"], img[src*="logo"], img[src*="rick"]');
+  const imagePromises = Array.from(criticalImages).map(img => {
     if (img.complete) {
       return Promise.resolve();
     }
-    return new Promise((resolve) => {
-      img.addEventListener('load', resolve, { once: true });
-      img.addEventListener('error', resolve, { once: true });
-    });
+    return lazyLoadImage(img).catch(() => Promise.resolve()); // Ignora erros
   });
   
   return Promise.all(imagePromises);
 }
 
 /**
- * Aguarda todos os vídeos carregarem
+ * Carrega apenas vídeos críticos
  * @returns {Promise<void>}
  */
-function waitForVideos() {
-  const videos = document.querySelectorAll('video');
-  const videoPromises = Array.from(videos).map(video => {
+function loadCriticalVideos() {
+  const criticalVideos = document.querySelectorAll('video[autoplay]');
+  const videoPromises = Array.from(criticalVideos).map(video => {
     return new Promise((resolve) => {
       if (video.readyState >= 2) { // HAVE_CURRENT_DATA
         resolve();
@@ -96,26 +93,26 @@ function waitForVideos() {
 }
 
 /**
- * Verifica se todos os recursos já estão carregados
- * @returns {boolean} True se tudo está carregado
+ * Verifica se o conteúdo crítico já está carregado
+ * @returns {boolean} True se o conteúdo crítico está carregado
  */
-function isEverythingLoaded() {
+function isCriticalContentLoaded() {
   // Verifica se o DOM está completo
   if (document.readyState !== 'complete') {
     return false;
   }
 
-  // Verifica se todas as imagens estão carregadas
-  const images = document.querySelectorAll('img');
-  for (let img of images) {
+  // Verifica se as imagens críticas estão carregadas
+  const criticalImages = document.querySelectorAll('img[src*="home"], img[src*="logo"], img[src*="rick"]');
+  for (let img of criticalImages) {
     if (!img.complete) {
       return false;
     }
   }
 
-  // Verifica se todos os vídeos estão prontos
-  const videos = document.querySelectorAll('video');
-  for (let video of videos) {
+  // Verifica se os vídeos críticos estão prontos
+  const criticalVideos = document.querySelectorAll('video[autoplay]');
+  for (let video of criticalVideos) {
     if (video.readyState < 2) { // HAVE_CURRENT_DATA
       return false;
     }
@@ -139,29 +136,63 @@ function waitForDOMReady() {
 }
 
 /**
- * Esconde a tela de loading com animação
+ * Esconde a tela de loading de forma otimizada
  * @param {HTMLElement} loadingScreen - Elemento da tela de loading
  * @returns {void}
  */
 function hideLoadingScreen(loadingScreen) {
-  // Se tudo já estava carregado, remove imediatamente
-  if (isEverythingLoaded()) {
+  // Remove imediatamente se tudo já estava carregado
+  if (isCriticalContentLoaded()) {
     if (loadingScreen.parentNode) {
       loadingScreen.parentNode.removeChild(loadingScreen);
     }
-    console.log('✅ Tela de loading removida (tudo já carregado)');
+    console.log('✅ Tela de loading removida (conteúdo crítico já carregado)');
     return;
   }
 
-  // Caso contrário, faz a animação de fade out
-  addClass(loadingScreen, 'hidden');
+  // Caso contrário, faz a animação de fade out otimizada
+  addClass(loadingScreen, CONFIG.CLASSES.HIDDEN);
   
   // Remove a tela de loading do DOM após a animação
   setTimeout(() => {
     if (loadingScreen.parentNode) {
       loadingScreen.parentNode.removeChild(loadingScreen);
     }
-  }, 800); // Tempo da transição CSS
+  }, 500); // Reduzido para 500ms
   
   console.log('✅ Tela de loading finalizada');
+}
+
+/**
+ * Inicializa lazy loading para imagens não críticas
+ * @returns {void}
+ */
+export function initializeLazyLoading() {
+  const nonCriticalImages = document.querySelectorAll('img:not([src*="home"]):not([src*="logo"]):not([src*="rick"])');
+  
+  if (!nonCriticalImages.length) return;
+  
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          addClass(img, CONFIG.CLASSES.LAZY);
+        }
+        imageObserver.unobserve(img);
+      }
+    });
+  }, {
+    rootMargin: `${CONFIG.LAZY_LOAD_OFFSET}px`
+  });
+  
+  nonCriticalImages.forEach(img => {
+    if (img.dataset.src) {
+      imageObserver.observe(img);
+    }
+  });
+  
+  console.log(`🖼️ Lazy loading inicializado para ${nonCriticalImages.length} imagens`);
 } 

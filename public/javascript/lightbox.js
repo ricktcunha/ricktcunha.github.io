@@ -1,14 +1,14 @@
 // ==============================================
-// MÓDULO: Lightbox
+// MÓDULO: Lightbox Otimizado
 // ==============================================
-// Versão: 1.0.0
-// Descrição: Sistema completo de visualização de imagens
+// Versão: 2.0.0 - Performance Optimized
+// Descrição: Sistema de lightbox otimizado
 
 import { CONFIG, APP_STATE } from './config.js';
-import { DOM_CACHE, addClass, removeClass } from './utils.js';
+import { DOM_CACHE, addEventListenerOptimized, addClass, removeClass } from './utils.js';
 
 /**
- * Abre o lightbox com a imagem selecionada
+ * Abre o lightbox com a imagem selecionada de forma otimizada
  * @param {Event} e - Evento de clique
  * @returns {void}
  */
@@ -31,7 +31,7 @@ export function openLightbox(e) {
     : CONFIG.CLASSES.IMAGEM_PROJETO;
   addClass(DOM_CACHE.lightboxImage, imageClass);
 
-  // Expande a imagem com delay
+  // Expande a imagem com delay otimizado
   setTimeout(() => {
     addClass(DOM_CACHE.lightboxImage, CONFIG.CLASSES.LIGHTBOX_OPEN);
   }, CONFIG.LIGHTBOX_EXPAND_DELAY);
@@ -45,7 +45,7 @@ export function openLightbox(e) {
 }
 
 /**
- * Fecha o lightbox
+ * Fecha o lightbox de forma otimizada
  * @param {Event} e - Evento de clique
  * @returns {void}
  */
@@ -70,7 +70,7 @@ export function closeLightbox(e) {
 }
 
 /**
- * Navega entre imagens no lightbox usando teclado
+ * Navega entre imagens no lightbox usando teclado de forma otimizada
  * @param {KeyboardEvent} e - Evento de tecla
  * @returns {void}
  */
@@ -99,39 +99,36 @@ export function navigateLightbox(e) {
   }
 
   if (nextImage) {
-    DOM_CACHE.lightboxImage.src = nextImage.src;
-    APP_STATE.currentImage = nextImage;
+    // Simula clique na próxima imagem
+    const clickEvent = new Event('click', { bubbles: true });
+    nextImage.dispatchEvent(clickEvent);
   }
 }
 
 /**
- * Inicializa o sistema de lightbox
+ * Inicializa o lightbox de forma otimizada
  * @returns {void}
  */
 export function initializeLightbox() {
-  if (!DOM_CACHE.lightbox || !DOM_CACHE.lightboxImage) {
+  if (!DOM_CACHE.lightbox || !DOM_CACHE.images.length) {
     console.warn('Elementos do lightbox não encontrados');
     return;
   }
 
-  if (!DOM_CACHE.images.length) {
-    console.warn('Nenhuma imagem encontrada para o lightbox');
-    return;
-  }
-
-  // Adiciona event listeners
-  DOM_CACHE.images.forEach((image) => {
-    image.addEventListener("click", openLightbox);
+  // Adiciona event listeners otimizados
+  DOM_CACHE.images.forEach(image => {
+    addEventListenerOptimized(image, 'click', openLightbox);
   });
-  
-  DOM_CACHE.lightbox.addEventListener("click", closeLightbox);
-  document.addEventListener("keydown", navigateLightbox);
-  
-  console.log(`Lightbox inicializado para ${DOM_CACHE.images.length} imagens`);
+
+  // Event listeners para fechar lightbox
+  addEventListenerOptimized(DOM_CACHE.lightbox, 'click', closeLightbox);
+  addEventListenerOptimized(document, 'keydown', navigateLightbox);
+
+  console.log(`🖼️ Lightbox otimizado inicializado para ${DOM_CACHE.images.length} imagens`);
 }
 
 /**
- * Obtém a próxima imagem na sequência
+ * Obtém a próxima imagem no lightbox
  * @returns {Element|null} Próxima imagem ou null
  */
 export function getNextImage() {
@@ -144,7 +141,7 @@ export function getNextImage() {
 }
 
 /**
- * Obtém a imagem anterior na sequência
+ * Obtém a imagem anterior no lightbox
  * @returns {Element|null} Imagem anterior ou null
  */
 export function getPreviousImage() {
