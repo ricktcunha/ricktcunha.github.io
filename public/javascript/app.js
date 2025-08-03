@@ -191,3 +191,10 @@ console.log('- debugPortfolio.quickCheck() - Verificação rápida');
 console.log('- debugPortfolio.info() - Informações da aplicação');
 console.log('- debugPortfolio.state() - Estado atual');
 console.log('- debugPortfolio.cleanup() - Limpeza manual'); 
+
+window.addEventListener('error', function(event) {
+  console.error('Erro global capturado:', event.error || event.message);
+});
+window.addEventListener('unhandledrejection', function(event) {
+  console.error('Promise não tratada:', event.reason);
+}); 
