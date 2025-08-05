@@ -69,7 +69,7 @@
   padding: 8px;
 }
 
-.menu-close:focus {
+.menu-close:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
@@ -150,22 +150,40 @@
   outline: none !important; /* Remove outline */
 }
 
-/* Remove outline do focus para links do menu */
-.menu-items a:focus {
+/* Remove outline do focus para links do menu - apenas para clique */
+.menu-items a:focus:not(:focus-visible) {
   outline: none !important;
   box-shadow: none !important;
 }
 
-/* Remove outline do focus para botão de fechar */
-.menu-close:focus {
+/* Mantém outline para navegação por teclado - links do menu */
+.menu-items a:focus-visible {
+  outline: 2px solid #8c3eef !important;
+  outline-offset: 2px !important;
+}
+
+/* Remove outline do focus para botão de fechar - apenas para clique */
+.menu-close:focus:not(:focus-visible) {
   outline: none !important;
   box-shadow: none !important;
 }
 
-/* Remove outline do focus para hambúrguer */
-.hamburger:focus {
+/* Mantém outline para navegação por teclado - botão fechar */
+.menu-close:focus-visible {
+  outline: 2px solid #8c3eef !important;
+  outline-offset: 2px !important;
+}
+
+/* Remove outline do focus para hambúrguer - apenas para clique */
+.hamburger:focus:not(:focus-visible) {
   outline: none !important;
   box-shadow: none !important;
+}
+
+/* Mantém outline para navegação por teclado - hambúrguer */
+.hamburger:focus-visible {
+  outline: 2px solid #8c3eef !important;
+  outline-offset: 2px !important;
 }
 
 /* Efeito hover nos links */
@@ -210,7 +228,7 @@
   user-select: none;
 }
 
-.hamburger:focus {
+.hamburger:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
@@ -227,6 +245,11 @@
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-origin: center;
+}
+
+/* Hover no hambúrguer */
+.hamburger:hover .line {
+  background-color: #8c3eef; /* Cor roxa do site */
 }
 
 /* Animação do hambúrguer para X */
@@ -285,21 +308,14 @@
   }
 }
 
-/* Sobrescreve regras globais de focus para o menu hambúrguer */
-.menu-overlay *:focus {
+/* Regras de focus para o menu - simplificadas */
+.menu-overlay *:focus:not(:focus-visible) {
   outline: none !important;
-  box-shadow: none !important;
 }
 
-.menu-overlay .keyboard-navigation *:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.menu-overlay [role="button"]:focus,
-.menu-overlay [role="link"]:focus {
-  outline: none !important;
-  box-shadow: none !important;
+.menu-overlay *:focus-visible {
+  outline: 2px solid #8c3eef !important;
+  outline-offset: 2px !important;
 }
 
 /* Animações de entrada e saída */

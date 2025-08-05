@@ -184,14 +184,23 @@ html {
 }
 
 /* Navegação por Teclado */
-.keyboard-navigation *:focus {
+.keyboard-navigation *:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.keyboard-navigation *:focus-visible {
   outline: 2px solid var(--p-01);
   outline-offset: 2px;
 }
 
 /* ARIA Labels e Roles */
-[role="button"]:focus,
-[role="link"]:focus {
+[role="button"]:focus:not(:focus-visible),
+[role="link"]:focus:not(:focus-visible) {
+  outline: none;
+}
+
+[role="button"]:focus-visible,
+[role="link"]:focus-visible {
   outline: 2px solid var(--p-01);
   outline-offset: 2px;
 }
