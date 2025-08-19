@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Camada_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 32 32">
-  <!-- Generator: Adobe Illustrator 29.1.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 142)  -->
+<svg id="Camada_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
+  <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
   <defs>
     <style>
       .st0 {
@@ -8,20 +8,44 @@
       }
 
       .st1 {
-        fill: #fff;
+        fill: url(#Gradiente_sem_nome_22);
       }
 
       .st2 {
-        fill: #8c3eef;
+        fill: url(#Gradiente_sem_nome_7);
+      }
+
+      .st3 {
+        fill: #efefef;
       }
     </style>
+    <linearGradient id="Gradiente_sem_nome_7" data-name="Gradiente sem nome 7" x1="18.41" y1="20.17" x2="33.7" y2="20.17" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#860cf4"/>
+      <stop offset=".17" stop-color="#8a0ff3"/>
+      <stop offset=".36" stop-color="#971af3"/>
+      <stop offset=".56" stop-color="#ad2cf3"/>
+      <stop offset=".76" stop-color="#cb45f2"/>
+      <stop offset=".89" stop-color="#e45af2"/>
+    </linearGradient>
+    <linearGradient id="Gradiente_sem_nome_22" data-name="Gradiente sem nome 22" x1="17.31" y1="20.17" x2="22.35" y2="20.17" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f2f2"/>
+      <stop offset=".24" stop-color="#efefef"/>
+      <stop offset=".38" stop-color="#e7e7e7"/>
+      <stop offset=".49" stop-color="#d9d9d9"/>
+      <stop offset=".59" stop-color="#c5c5c5"/>
+      <stop offset=".66" stop-color="#b3b3b3"/>
+    </linearGradient>
   </defs>
   <circle class="st0" cx="16" cy="16" r="16"/>
   <g>
-    <path class="st1" d="M18.9,7.6h-1.7c0,0-.1,0-.1.1v7.4c0,0,0,.1.1.1h1.7c0,0,.1,0,.1-.1v-7.4c0,0,0-.1-.1-.1Z"/>
-    <path class="st1" d="M15.7,21.2c-.4,1.7-2,2.9-4,2.9s-4.2-1.7-4.2-4,1.8-4,4.2-4,3.6,1.2,4,2.9c0,0,0,.2-.2.2h-1.8c0,0-.1,0-.1,0-.3-.7-1-1.1-1.9-1.1-1.2,0-2.2,1-2.2,2.1s.9,2.1,2.2,2.1,1.6-.5,1.9-1.1c0,0,0,0,.1,0h1.9c0,0,.2,0,.1.2h0Z"/>
-    <path class="st1" d="M19.9,21.2l-.8.9s0,0,0,.1v1.7c0,0,0,.1-.2.1h-1.7c0,0-.2,0-.2-.1v-7.3c0,0,0-.1.2-.1h1.7c0,0,.2,0,.2.1v3l-.2.2c0,0,0,.1,0,.2l1,1.3h0s0,0,0,0Z"/>
-    <path class="st2" d="M24.4,24h-2.2s0,0-.1,0l-1-1.2v-.2c-.1,0-1.2-1.3-1.2-1.3h0s-1-1.3-1-1.3c0,0,0-.1,0-.2l1.4-1.5,1.7-1.8s0,0,.1,0h2.1c.1,0,.2.2.1.3l-3,3c0,0,0,.1,0,.2l3.2,3.9c0,.1,0,.2-.1.2Z"/>
-    <path class="st1" d="M15.5,7.8v1.6c0,0,0,.1-.2.1h-2.6c-.2,0-.3.1-.3.3v5.3c0,0,0,.1-.2.1h-1.7c0,0-.2,0-.2-.1v-5.4c0,0,0-.1.2-.1h1.7c.1,0,.2,0,.3-.2l.9-1.7s0,0,.1,0h1.8c0,0,.2,0,.2.1h0Z"/>
+    <g>
+      <rect class="st3" x="17.31" y="3.1" width="2.63" height="10.32" rx=".19" ry=".19"/>
+      <path class="st3" d="M15.42,3.3v2.23c0,.11-.09.2-.2.2h-3.43c-.21,0-.38.17-.38.38v7.1c0,.11-.09.2-.2.2h-2.23c-.11,0-.2-.09-.2-.2v-7.29c0-.11.09-.2.2-.2h2.2c.15,0,.28-.08.34-.21l1.23-2.32c.03-.07.1-.11.18-.11h2.3c.11,0,.2.09.2.2Z"/>
+    </g>
+    <path class="st3" d="M15.62,21.59c-.5,2.33-2.59,3.98-5.26,3.98-3.16,0-5.54-2.33-5.54-5.4s2.39-5.4,5.54-5.4c2.66,0,4.75,1.64,5.26,3.97.03.12-.07.24-.2.24h-2.41c-.08,0-.15-.05-.19-.12-.38-.92-1.32-1.54-2.47-1.54-1.56,0-2.83,1.29-2.83,2.85s1.21,2.85,2.83,2.85c1.15,0,2.09-.62,2.47-1.54.03-.07.1-.12.17-.12h2.43c.12,0,.21.11.19.23Z"/>
+    <path class="st0" d="M19.75,19.79c-.06-.08-.06-.18,0-.25l.18-.21h0s-.2.21-.2.21c-.07.07-.07.19-.01.27l1.35,1.74h0s.01.01.01.01h0s-1.36-1.75-1.36-1.75Z"/>
+    <path class="st2" d="M26.98,25.33h-2.85c-.06,0-.12-.03-.16-.08l-1.29-1.68-.19-.24-1.37-1.78v-.02s-1.37-1.73-1.37-1.73c-.06-.08-.06-.19.01-.27l.2-.22,1.66-1.8,2.26-2.43s.09-.07.15-.07h2.75c.18,0,.27.22.15.35l-3.88,4.12c-.07.07-.08.19-.01.27l4.12,5.25c.11.14,0,.33-.16.33Z"/>
+    <path class="st0" d="M20.88,21.64"/>
+    <path class="st1" d="M21.1,21.54l-1.1,1.16s-.06.09-.06.14v2.29c0,.11-.09.2-.2.2h-2.23c-.11,0-.2-.09-.2-.2v-9.92c0-.11.09-.2.2-.2h2.23c.11,0,.2.09.2.2v4.1l-.2.22c-.07.07-.07.19-.01.27l1.36,1.73v.02Z"/>
   </g>
 </svg>

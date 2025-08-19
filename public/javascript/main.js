@@ -1,9 +1,9 @@
 // ==============================================
 // PORTFÓLIO RICK - JAVASCRIPT OTIMIZADO
 // ==============================================
-// Versão: 4.0.0 - Simplified & Optimized
+// Versão: 2.0.0 - Final Optimizations Applied
 // Autor: Rick Cunha
-// Descrição: Código JavaScript limpo, consistente e funcional
+// Descrição: Código JavaScript 100% otimizado
 
 (function() {
   'use strict';
@@ -13,10 +13,6 @@
   // ==============================================
   
   const CONFIG = {
-    DEBOUNCE_DELAY: 16,
-    THROTTLE_DELAY: 100,
-    SCROLL_OFFSET: 100,
-    ANIMATION_DURATION: 300,
     LIGHTBOX_TIMEOUT: 200,
     
     SELECTORS: {
@@ -30,7 +26,7 @@
       IMAGES: ".imagem-projeto, .imagem-projeto-galeria",
       HOVER_ELEMENTS: "a, button, .navigation-dots .dot",
       NAVIGATION_DOTS: ".navigation-dots .dot",
-      PROGRESS_BAR: ".reading-progress-bar"
+      HEADER: ".header"
     },
     
     CLASSES: {
@@ -44,20 +40,26 @@
   };
 
   // ==============================================
-  // ESTADO GLOBAL
+  // ESTADO GLOBAL 
   // ==============================================
   
-  const STATE = {
-    isMenuOpen: false,
-    isLightboxOpen: false,
-    currentImage: null,
-    scrollPosition: 0,
+  const MenuState = {
+    isOpen: false,
+    scrollPosition: 0
+  };
+  
+  const LightboxState = {
+    isOpen: false,
+    currentImage: null
+  };
+  
+  const AppState = {
     observers: new Set(),
     eventListeners: new Map()
   };
 
   // ==============================================
-  // CACHE DOM
+  // CACHE DOM 
   // ==============================================
   
   const DOM = {
@@ -71,11 +73,13 @@
     animatedElements: null,
     images: null,
     hoverElements: null,
-    navigationDots: null
+    navigationDots: null,
+    header: null,
+    headerHeight: 0
   };
 
   // ==============================================
-  // UTILITÁRIOS
+  // UTILITÁRIOS 
   // ==============================================
   
   function $(selector) {
@@ -99,14 +103,6 @@
     el.classList.toggle(className, force);
   }
   
-  function debounce(func, wait) {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-  }
-  
   function throttle(func, limit) {
     let inThrottle;
     return (...args) => {
@@ -122,18 +118,21 @@
     if (!el) return;
     
     const key = `${el.id || 'anonymous'}-${event}`;
-    const existing = STATE.eventListeners.get(key);
+    const existing = AppState.eventListeners.get(key);
     
     if (existing) {
-      el.removeEventListener(event, existing, options);
+      el.removeEventListener(event, existing.handler, existing.options);
     }
     
     el.addEventListener(event, handler, options);
-    STATE.eventListeners.set(key, handler);
+    AppState.eventListeners.set(key, { handler, options, cleanup: () => {
+      el.removeEventListener(event, handler, options);
+      AppState.eventListeners.delete(key);
+    }});
     
     return () => {
       el.removeEventListener(event, handler, options);
-      STATE.eventListeners.delete(key);
+      AppState.eventListeners.delete(key);
     };
   }
   
@@ -143,31 +142,12 @@
       threshold: 0.1,
       ...options
     });
-    STATE.observers.add(observer);
+    AppState.observers.add(observer);
     return observer;
   }
 
   // ==============================================
-  // INICIALIZAÇÃO DOM
-  // ==============================================
-  
-  function initDOM() {
-    DOM.body = document.body;
-    DOM.hamburger = $(CONFIG.SELECTORS.HAMBURGER);
-    DOM.menuOverlay = $(CONFIG.SELECTORS.MENU_OVERLAY);
-    DOM.menuClose = $(CONFIG.SELECTORS.MENU_CLOSE);
-    DOM.cursor = $(CONFIG.SELECTORS.CURSOR);
-    DOM.lightbox = $(CONFIG.SELECTORS.LIGHTBOX);
-    DOM.lightboxImage = $(CONFIG.SELECTORS.LIGHTBOX_IMAGE);
-    DOM.animatedElements = $$(CONFIG.SELECTORS.ANIMATED);
-    DOM.images = $$(CONFIG.SELECTORS.IMAGES);
-    DOM.hoverElements = $$(CONFIG.SELECTORS.HOVER_ELEMENTS);
-
-    DOM.navigationDots = $$(CONFIG.SELECTORS.NAVIGATION_DOTS);
-  }
-
-  // ==============================================
-  // MENU
+  // MENU 
   // ==============================================
   
   function initMenu() {
@@ -178,11 +158,7 @@
     addEvent(DOM.menuOverlay, 'click', (e) => {
       if (e.target === DOM.menuOverlay) closeMenu();
     });
-    addEvent(document, 'keydown', (e) => {
-      if (e.key === 'Escape' && STATE.isMenuOpen) closeMenu();
-    });
     
-    // Links do menu
     $$('.menu-items a').forEach(link => {
       addEvent(link, 'click', () => {
         closeMenu();
@@ -196,7 +172,7 @@
   }
   
   function toggleMenu() {
-    STATE.isMenuOpen ? closeMenu() : openMenu();
+    MenuState.isOpen ? closeMenu() : openMenu();
   }
   
   function openMenu() {
@@ -212,8 +188,8 @@
     DOM.body.style.top = `-${scrollY}px`;
     DOM.body.style.width = '100%';
     
-    STATE.isMenuOpen = true;
-    STATE.scrollPosition = scrollY;
+    MenuState.isOpen = true;
+    MenuState.scrollPosition = scrollY;
   }
   
   function closeMenu() {
@@ -227,20 +203,25 @@
     DOM.body.style.top = '';
     DOM.body.style.width = '';
     
-    if (STATE.scrollPosition) {
-      window.scrollTo(0, STATE.scrollPosition);
-      STATE.scrollPosition = 0;
+    if (MenuState.scrollPosition) {
+      window.scrollTo(0, MenuState.scrollPosition);
+      MenuState.scrollPosition = 0;
     }
     
-    STATE.isMenuOpen = false;
+    MenuState.isOpen = false;
   }
 
   // ==============================================
-  // ANIMAÇÕES
+  // ANIMAÇÕES 
   // ==============================================
   
   function initAnimations() {
     if (!DOM.animatedElements.length) return;
+    
+    const visibleElements = Array.from(DOM.animatedElements)
+      .filter(el => el.offsetParent !== null);
+    
+    if (!visibleElements.length) return;
     
     const observer = createObserver((entries) => {
       entries.forEach(entry => {
@@ -249,11 +230,11 @@
         }
       });
     }, {
-      rootMargin: `${CONFIG.SCROLL_OFFSET}px`,
+      rootMargin: '100px',
       threshold: 0.1
     });
     
-    DOM.animatedElements.forEach(el => observer.observe(el));
+    visibleElements.forEach(el => observer.observe(el));
   }
   
   function initCursor() {
@@ -289,7 +270,7 @@
   }
 
   // ==============================================
-  // LIGHTBOX
+  // LIGHTBOX 
   // ==============================================
   
   function initLightbox() {
@@ -304,22 +285,6 @@
         closeLightbox();
       }
     });
-    
-    addEvent(document, 'keydown', (e) => {
-      if (!STATE.isLightboxOpen) return;
-      
-      switch (e.key) {
-        case 'Escape':
-          closeLightbox();
-          break;
-        case 'ArrowRight':
-          navigateLightbox(1);
-          break;
-        case 'ArrowLeft':
-          navigateLightbox(-1);
-          break;
-      }
-    });
   }
   
   function openLightbox(e) {
@@ -329,8 +294,8 @@
     DOM.lightboxImage.src = img.src;
     addClass(DOM.lightbox, CONFIG.CLASSES.LIGHTBOX_OPEN);
     
-    STATE.currentImage = img;
-    STATE.isLightboxOpen = true;
+    LightboxState.currentImage = img;
+    LightboxState.isOpen = true;
     DOM.body.style.overflow = 'hidden';
   }
   
@@ -341,16 +306,16 @@
     
     setTimeout(() => {
       DOM.lightboxImage.src = '';
-      STATE.currentImage = null;
-      STATE.isLightboxOpen = false;
+      LightboxState.currentImage = null;
+      LightboxState.isOpen = false;
       DOM.body.style.overflow = '';
     }, CONFIG.LIGHTBOX_TIMEOUT);
   }
   
   function navigateLightbox(direction) {
-    if (!STATE.currentImage) return;
+    if (!LightboxState.currentImage) return;
     
-    const currentIndex = Array.from(DOM.images).indexOf(STATE.currentImage);
+    const currentIndex = Array.from(DOM.images).indexOf(LightboxState.currentImage);
     const nextIndex = currentIndex + direction;
     
     if (nextIndex >= 0 && nextIndex < DOM.images.length) {
@@ -359,40 +324,40 @@
     }
   }
 
-
-
   // ==============================================
-  // NAVIGATION DOTS
+  // NAVIGATION 
   // ==============================================
   
   function initNavigationDots() {
     if (!DOM.navigationDots.length) return;
     
-    const dots = DOM.navigationDots;
-    const sectionIds = Array.from(dots).map(dot => dot.getAttribute('data-section'));
-    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-    
+    const sections = getSections();
     if (!sections.length) return;
     
-    dots.forEach(dot => {
+    setupDotClickHandlers();
+    setupSectionObserver(sections);
+  }
+  
+  function getSections() {
+    const sectionIds = Array.from(DOM.navigationDots).map(dot => dot.getAttribute('data-section'));
+    return sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+  }
+  
+  function setupDotClickHandlers() {
+    DOM.navigationDots.forEach(dot => {
       addEvent(dot, 'click', () => {
         const sectionId = dot.getAttribute('data-section');
         const section = document.getElementById(sectionId);
         
         if (section) {
-          const headerHeight = $('.header')?.offsetHeight || 0;
-          const targetTop = section.offsetTop - headerHeight;
-          
-          window.scrollTo({
-            top: targetTop,
-            behavior: 'smooth'
-          });
-          
+          scrollToSection(section);
           updateActiveDot(sectionId);
         }
       });
     });
-    
+  }
+  
+  function setupSectionObserver(sections) {
     const observer = createObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -415,24 +380,16 @@
   }
 
   // ==============================================
-  // UX ENHANCEMENTS
+  // UX ENHANCEMENTS 
   // ==============================================
   
   function initUX() {
     createProgressBar();
     initSmoothScroll();
-    initKeyboardNav();
   }
   
   function createProgressBar() {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'reading-progress-bar';
-    progressBar.setAttribute('aria-label', 'Progresso de leitura');
-    progressBar.setAttribute('role', 'progressbar');
-    progressBar.setAttribute('aria-valuenow', '0');
-    progressBar.setAttribute('aria-valuemin', '0');
-    progressBar.setAttribute('aria-valuemax', '100');
-    
+    const progressBar = createProgressBarElement();
     document.body.appendChild(progressBar);
     
     const updateProgress = throttle(() => {
@@ -449,6 +406,17 @@
     addEvent(window, 'scroll', updateProgress, { passive: true });
   }
   
+  function createProgressBarElement() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress-bar';
+    progressBar.setAttribute('aria-label', 'Progresso de leitura');
+    progressBar.setAttribute('role', 'progressbar');
+    progressBar.setAttribute('aria-valuenow', '0');
+    progressBar.setAttribute('aria-valuemin', '0');
+    progressBar.setAttribute('aria-valuemax', '100');
+    return progressBar;
+  }
+  
   function initSmoothScroll() {
     $$('a[href^="#"]').forEach(link => {
       addEvent(link, 'click', (e) => {
@@ -457,46 +425,78 @@
         const target = document.getElementById(targetId);
         
         if (target) {
-          const headerHeight = $('.header')?.offsetHeight || 0;
-          const targetTop = target.offsetTop - headerHeight;
-          
-          window.scrollTo({
-            top: targetTop,
-            behavior: 'smooth'
-          });
+          scrollToSection(target);
         }
       });
     });
   }
   
-  function initKeyboardNav() {
-    addEvent(document, 'keydown', (e) => {
-      if (e.key === 'Escape' && STATE.isMenuOpen) {
-        closeMenu();
-      }
+  function scrollToSection(section) {
+    const targetTop = section.offsetTop - DOM.headerHeight;
+    window.scrollTo({
+      top: targetTop,
+      behavior: 'smooth'
     });
   }
 
   // ==============================================
-  // CLEANUP
+  // EVENT LISTENER 
   // ==============================================
   
-  function cleanup() {
-    STATE.observers.forEach(observer => observer.disconnect());
-    STATE.observers.clear();
-    STATE.eventListeners.clear();
+  function handleKeyboardEvents(e) {
+    if (e.key === 'Escape') {
+      if (MenuState.isOpen) closeMenu();
+      if (LightboxState.isOpen) closeLightbox();
+    }
     
-    if (STATE.isMenuOpen) closeMenu();
-    if (STATE.isLightboxOpen) closeLightbox();
+    if (LightboxState.isOpen) {
+      switch (e.key) {
+        case 'ArrowRight':
+          navigateLightbox(1);
+          break;
+        case 'ArrowLeft':
+          navigateLightbox(-1);
+          break;
+      }
+    }
   }
 
   // ==============================================
-  // INICIALIZAÇÃO
+  // CLEANUP 
+  // ==============================================
+  
+  function cleanup() {
+    AppState.observers.forEach(observer => observer.disconnect());
+    AppState.observers.clear();
+    
+    AppState.eventListeners.forEach(({ cleanup }) => cleanup());
+    AppState.eventListeners.clear();
+    
+    if (MenuState.isOpen) closeMenu();
+    if (LightboxState.isOpen) closeLightbox();
+  }
+
+  // ==============================================
+  // INICIALIZAÇÃO 
   // ==============================================
   
   async function init() {
     try {
-      initDOM();
+      // Cache DOM direto
+      DOM.body = document.body;
+      DOM.hamburger = $(CONFIG.SELECTORS.HAMBURGER);
+      DOM.menuOverlay = $(CONFIG.SELECTORS.MENU_OVERLAY);
+      DOM.menuClose = $(CONFIG.SELECTORS.MENU_CLOSE);
+      DOM.cursor = $(CONFIG.SELECTORS.CURSOR);
+      DOM.lightbox = $(CONFIG.SELECTORS.LIGHTBOX);
+      DOM.lightboxImage = $(CONFIG.SELECTORS.LIGHTBOX_IMAGE);
+      DOM.animatedElements = $$(CONFIG.SELECTORS.ANIMATED);
+      DOM.images = $$(CONFIG.SELECTORS.IMAGES);
+      DOM.hoverElements = $$(CONFIG.SELECTORS.HOVER_ELEMENTS);
+      DOM.navigationDots = $$(CONFIG.SELECTORS.NAVIGATION_DOTS);
+      DOM.header = $(CONFIG.SELECTORS.HEADER);
+      DOM.headerHeight = DOM.header?.offsetHeight || 0;
+      
       initMenu();
       initAnimations();
       initCursor();
@@ -504,7 +504,16 @@
       initNavigationDots();
       initUX();
       
-      // API global
+      // Event listeners unificados
+      addEvent(document, 'keydown', handleKeyboardEvents);
+      addEvent(window, 'beforeunload', cleanup);
+      addEvent(window, 'error', (e) => {
+        console.error('Erro global:', e.error || e.message);
+      });
+      addEvent(window, 'unhandledrejection', (e) => {
+        console.error('Promise não tratada:', e.reason);
+      });
+      
       window.PortfolioApp = { init, cleanup };
       
     } catch (error) {
@@ -513,7 +522,7 @@
   }
 
   // ==============================================
-  // EVENT LISTENERS
+  // INICIALIZAÇÃO AUTOMÁTICA
   // ==============================================
   
   if (document.readyState === 'loading') {
@@ -521,15 +530,5 @@
   } else {
     init();
   }
-  
-  window.addEventListener('beforeunload', cleanup);
-  
-  window.addEventListener('error', (e) => {
-    console.error('Erro global:', e.error || e.message);
-  });
-  
-  window.addEventListener('unhandledrejection', (e) => {
-    console.error('Promise não tratada:', e.reason);
-  });
 
 })();
