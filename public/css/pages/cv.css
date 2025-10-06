@@ -11,10 +11,15 @@
 
 .retrato-curriculo {
   width: 100%;
-  border: 1px solid var(--p-01);
+  border: 2px solid transparent;
   border-radius: 0.5rem;
   object-fit: cover;
   transition: 0.5s;
+  background: linear-gradient(var(--c-09), var(--c-09)) padding-box,
+              linear-gradient(45deg, #ff6f61, #6f61ff, #61ff6f, #6f61ff) border-box;
+  background-clip: padding-box, border-box;
+  background-size: 400% 400%;
+  animation: stroke-loop 5s linear infinite;
 }
 
 .retrato-curriculo:hover {
@@ -23,6 +28,18 @@
   object-fit: cover;
   transform: scale(1.02);
   box-shadow: 0 0 90rem 4px rgba(140, 62, 239, 0.3);
+}
+
+@keyframes stroke-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .texto-curriculo {

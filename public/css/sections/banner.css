@@ -22,6 +22,31 @@
   border-radius: 0.5rem;
 }
 
+.contato-retrato-bolinha {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--c-07), var(--c-07)) padding-box,
+              linear-gradient(45deg, #ff6f61, #6f61ff, #61ff6f, #6f61ff) border-box;
+  background-clip: padding-box, border-box;
+  background-size: 400% 400%;
+  animation: stroke-loop 5s linear infinite;
+}
+
+@keyframes stroke-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .ajudo-marcas {
   align-content: center;
   padding-left: 5rem;
