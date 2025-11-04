@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing - Rick Cunha</title>
+  <link rel="stylesheet" href="../public/css/main.css?v=2.1">
+  <link rel="stylesheet" href="../public/css/pages/briefing.css?v=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="../public/favicon.svg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <div class="custom-cursor"></div>
+
+  <video class="video-background-header" autoplay loop muted playsinline>
+    <source src="../public/assets/home/images/2602527_Abstract_Backgrounds_1920x1080 (1).mp4" type="video/mp4">
+  </video>
+
+  <header class="header">
+    <a href="../index.html">
+      <img class="logo-branco-detalhado" src="../public/assets/home/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick">
+    </a>
+    <nav class="header-nav">
+      <div class="hamburger" id="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul class="header-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/portfolio.html">Portfólio</a></li>
+        <li><a href="../pages/cv.html">Currículo</a></li>
+        <li><a href="../pages/contato.html">Contato</a></li>
+        <li><a href="../pages/briefing.html" class="active">Briefing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Menu Overlay Moderno -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-container">
+      <button class="menu-close" id="menuClose" aria-label="Fechar menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul class="menu-items">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/portfolio.html">Portfólio</a></li>
+        <li><a href="../pages/cv.html">Currículo</a></li>
+        <li><a href="../pages/contato.html">Contato</a></li>
+        <li><a href="../pages/briefing.html">Briefing</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Briefing Container -->
+  <div class="briefing-container animated">
+    <div class="briefing-header">
+      <h1 class="briefing-title">Vamos criar algo incrível<span class="ponto-cor-piscante">.</span></h1>
+      <p class="texto-cinza briefing-subtitle">Preencha o briefing para que eu possa entender melhor o seu projeto</p>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-steps">
+        <div class="step active" data-step="1">
+          <span class="step-number">1</span>
+          <span class="step-label">Você</span>
+        </div>
+        <div class="step" data-step="2">
+          <span class="step-number">2</span>
+          <span class="step-label">Projeto</span>
+        </div>
+        <div class="step" data-step="3">
+          <span class="step-number">3</span>
+          <span class="step-label">Estilo</span>
+        </div>
+        <div class="step" data-step="4">
+          <span class="step-number">4</span>
+          <span class="step-label">Detalhes</span>
+        </div>
+        <div class="step" data-step="5">
+          <span class="step-number">5</span>
+          <span class="step-label">Finalizar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Steps -->
+    <form id="briefingForm" class="briefing-form">
+      
+      <!-- Step 1: Informações do Cliente -->
+      <div class="form-step active" data-step="1">
+        <h2 class="step-title">Quem é você<span class="ponto-cor">?</span></h2>
+        <p class="texto-cinza step-description">Conte-me um pouco sobre você e sua empresa</p>
+
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label for="nome">Nome completo <span class="required">*</span></label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+            <span class="validation-icon">✓</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+            <span class="validation-icon">✓</span>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">WhatsApp <span class="required">*</span></label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+            <span class="validation-icon">✓</span>
+          </div>
+
+          <div class="form-group">
+            <label for="empresa">Empresa/Marca</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa">
+          </div>
+
+          <div class="form-group">
+            <label for="segmento">Segmento de atuação</label>
+            <input type="text" id="segmento" name="segmento" placeholder="Ex: Tecnologia, Saúde, Educação">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Tipo de Projeto -->
+      <div class="form-step" data-step="2">
+        <h2 class="step-title">O que você precisa<span class="ponto-cor">?</span></h2>
+        <p class="texto-cinza step-description">Selecione uma ou mais opções</p>
+
+        <div class="project-type-cards">
+          <div class="project-card" data-type="site">
+            <div class="card-icon">
+              <i data-lucide="monitor" width="48" height="48"></i>
+            </div>
+            <h3>Site</h3>
+            <p class="texto-cinza">Institucional ou Landing Page</p>
+            <div class="card-check">✓</div>
+          </div>
+
+          <div class="project-card" data-type="marca">
+            <div class="card-icon">
+              <i data-lucide="palette" width="48" height="48"></i>
+            </div>
+            <h3>Marca</h3>
+            <p class="texto-cinza">Logo e Identidade Visual</p>
+            <div class="card-check">✓</div>
+          </div>
+        </div>
+
+        <!-- Site Details -->
+        <div class="conditional-section" id="siteDetails" style="display: none;">
+          <h3 class="subsection-title">Detalhes do Site<span class="ponto-cor">.</span></h3>
+          
+          <div class="form-group full-width">
+            <label>Tipo de Site <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-card">
+                <input type="radio" name="tipoSite" value="Site Institucional">
+                <span class="radio-content">
+                  <span class="radio-title">Site Institucional</span>
+                  <span class="texto-cinza">Para apresentar sua empresa</span>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="tipoSite" value="Landing Page">
+                <span class="radio-content">
+                  <span class="radio-title">Landing Page</span>
+                  <span class="texto-cinza">Para conversão focada</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="nomeProjeto">Nome do Projeto</label>
+              <input type="text" id="nomeProjeto" name="nomeProjeto" placeholder="Nome do seu site">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="objetivoSite">Objetivo principal do site <span class="required">*</span></label>
+              <textarea id="objetivoSite" name="objetivoSite" rows="3" placeholder="Ex: Gerar leads, vender produtos, apresentar serviços..." maxlength="300"></textarea>
+              <span class="char-counter"><span class="char-count">0</span>/300</span>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="publicoAlvoSite">Público-alvo <span class="required">*</span></label>
+              <textarea id="publicoAlvoSite" name="publicoAlvoSite" rows="3" placeholder="Descreva quem é seu público-alvo..." maxlength="300"></textarea>
+              <span class="char-counter"><span class="char-count">0</span>/300</span>
+            </div>
+
+            <div class="form-group">
+              <label for="prazoSite">Prazo desejado</label>
+              <input type="text" id="prazoSite" name="prazoSite" placeholder="Ex: 30 dias, 2 meses">
+            </div>
+          </div>
+        </div>
+
+        <!-- Marca Details -->
+        <div class="conditional-section" id="marcaDetails" style="display: none;">
+          <h3 class="subsection-title">Detalhes da Marca<span class="ponto-cor">.</span></h3>
+          
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="nomeMarca">Nome da marca/empresa <span class="required">*</span></label>
+              <input type="text" id="nomeMarca" name="nomeMarca" placeholder="Nome da sua marca">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="valoresMarca">Valores da marca</label>
+              <textarea id="valoresMarca" name="valoresMarca" rows="3" placeholder="Ex: Inovação, Confiança, Sustentabilidade..." maxlength="300"></textarea>
+              <span class="char-counter"><span class="char-count">0</span>/300</span>
+            </div>
+
+            <div class="form-group">
+              <label for="segmentoMarca">Segmento de atuação <span class="required">*</span></label>
+              <input type="text" id="segmentoMarca" name="segmentoMarca" placeholder="Ex: Tecnologia, Moda, Alimentação">
+            </div>
+
+            <div class="form-group">
+              <label for="prazoMarca">Prazo desejado</label>
+              <input type="text" id="prazoMarca" name="prazoMarca" placeholder="Ex: 15 dias, 1 mês">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="referenciaMarcas">Marcas de referência</label>
+              <textarea id="referenciaMarcas" name="referenciaMarcas" rows="3" placeholder="Marcas que você admira e por quê..." maxlength="300"></textarea>
+              <span class="char-counter"><span class="char-count">0</span>/300</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Estilo & Referências -->
+      <div class="form-step" data-step="3">
+        <h2 class="step-title">Estilo visual<span class="ponto-cor">.</span></h2>
+        <p class="texto-cinza step-description">Como você imagina o visual do seu projeto?</p>
+
+        <div class="form-group full-width">
+          <label>Escolha o(s) estilo(s) que mais combinam <span class="required">*</span></label>
+          <div class="style-cards">
+            <label class="style-card">
+              <input type="checkbox" name="estilo" value="Moderno">
+              <span class="style-content">
+                <i data-lucide="sparkles" class="style-icon"></i>
+                <span class="style-name">Moderno</span>
+              </span>
+            </label>
+            <label class="style-card">
+              <input type="checkbox" name="estilo" value="Minimalista">
+              <span class="style-content">
+                <i data-lucide="minus" class="style-icon"></i>
+                <span class="style-name">Minimalista</span>
+              </span>
+            </label>
+            <label class="style-card">
+              <input type="checkbox" name="estilo" value="Corporativo">
+              <span class="style-content">
+                <i data-lucide="briefcase" class="style-icon"></i>
+                <span class="style-name">Corporativo</span>
+              </span>
+            </label>
+            <label class="style-card">
+              <input type="checkbox" name="estilo" value="Criativo">
+              <span class="style-content">
+                <i data-lucide="paintbrush" class="style-icon"></i>
+                <span class="style-name">Criativo</span>
+              </span>
+            </label>
+            <label class="style-card">
+              <input type="checkbox" name="estilo" value="Ousado">
+              <span class="style-content">
+                <i data-lucide="zap" class="style-icon"></i>
+                <span class="style-name">Ousado</span>
+              </span>
+            </label>
+            <label class="style-card">
+              <input type="checkbox" name="estilo" value="Elegante">
+              <span class="style-content">
+                <i data-lucide="gem" class="style-icon"></i>
+                <span class="style-name">Elegante</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Cores preferidas</label>
+          <div class="color-picker">
+            <div class="color-option" data-color="#8c3eef" style="background: #8c3eef;"></div>
+            <div class="color-option" data-color="#FF6B6B" style="background: #FF6B6B;"></div>
+            <div class="color-option" data-color="#4ECDC4" style="background: #4ECDC4;"></div>
+            <div class="color-option" data-color="#45B7D1" style="background: #45B7D1;"></div>
+            <div class="color-option" data-color="#FFA07A" style="background: #FFA07A;"></div>
+            <div class="color-option" data-color="#98D8C8" style="background: #98D8C8;"></div>
+            <div class="color-option" data-color="#F7DC6F" style="background: #F7DC6F;"></div>
+            <div class="color-option" data-color="#BB8FCE" style="background: #BB8FCE;"></div>
+            <div class="color-option" data-color="#85929E" style="background: #85929E;"></div>
+            <div class="color-option" data-color="#2C3E50" style="background: #2C3E50;"></div>
+            
+            <!-- Custom Color Picker -->
+            <label class="color-picker-custom" title="Escolher cor personalizada">
+              <input type="color" id="customColorPicker" value="#8c3eef">
+              <div class="color-picker-icon">
+                <i data-lucide="pipette" width="24" height="24"></i>
+              </div>
+            </label>
+          </div>
+          <div class="selected-colors" id="selectedColors"></div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="referencias">Sites/Marcas de referência</label>
+          <div class="referencias-container">
+            <div class="referencia-input-group">
+              <input type="url" class="referencia-input" placeholder="https://exemplo.com" data-index="0">
+              <button type="button" class="btn-add-ref">+</button>
+            </div>
+          </div>
+          <p class="texto-cinza helper-text">Adicione links de sites ou marcas que você gosta</p>
+        </div>
+      </div>
+
+      <!-- Step 4: Funcionalidades/Detalhes -->
+      <div class="form-step" data-step="4">
+        <h2 class="step-title">Funcionalidades<span class="ponto-cor">.</span></h2>
+        <p class="texto-cinza step-description">O que seu projeto precisa ter?</p>
+
+        <div class="features-section" id="siteFuncionalidades" style="display: none;">
+          <h3 class="subsection-title">Para o Site<span class="ponto-cor">.</span></h3>
+          <div class="features-grid">
+            <label class="feature-card">
+              <input type="checkbox" name="funcionalidades" value="Formulário de contato">
+              <span class="feature-content">
+                <i data-lucide="mail" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Formulário de contato</span>
+                  <span class="texto-cinza feature-desc">Para receber mensagens</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="funcionalidades" value="Galeria de imagens">
+              <span class="feature-content">
+                <i data-lucide="image" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Galeria de imagens</span>
+                  <span class="texto-cinza feature-desc">Portfólio visual</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="funcionalidades" value="Botão WhatsApp">
+              <span class="feature-content">
+                <i data-lucide="message-circle" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Botão WhatsApp</span>
+                  <span class="texto-cinza feature-desc">Chat flutuante</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="funcionalidades" value="Mapa de localização">
+              <span class="feature-content">
+                <i data-lucide="map-pin" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Mapa de localização</span>
+                  <span class="texto-cinza feature-desc">Google Maps</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="funcionalidades" value="Newsletter">
+              <span class="feature-content">
+                <i data-lucide="send" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Newsletter</span>
+                  <span class="texto-cinza feature-desc">Captura de emails</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="funcionalidades" value="Outras" id="outrasFunc">
+              <span class="feature-content">
+                <i data-lucide="plus-circle" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Outras</span>
+                  <span class="texto-cinza feature-desc">Especifique abaixo</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+          </div>
+
+          <div class="form-group full-width" id="outrasFuncContainer" style="display: none;">
+            <label for="outrasFuncionalidades">Descreva outras funcionalidades</label>
+            <textarea id="outrasFuncionalidades" name="outrasFuncionalidades" rows="3" placeholder="Descreva as funcionalidades que você precisa..." maxlength="300"></textarea>
+            <span class="char-counter"><span class="char-count">0</span>/300</span>
+          </div>
+        </div>
+
+        <div class="features-section" id="marcaAplicacoes" style="display: none;">
+          <h3 class="subsection-title">Para a Marca<span class="ponto-cor">.</span></h3>
+          <div class="features-grid">
+            <label class="feature-card">
+              <input type="checkbox" name="aplicacoesMarca" value="Logo principal">
+              <span class="feature-content">
+                <i data-lucide="target" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Logo principal</span>
+                  <span class="texto-cinza feature-desc">Versão primária</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="aplicacoesMarca" value="Versões alternativas">
+              <span class="feature-content">
+                <i data-lucide="repeat" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Versões alternativas</span>
+                  <span class="texto-cinza feature-desc">Variações do logo</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="aplicacoesMarca" value="Paleta de cores">
+              <span class="feature-content">
+                <i data-lucide="palette" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Paleta de cores</span>
+                  <span class="texto-cinza feature-desc">Cores da marca</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="aplicacoesMarca" value="Tipografia">
+              <span class="feature-content">
+                <i data-lucide="type" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Tipografia</span>
+                  <span class="texto-cinza feature-desc">Fontes da marca</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="aplicacoesMarca" value="Manual de marca">
+              <span class="feature-content">
+                <i data-lucide="book-open" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Manual de marca</span>
+                  <span class="texto-cinza feature-desc">Guia de uso</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+
+            <label class="feature-card">
+              <input type="checkbox" name="aplicacoesMarca" value="Aplicações">
+              <span class="feature-content">
+                <i data-lucide="layout-grid" class="feature-icon"></i>
+                <span class="feature-text">
+                  <span class="feature-name">Aplicações</span>
+                  <span class="texto-cinza feature-desc">Cartão, papel, etc</span>
+                </span>
+              </span>
+              <span class="feature-check">✓</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Finalização -->
+      <div class="form-step" data-step="5">
+        <h2 class="step-title">Quase lá<span class="ponto-cor">!</span></h2>
+        <p class="texto-cinza step-description">Últimas informações sobre o conteúdo</p>
+
+        <div class="toggle-section" id="siteConteudo" style="display: none;">
+          <h3 class="subsection-title">Conteúdo do Site<span class="ponto-cor">.</span></h3>
+          <div class="toggles-grid">
+            <div class="toggle-group">
+              <label class="toggle-label">
+                <span>Já possui logo?</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" name="possuiLogo" id="possuiLogo">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+
+            <div class="toggle-group">
+              <label class="toggle-label">
+                <span>Já possui fotos profissionais?</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" name="possuiFotos" id="possuiFotos">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+
+            <div class="toggle-group">
+              <label class="toggle-label">
+                <span>Já possui textos prontos?</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" name="possuiTextos" id="possuiTextos">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="toggle-section" id="marcaConteudo" style="display: none;">
+          <h3 class="subsection-title">Sobre a Marca<span class="ponto-cor">.</span></h3>
+          <div class="toggles-grid">
+            <div class="toggle-group">
+              <label class="toggle-label">
+                <span>Já possui nome definido?</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" name="nomeDefinido" id="nomeDefinido">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+
+            <div class="toggle-group">
+              <label class="toggle-label">
+                <span>Precisa de slogan/tagline?</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" name="precisaSlogan" id="precisaSlogan">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="informacoesAdicionais">Informações adicionais</label>
+          <textarea id="informacoesAdicionais" name="informacoesAdicionais" rows="5" placeholder="Conte mais sobre seu projeto, suas expectativas, referências ou qualquer informação que considere importante..." maxlength="500"></textarea>
+          <span class="char-counter"><span class="char-count">0</span>/500</span>
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-section">
+          <h3 class="subsection-title">Resumo do Briefing<span class="ponto-cor">.</span></h3>
+          <div class="preview-content" id="previewContent">
+            <p class="texto-cinza">O resumo aparecerá aqui quando você preencher o formulário...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="form-navigation">
+        <button type="button" class="btn-secondary" id="btnPrev" style="display: none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Voltar
+        </button>
+        <button type="button" class="btn-primary" id="btnNext">
+          Próximo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <button type="submit" class="btn-primary btn-submit" id="btnSubmit" style="display: none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+          Enviar Briefing
+        </button>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage" style="display: none;">
+      <div class="success-animation">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+      <h2 class="success-title">Briefing enviado com sucesso<span class="ponto-cor">!</span></h2>
+      <p class="texto-cinza success-text">Recebi suas informações e entrarei em contato em breve para conversarmos sobre seu projeto.</p>
+      <button type="button" class="btn-primary" onclick="window.location.href='../index.html'">
+        Voltar ao site
+      </button>
+    </div>
+  </div>
+
+  <footer class="background-footer margin-top-5rem">
+    <div class="max-width">
+      <a href="../index.html" class="link-logo-footer">
+        <img class="logo-footer" src="../public/assets/home/logos/rick_logo_branco_detalhe.svg" alt="Logo Rick">
+      </a>
+      <div class="footer-icones-nav">
+        <a class="icones-bola brilho" href="https://www.linkedin.com/in/ricktcunha/" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="../public/assets/home/icons/Vector.svg" alt="LinkedIn">
+        </a>
+        <a class="icones-bola brilho" href="https://www.instagram.com/rick.design.web/" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="../public/assets/home/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a class="icones-bola brilho" href="https://github.com/ricktcunha" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="../public/assets/home/icons/github.svg" alt="Github">
+        </a>
+        <a class="icones-bola brilho" href="https://www.behance.net/henriqutavares3" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="../public/assets/home/icons/Group.svg" alt="Behance">
+        </a>
+        <a class="icones-bola brilho" href="https://www.tiktok.com/@ricktcunha" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="../public/assets/home/icons/Group-1.svg" alt="TikTok">
+        </a>
+        <a class="icones-bola brilho" href="mailto:ricktcunha@gmail.com" target="_blank" rel="noopener noreferrer">
+          <img class="icones-footer" src="../public/assets/home/icons/Group-2.svg" alt="Email">
+        </a>
+      </div>
+      <p class="texto-cinza">rick © 2025 | todos os direitos reservados</p>
+      <nav>
+        <ul class="footer-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../pages/portfolio.html">Portfólio</a></li>
+          <li><a href="../pages/cv.html">Currículo</a></li>
+          <li><a href="../pages/contato.html">Contato</a></li>
+          <li><a href="../pages/briefing.html">Briefing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5535997657991" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+    <img src="../public/assets/home/icons/whatsapp-incone.svg" alt="WhatsApp" class="whatsapp-icon">
+  </a>
+
+  <script src="../public/javascript/main.js?v=2.1"></script>
+  <script src="../public/javascript/briefing.js?v=1.0"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
+
